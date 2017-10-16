@@ -1,0 +1,103 @@
+/* variables pour Bootstrap (vive bootstrap 4)*/
+/* Chamgement grille Bootstrap*/
+	$spacer:   10px;
+	$spacer-x: $spacer;
+	$spacer-y: $spacer;
+	$spacers: (
+	  0: (
+	    x: 0,
+	    y: 0
+	  ),
+	  1: (
+	    x: $spacer-x,
+	    y: $spacer-y
+	  ),
+	  2: (
+	    x: ($spacer-x * 2),
+	    y: ($spacer-y * 2)
+	  ),
+	  3: (
+	    x: ($spacer-x * 3),
+	    y: ($spacer-x * 3)
+	  ),
+	  4: (
+	    x: ($spacer-x * 4),
+	    y: ($spacer-y * 4)
+	  ),
+	  5: (
+	    x: ($spacer-x * 5),
+	    y: ($spacer-y * 5)
+	  )
+	);
+	$grid-gutter-width-base:0px;
+
+
+
+/* Chamgement navbar Bootstrap*/
+	$navbar-padding-x:0;
+	$navbar-padding-y:0;
+
+
+
+/* Chamgement chemin des fonts font-awesome*/
+	$fa-font-path:        "../fonts/font-awesome";
+
+
+/* taille de la police */
+	$font-size-base: 1rem;
+	$line-height-base: 1.3;
+
+	$display1-size: 3.4rem; //55px
+	$display2-size: 2.2rem; //35px
+	$display3-size: 1.5rem; //24px
+	$display4-size: 1.25rem;//20px
+
+
+	$display1-weight:     900;
+	$display2-weight:     900;
+	$display3-weight:     900;
+	$display4-weight:     900;
+
+
+	$font-size-h1: 3.4rem;
+	$font-size-h2: 2.2rem;
+	$font-size-h3: 1.5rem;
+	$font-size-h4: 1.25rem;
+	$font-size-h5: 1.125rem;
+	$font-size-h6: 1rem;
+	$headings-margin-bottom: 0;
+
+
+
+/* couleurs*/
+
+
+	$white:  		#fff !default;
+	$black:  		#000;
+
+	$light-gray: 	#e7e7e7;
+	$dark-gray: 	#323232;
+
+	$red:    		#d7373a !default;
+	$yellow: 		#f1a015 !default;
+	$blue:   		#3665a4;
+
+	$gray-dark:                 #84919f;
+	$gray:                      #eff1f3;
+	$gray-light:                #636d76;
+	$gray-lighter:              #eceeef !default;
+	$gray-lightest:             #f7f7f9 !default;
+
+
+
+
+/* btn bouton*/
+  
+$btn-border-radius:              0;
+$btn-border-radius-lg:           0;
+$btn-border-radius-sm:           0;
+/* link */
+$link-color:            $black;
+$link-decoration:       none;
+$link-hover-color:      $black;
+$link-hover-decoration: none;
