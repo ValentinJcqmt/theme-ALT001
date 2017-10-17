@@ -22,14 +22,19 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header class="bg-blue text-white fixed-top">
+	<header class="fixed-top">
 		<div class="container-fluid">
-			<div class="row">
-				<div class="header-title"><h1 class="text-uppercase"><?php echo get_field('titre', 'option'); ?></h1></div>
-				<div class="header-menu">
-					<?php wp_nav_menu('Menu'); ?>
+			<div class="row header-nav">
+				<div class="header-title d-flex my-auto mr-auto">
+					<h1 class="text-uppercase"><?php echo get_field('titre', 'option'); ?></h1>
 				</div>
-				<div class="header-social">
+				<div id="header-logo" class="mx-auto">
+					<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
+				</div>
+				<div class="header-menu d-flex my-auto">
+					<?php wp_nav_menu(array('menu' => 'Menu header')); ?>
+				</div>
+				<div class="header-social d-flex my-auto">
 					<?php
 					$twitter_url = get_field('lien_twitter', 'option');
 					$linkedin_url = get_field('lien_linkedin', 'option');
@@ -40,22 +45,22 @@
 					$rss_picto = get_field('picto_rss', 'option');
 					$scoopit_picto = get_field('picto_scoopit', 'option');
 					if($twitter_url){ ?>
-						<a href="<?php echo $twitter_url; ?>" target="_blank">
+						<a class="pl-1" href="<?php echo $twitter_url; ?>" target="_blank">
 							<img src="<?php echo $twitter_picto; ?>" class="img-fluid">
 						</a>
 					<?php }
 					if($linkedin_url){ ?>
-						<a href="<?php echo $linkedin_url; ?>" target="_blank">
+						<a class="pl-1" href="<?php echo $linkedin_url; ?>" target="_blank">
 							<img src="<?php echo $linkedin_picto; ?>" class="img-fluid">
 						</a>
 					<?php }
 					if($rss_url){ ?>
-						<a href="<?php echo $rss_url; ?>" target="_blank">
+						<a class="pl-1" href="<?php echo $rss_url; ?>" target="_blank">
 							<img src="<?php echo $rss_picto; ?>" class="img-fluid">
 						</a>
 					<?php }
 					if($scoopit_url){ ?>
-						<a href="<?php echo $scoopit_url; ?>" target="_blank">
+						<a class="pl-1" href="<?php echo $scoopit_url; ?>" target="_blank">
 							<img src="<?php echo $scoopit_picto; ?>" class="img-fluid">
 						</a>
 					<?php }
@@ -63,8 +68,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="bg-blue">
-			<img src="">
-			<span class="text-uppercase">votre profil</span>
-		</div>
+		<a href="#">
+			<div id="account" class="text-center">
+				<span class="text-uppercase d-inline-block">votre profil</span>
+				<div class="account-img d-inline-block">
+					<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
+				</div>
+			</div>
+		</a>
 	</header>

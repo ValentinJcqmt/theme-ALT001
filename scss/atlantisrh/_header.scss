@@ -1,13 +1,96 @@
 /**********************************************************************************************************/
 // HEADER
 header{
+	transition: .3s;
 	position:relative;
-	h1{font-size:10px;}
-	ul#menu-menu{
-		padding:0;
-		margin:0;
-		li{
-			display:inline-block;
+	height: 56px;
+	color:$white;
+	background-color: $blue;
+	&.sticky{
+		color:$black;
+		background-color: $white;
+		.header-nav ul#menu-menu li a{
+			color: $black;
+		}
+		#header-logo{
+			display: flex;
+		}
+		.header-social{
+			margin-right:0;
+		}
+		#account{
+			color:$black;
+			.account-img{
+				background-color: $white;
+			}
+		}
+		img{
+			filter: brightness(0%);
+		}
+	}
+	img{
+		transition:.3s;
+		filter: brightness(100%);
+	}
+	.header-nav{
+		height: 56px;
+		h1{font-size:10px;padding-left:5px;letter-spacing: 1px;}
+		ul#menu-menu-header{
+			padding:0;
+			margin:0;
+			li{
+				display:inline-block;
+				a{
+					transition:.3s;
+					color: $white;
+					font-size: 12px;
+					font-weight: 700;
+					text-transform: uppercase;
+					padding: 0 7px;
+					letter-spacing: 1px;
+				}
+			}
+		}
+	}
+	.header-social{
+		margin-right: auto;
+	}
+	#account{
+		color:$white;
+		transition:.3s;
+		position: absolute;
+		right: 0;
+		top: 0;
+		span{
+			width: 100%;
+			font-size: 10px;
+			font-weight: 700;
+			letter-spacing: 1px;
+		}
+		.account-img{
+			background-color: $blue;
+			transition: .3s;
+			padding: 0 15px 15px;
+			border-bottom-left-radius: 50%;
+			border-bottom-right-radius: 50%;
+			img{
+				max-width: 31px;
+				max-width: 31px;
+			}
+		}
+	}
+	#header-logo{
+		display: none;
+		img{
+			filter: brightness(100%);
+			margin-top: 3px;
+			margin-bottom: 3px;
 		}
 	}
 }
+@media(max-width: 1780px) and (min-width: 1450px){
+	header.sticky{
+		padding-right: 140px;
+	}
+}
+//1450-1780

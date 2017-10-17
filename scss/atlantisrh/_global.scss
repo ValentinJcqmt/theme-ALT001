@@ -2,8 +2,8 @@
 
 //base
 html{background:none;}
-body{position:relative;font-family:'Montserrat', sans-serif; background:$white;color:$black;font-size:18px;}
-.container-fluid{width:100%;max-width:1200px;margin-right:auto;margin-left:auto;}
+body{padding-top:56px;height:9000px;position:relative;font-family:'Montserrat', sans-serif; background:$white;color:$black;font-size:18px;}
+.container-fluid{width:100%;max-width:1500px;margin-right:auto;margin-left:auto;}
 
 
 a{	&:hover, &:active, &:focus, &:visited{text-decoration: none;}
