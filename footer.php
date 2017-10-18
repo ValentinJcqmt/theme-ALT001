@@ -36,7 +36,7 @@
 		</div>
 	</div>
 </div>
-<footer class="bg-black">
+<footer class="px-1 bg-black">
 	<div class="container-fluid">
 		<div class="row pt-1 pb-3">
 			<div class="d-flex mr-auto my-auto">
@@ -93,7 +93,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="d-flex my-1 mr-auto text-white text-uppercase">
+			<div class="d-flex my-2 mr-auto text-white text-uppercase">
 				<?php
 					$menu = wp_nav_menu( array(
 		                'menu'            => 'Menu footer 2',
@@ -103,7 +103,7 @@
 	            	echo substr($menu, 0, strripos($menu, $after)).'</li></ul></div>';
 				?>
 			</div>
-			<div class="d-flex ml-auto text-uppercase text-white">
+			<div class="d-flex my-2 ml-auto text-uppercase text-white copyright">
 				<?php echo get_field('txt-copyright-footer', 'option'); ?>
 			</div>
 		</div>

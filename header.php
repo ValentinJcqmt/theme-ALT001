@@ -26,7 +26,12 @@
 		<div class="container-fluid">
 			<div class="row header-nav">
 				<div class="header-title d-flex my-auto mr-auto">
-					<h1 class="text-uppercase"><?php echo get_field('titre', 'option'); ?></h1>
+					<?php if(is_front_page()){
+						echo '<h1 class="text-uppercase h1">'.get_field('titre', 'option').'</h1>';
+					}
+					else{
+						echo '<div class="text-uppercase h1">'.get_field('titre', 'option').'</div>';
+					}?>
 				</div>
 				<div id="header-logo" class="mx-auto">
 					<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png">

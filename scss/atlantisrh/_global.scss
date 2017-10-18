@@ -2,7 +2,7 @@
 
 //base
 html{background:none;}
-body{padding-top:56px;height:9000px;position:relative;font-family:'Montserrat', sans-serif; background:$white;color:$black;font-size:18px;}
+body{padding-top:56px;position:relative;font-family:'Montserrat', sans-serif; background:$white;color:$black;font-size:18px;}
 .container-fluid{width:100%;max-width:1500px;margin-right:auto;margin-left:auto;}
 
 
@@ -39,7 +39,6 @@ h5,.h5{font-weight:700;}
 	h5,.h5,.display-5{font-size:0.75rem}
 }
 
-
 //font
 .font-weight-normal{font-weight:500;}
 .font-weight-medium{font-weight:600;}
@@ -51,4 +50,21 @@ h5,.h5{font-weight:700;}
 
 
 /**********************************************************************************************************/
-
+/*HOME*/
+.bg-twitter-picto{
+	background: center center no-repeat url('../img/bg-twitter-picto.png');
+	background-size: cover;
+}
+.bg-linkedin-picto{
+	background: center center no-repeat url('../img/bg-linkedin-picto.png');	
+	background-size: cover;
+}
+.red-bell-details:after{
+	content:'';
+	display: inline-block;
+	height:22px;
+	width: 1px;
+	background-color:#333;
+	margin-right:10px;
+	margin-left: 10px;
+}

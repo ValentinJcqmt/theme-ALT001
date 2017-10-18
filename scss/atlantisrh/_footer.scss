@@ -39,6 +39,10 @@
 	cursor: pointer;
 }
 footer{
+	.copyright, #menu-menu-footer-2, #menu-menu-footer-1{
+		font-size: 12px;
+		font-weight: 700;
+	}
 	width: 100%;
 	ul.menu{
 	    margin-bottom: 0;

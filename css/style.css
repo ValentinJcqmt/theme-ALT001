@@ -9185,7 +9185,6 @@ html {
 
 body {
   padding-top: 56px;
-  height: 9000px;
   position: relative;
   font-family: 'Montserrat', sans-serif;
   background: #fff;
@@ -9268,6 +9267,24 @@ h5, .h5 {
   width: 100%; }
 
 /**********************************************************************************************************/
+/*HOME*/
+.bg-twitter-picto {
+  background: center center no-repeat url("../img/bg-twitter-picto.png");
+  background-size: cover; }
+
+.bg-linkedin-picto {
+  background: center center no-repeat url("../img/bg-linkedin-picto.png");
+  background-size: cover; }
+
+.red-bell-details:after {
+  content: '';
+  display: inline-block;
+  height: 22px;
+  width: 1px;
+  background-color: #333;
+  margin-right: 10px;
+  margin-left: 10px; }
+
 /**********************************************************************************************************/
 header {
   transition: .3s;
@@ -9278,7 +9295,7 @@ header {
   header.sticky {
     color: #333;
     background-color: #fff; }
-    header.sticky .header-nav ul#menu-menu li a {
+    header.sticky .header-nav ul#menu-menu-header li a {
       color: #333; }
     header.sticky #header-logo {
       display: flex; }
@@ -9295,7 +9312,7 @@ header {
     filter: brightness(100%); }
   header .header-nav {
     height: 56px; }
-    header .header-nav h1 {
+    header .header-nav h1, header .header-nav .h1 {
       font-size: 10px;
       padding-left: 5px;
       letter-spacing: 1px; }
@@ -9383,6 +9400,9 @@ header {
 
 footer {
   width: 100%; }
+  footer .copyright, footer #menu-menu-footer-2, footer #menu-menu-footer-1 {
+    font-size: 12px;
+    font-weight: 700; }
   footer ul.menu {
     margin-bottom: 0;
     padding-left: 0;
@@ -9428,10 +9448,19 @@ footer {
 .bg-red {
   background-color: #d7373a; }
 
+.bg-blue-transparent {
+  background-color: rgba(54, 104, 164, 0.9); }
+
 .bg-facebook {
   background-color: #3b5999; }
 
 .bg-twitter {
   background-color: #55acee; }
+
+.bg-google {
+  background-color: #dd4b39; }
+
+.bg-linkedin {
+  background-color: #0077B5; }
 
 /*# sourceMappingURL=style.css.map */
