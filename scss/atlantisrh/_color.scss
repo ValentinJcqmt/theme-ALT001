@@ -5,6 +5,9 @@
 .text-blue,.text-blue:hover,.text-blue:focus,.text-blue:active							{color:$blue}
 .text-yellow,.text-yellow:hover,.text-yellow:focus,.text-yellow:active					{color:$yellow}
 .text-red,.text-red:hover,.text-red:focus,.text-red:active								{color:$red}
+.text-green,.text-green:hover,.text-green:focus,.text-green:active						{color:$green}
+.text-light-blue,.text-light-blue:hover,.text-light-blue:focus,.text-light-blue:active						{color:$light-blue}
+.text-linkedin,.text-linkedin:hover,.text-linkedin:focus,.text-linkedin:active			{color:#0077B5;}
 
 // couleur de fond
 .bg-white{background-color:$white}
@@ -13,7 +16,9 @@
 .bg-blue{background-color: $blue;}
 .bg-yellow{background-color: $yellow;}
 .bg-red{background-color: $red}
-.bg-blue-transparent{background-color: rgba(54,104,164,.9);}
+.bg-green{background-color: $green};
+.bg-light-blue{background-color: $light-blue};
+.bg-blue-transparent{background-color: rgba(54,104,164,.75);}
 
 .bg-facebook{background-color: #3b5999;}
 .bg-twitter{background-color: #55acee;}
