@@ -1,4 +1,6 @@
 <?php
+//include('import_annonces.php');
+
 add_theme_support( 'post-thumbnails' );
 
 register_nav_menus(array('primary' => 'Menu'));
@@ -32,7 +34,7 @@ function custom_post_type_offre() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
 	);
-	register_post_type( 'offre-emploi', $args );
+	register_post_type( 'annonce', $args );
 
 }
 add_action( 'init', 'custom_post_type_offre', 0 );

@@ -21,8 +21,21 @@ get_header(); ?>
 							</div>
 						</div>
 					</div>
-					<div class="owl-carousel text-black">
+					<div class="owl-carousel-offres-hp owl-carousel text-black">
 						<?php ?>
+						<div class="carousel-offre">
+							<div class="offre-titre text-uppercase d-inline-block">Titre offre</div>
+							<div class="offre-ref my-1">Référence : <b>123/456/789</b></div>
+							<div class="offre-info">Contrat : <b>CDI</b></div>
+							<div class="offre-info">Fonction : <b>Ingénieur</b></div>
+							<div class="offre-info">Secteur : <b>Ingénierie Générale Bâtiment</b></div>
+							<div class="offre-info">Salaire (€/an) : <b>45000 à 52000</b></div>
+							<div class="offre-info">Localisation : <b>Ivry sur Seine (France)</b></div>
+							<div class="offre-update my-1">Mise à jour le 11/09/2017 Atlantis RH...</div>
+							<a href="#" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+								voir l'annonce
+							</a>
+						</div>
 						<div class="carousel-offre">
 							<div class="offre-titre text-uppercase d-inline-block">Titre offre</div>
 							<div class="offre-ref my-1">Référence : <b>123/456/789</b></div>
@@ -90,7 +103,7 @@ get_header(); ?>
 		</div><!--End .container-fluid-->
 	</div><!--End .hp-bg-->
 	<div class="row">
-		<div class="col-12 col-lg-4 bg-black text-white text-center hp-who hp-3bloc-container">
+		<div class="col-12 col-lg-4 bg-black text-white text-center hp-who hp-3bloc-container py-3">
 			<div class="row px-4 hp-3bloc-align">
 				<div class="col-12 text-uppercase hp-who-title">
 					<?php echo get_field('hp-3bloc-i-gauche-titre'); ?>
@@ -105,7 +118,7 @@ get_header(); ?>
 				</div>
 			</div>
 		</div>
-		<div class="col-12 col-lg-4 bg-yellow text-white text-center hp-offers-number hp-3bloc-container">
+		<div class="col-12 col-lg-4 bg-yellow text-white text-center hp-offers-number hp-3bloc-container py-3">
 			<div class="row px-4 hp-3bloc-align">
 				<div class="col-12 text-uppercase hp-offers-number-title">
 					<?php echo get_field('hp-3bloc-i-centre-texte-haut'); ?>
@@ -152,7 +165,7 @@ get_header(); ?>
 		</div><!--End .container-fluid-->
 	</div><!--End .bg-light-gray-->
 	<div class="row">
-		<div class="col-12 col-lg-4 bg-linkedin-picto hp-3bloc-container text-center">
+		<div class="col-12 col-lg-4 bg-linkedin-picto hp-3bloc-container text-center py-3 py-lg-0">
 			<div class="row px-4 hp-3bloc-align">
 				<div class="col-12 py-3">
 					<p class="text-white text-uppercase hp-linkedin-title">
@@ -167,7 +180,7 @@ get_header(); ?>
 		<div class="col-12 col-lg-4 hp-3bloc-container">
 			<img src="<?php echo get_field('hp-3bloc-s-centre-img')['url']; ?>" class="img-fluid">
 		</div>
-		<div class="col-12 col-lg-4 bg-twitter-picto hp-3bloc-container text-center">
+		<div class="col-12 col-lg-4 bg-twitter-picto hp-3bloc-container text-center py-3 py-lg-0">
 			<div class="row px-5 hp-3bloc-align">
 				<div class="col-12">
 					<p class="text-uppercase text-white hp-twitter-title">
@@ -224,7 +237,7 @@ get_header(); ?>
 	<div class="bg-light-gray py-5">
 		<div class="container-fluid last-offers">
 			<div class="row">
-				<div class="col-12 col-lg-4 offset-lg-4">
+				<div class="col-12 col-sm-8 col-lg-6 col-xl-4 offset-sm-2 offset-lg-3 offset-xl-4">
 					<div class="row">
 						<div class="col-12 text-black text-uppercase text-center last-offers-title">
 							<?php echo get_field('last-offers-title'); ?>
@@ -249,9 +262,9 @@ get_header(); ?>
 					<div class="col-12 text-center">
 						<!--Offre1-->
 						<div class="row">
-							<div class="offre-left offre-urgente bg-red col-12 col-lg-6">
+							<div class="offre-left offre-urgente col-12 col-lg-6 my-2 my-lg-1">
 								<div class="row">
-									<div class="col-3 offre-title text-white px-2 py-4">
+									<div class="col-3 offre-title text-white px-2 py-4 bg-red">
 										<p class="name-offre text-uppercase">Ingénieur synthèse BIM (H/F)</p>
 										<p class="ref-offre">Référence : <em>123/456/789</em></p>
 									</div>
@@ -268,7 +281,7 @@ get_header(); ?>
 						</div>
 						<!--Offre2-->
 						<div class="row">
-							<div class="offre-right offre-urgente bg-red col-12 col-lg-6 offset-lg-6">
+							<div class="offre-right offre-urgente col-12 col-lg-6 offset-lg-6 my-2 my-lg-1">
 								<div class="row">
 									<div class="col-9 bg-white text-black px-3 py-2 offre-infos">
 										<p class="info-offre">Contrat : <em>CDI</em></p>
@@ -278,7 +291,7 @@ get_header(); ?>
 										<p class="info-offre">Localisation : <em>Ivry sur Seine (France)</em></p>
 										<p class="update-offre my-1">Mis à jour le 11/09/2017 Atlantis RH cherche pour un client, groupe de l'ingénieie de la construction, un ingénieur Synthèse BIM (H/F) sur l'Île de France</p>
 									</div>
-									<div class="col-3 offre-title text-white px-2 py-4">
+									<div class="col-3 offre-title text-white px-2 py-4 bg-red">
 										<p class="name-offre text-uppercase">Ingénieur synthèse BIM (H/F)</p>
 										<p class="ref-offre">Référence : <em>123/456/789</em></p>
 									</div>
@@ -287,7 +300,7 @@ get_header(); ?>
 						</div>
 						<!--Offre3-->
 						<div class="row">
-							<div class="offre-left col-12 col-lg-6">
+							<div class="offre-left col-12 col-lg-6 my-2 my-lg-1">
 								<div class="row">
 									<div class="col-3 offre-title bg-black text-white px-2 py-4">
 										<p class="name-offre text-uppercase">Ingénieur synthèse BIM (H/F)</p>
@@ -306,7 +319,7 @@ get_header(); ?>
 						</div>
 						<!--Offre4-->
 						<div class="row">
-							<div class="offre-right col-12 col-lg-6 offset-lg-6">
+							<div class="offre-right col-12 col-lg-6 offset-lg-6 my-2 my-lg-1">
 								<div class="row">
 									<div class="col-9 bg-white text-black px-3 py-2 offre-infos">
 										<p class="info-offre">Contrat : <em>CDI</em></p>

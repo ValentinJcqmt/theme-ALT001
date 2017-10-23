@@ -98,6 +98,16 @@ h5,.h5{font-weight:700;}
 		}
 	}
 }
+.owl-carousel-offres-hp .owl-dot{
+	width: 10px;
+    height: 10px;
+    border: solid 3px #333;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 2px;
+    margin-left: 2px;
+    &.active{background:#333;}
+}
 .bg-twitter-picto{
 	background: center center no-repeat url('../img/bg-twitter-picto.png');
 	background-size: cover;
@@ -303,3 +313,51 @@ h5,.h5{font-weight:700;}
 .offre-infos p{margin-bottom: 3px;}
 .offre-right:after{left:-14px;}
 .offre-left:after{right:-14px;}
+
+
+
+/**************************************************************************************************************/
+/*QUERIES*/
+@media(max-width:1730px){
+	.hp-twitter-list li{
+		width:48%;
+	}
+}
+@media(max-width:1600px){
+	.hp-twitter-list li a:after{
+		display: none;
+	}
+}
+@media(max-width:1300px){
+	.hp-twitter-title{font-size: 20px;}
+	.hp-twitter-text{font-size: 12px;}
+	.hp-twitter-list li a{font-size: 10px;}
+	.bg-linkedin-picto{
+		.hp-linkedin-title{font-size:20px;}
+		.white-btn-arrow{font-size: 10px;}
+	}
+}
+@media(max-width:1070px){
+	.hp-offers-number-title{font-size: 20px;}
+	.hp-odometer{font-size:150px;}
+	.hp-offers-number-txt{font-size: 10px;}
+	.hp-who{
+		.hp-who-title{font-size: 20px;}
+		.hp-who-txt{font-size: 12px;}
+	}
+}
+@media(max-width:1040px){
+	.hp-twitter-title{font-size: 14px;}
+	.hp-twitter-text{font-size: 10px;}
+	.hp-twitter-list li a{font-size: 8px;}
+	.bg-linkedin-picto{
+		.hp-linkedin-title{font-size:14px;}
+	}
+}
+@media(max-width:992px){
+	.offre-right:after, .offre-left:after{
+		display: none;
+	}
+	.hp-3bloc-align{width:100%;}
+	.hp-3bloc-container img{width: 100%;}
+}
