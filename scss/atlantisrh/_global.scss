@@ -297,7 +297,7 @@ h5,.h5{font-weight:700;}
 .offre-right, .offre-left{
 	position: relative;
 	&.offre-urgente:after{content:url('../img/red-bell-small.png');line-height: 22px;}
-	&:not(.offre-urgente):after{line-height: 18px;}
+	&:not(.offre-urgente):after{line-height: 17px;}
 	&:after{
 		position: absolute;
 		background:$white;

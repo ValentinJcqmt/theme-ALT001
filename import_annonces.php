@@ -4,7 +4,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/wp-config.php' );
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set("display_errors", true);
 
-
 $xml = csv2xml('/home/atlantis/preprod/import/annonces.csv', 'channel', 'item');
 
 function csv2xml($file, $container = 'data', $rows = 'row') {
@@ -13,10 +12,8 @@ function csv2xml($file, $container = 'data', $rows = 'row') {
 	$csv->auto('/home/atlantis/preprod/import/annonces.csv');
 	$r = "";
 	$i = 0;
-	var_dump($csv);
 	foreach ($csv->data as $data){
 		if($data['libelle']){
-			  echo'libelle';
 			  $r .= "<item>";
 			  $r .= "\t\t<title><![CDATA[{$data['libelle']}]]></title>\n";
 			  $r .= "\t\t<statut><![CDATA[{$data['etat_annonce']}]]></statut>\n";
@@ -102,6 +99,7 @@ foreach ($ar_annonce->channel->item as $item){
 	$reference = @(string)$item->reference;
 	global $wpdb;
 	$postid = "";
+	$update = false;
 	
 	$prefix = $wpdb->prefix;
 	$query =  'SELECT * FROM '.$prefix.'posts WHERE post_type = "annonce" and post_status="publish"';
@@ -110,15 +108,15 @@ foreach ($ar_annonce->channel->item as $item){
 		foreach($results as $object){
 			//wp_delete_post($object->ID);
 			//if(utf8_decode($object->post_title) == utf8_decode($title)){
-			if(get_field( "reference", $object->ID ) == $reference){
+			if(get_field( "ref", $object->ID ) == $reference){
 				$postid = $object->ID;
+				$update = true;
 			}
 		}
 	}
 	//exit();
-	if($postid){
+	if($update){
 		if($title){
-			echo'update_a';
 			update_annonce(
 				$postid,$statut,$support,$secteur,$fonction,
 				$region,$code_postal,$ville,$pays,$salaire_min,$salaire_max,$id_annonce,
@@ -127,7 +125,6 @@ foreach ($ar_annonce->channel->item as $item){
 		}
 	}else{
 		if($title){
-			echo'add_a';
 			add_annonce(
 				$title,$statut,$support,$secteur,$fonction,
 				$region,$code_postal,$ville,$pays,$salaire_min,$salaire_max,$id_annonce,
@@ -142,32 +139,32 @@ function add_annonce(
 			$region,$code_postal,$ville,$pays,$salaire_min,$salaire_max,$id_annonce,
 			$profil,$client,$annonce,$contrat,$date_debut,$reference
 		){
+			// echo'add';
 			global $wpdb;
 			$my_post = array(
-			  'post_title'    => $wpdb->escape($title),
+			  'post_title'    => esc_sql($title),
 			  'post_status'   => 'publish',
 			  'post_type'   => 'annonce'
 			);
 			$post_id = wp_insert_post( $my_post );
-			update_field('reference', $reference, $post_id);
 			
-			add_post_meta($post_id, 'annonce', $annonce);			
-			add_post_meta($post_id, 'client', $client);			
-			add_post_meta($post_id, 'code-postal', $code_postal);			
+			add_post_meta($post_id, 'ref', $reference);			
 			add_post_meta($post_id, 'contrat', $contrat);			
-			add_post_meta($post_id, 'date-debut', $date_debut);			
-			add_post_meta($post_id, 'fonction', $fonction);			
-			add_post_meta($post_id, 'id-annonce', $id_annonce);					
-			add_post_meta($post_id, 'pays', $pays);			
-			add_post_meta($post_id, 'profil', $profil);			
-			add_post_meta($post_id, 'reference', $reference);			
-			add_post_meta($post_id, 'region', $region);			
-			add_post_meta($post_id, 'salaire-max', $salaire_max);			
-			add_post_meta($post_id, 'salaire-min', $salaire_min);			
-			add_post_meta($post_id, 'secteur', $secteur);					
-			add_post_meta($post_id, 'statut', $statut);			
-			add_post_meta($post_id, 'support', $support);			
-			add_post_meta($post_id, 'ville', $ville);			
+			add_post_meta($post_id, 'fonction', $fonction);
+			add_post_meta($post_id, 'secteur', $secteur);
+			add_post_meta($post_id, 'salary-min', $salaire_min);
+			add_post_meta($post_id, 'salary-max', $salaire_max);
+			add_post_meta($post_id, 'region', $region);
+			add_post_meta($post_id, 'zip', $code_postal);
+			add_post_meta($post_id, 'city', $ville);
+			add_post_meta($post_id, 'pays', $pays);
+			add_post_meta($post_id, 'descrassignement', $annonce);
+			add_post_meta($post_id, 'descrcustomer', esc_sql($client));
+			add_post_meta($post_id, 'date-debut', $date_debut);
+			add_post_meta($post_id, 'id-annonce', $id_annonce);
+			add_post_meta($post_id, 'id-support', $support);
+			add_post_meta($post_id, 'etat', $statut);
+			add_post_meta($post_id, 'profil', esc_sql($profil));
 		}
 		
 function update_annonce(
@@ -175,6 +172,7 @@ function update_annonce(
 			$region,$code_postal,$ville,$pays,$salaire_min,$salaire_max,$id_annonce,
 			$profil,$client,$annonce,$contrat,$date_debut,$reference
 		){
+			// echo'update';
 		
 			$my_post = array(
 			  'ID'           => $post_id,
@@ -185,22 +183,22 @@ function update_annonce(
 			);
 			wp_update_post( $my_post );
 
-			update_post_meta($post_id, 'annonce', $annonce);			
-			update_post_meta($post_id, 'client', $client);			
-			update_post_meta($post_id, 'code-postal', $code_postal);			
-			update_post_meta($post_id, 'contrat', $contrat);			
-			update_post_meta($post_id, 'date-debut', $date_debut);			
-			update_post_meta($post_id, 'fonction', $fonction);			
-			update_post_meta($post_id, 'id-annonce', $id_annonce);					
-			update_post_meta($post_id, 'pays', $pays);			
-			update_post_meta($post_id, 'profil', $profil);			
-			update_post_meta($post_id, 'reference', $reference);			
-			update_post_meta($post_id, 'region', $region);			
-			update_post_meta($post_id, 'salaire-max', $salaire_max);			
-			update_post_meta($post_id, 'salaire-min', $salaire_min);			
-			update_post_meta($post_id, 'secteur', $secteur);					
-			update_post_meta($post_id, 'statut', $statut);			
-			update_post_meta($post_id, 'support', $support);			
-			update_post_meta($post_id, 'ville', $ville);			
+			update_post_meta($post_id, 'ref', $reference);
+			update_post_meta($post_id, 'contrat', $contrat);
+			update_post_meta($post_id, 'fonction', $fonction);
+			update_post_meta($post_id, 'secteur', $secteur);
+			update_post_meta($post_id, 'salary-min', $salaire_min);
+			update_post_meta($post_id, 'salary-max', $salaire_max);
+			update_post_meta($post_id, 'region', $region);
+			update_post_meta($post_id, 'zip', $code_postal);
+			update_post_meta($post_id, 'city', $ville);
+			update_post_meta($post_id, 'pays', $pays);
+			update_post_meta($post_id, 'descrassignement', $annonce);
+			update_post_meta($post_id, 'descrcustomer', esc_sql($client));
+			update_post_meta($post_id, 'date-debut', $date_debut);
+			update_post_meta($post_id, 'id-annonce', $id_annonce);
+			update_post_meta($post_id, 'id-support', $support);
+			update_post_meta($post_id, 'etat', $statut);
+			update_post_meta($post_id, 'profil', esc_sql($profil));
 		}
 ?>

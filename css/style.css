@@ -9625,7 +9625,7 @@ h5, .h5 {
     content: url("../img/red-bell-small.png");
     line-height: 22px; }
   .offre-right:not(.offre-urgente):after, .offre-left:not(.offre-urgente):after {
-    line-height: 18px; }
+    line-height: 17px; }
   .offre-right:after, .offre-left:after {
     position: absolute;
     background: #fff;

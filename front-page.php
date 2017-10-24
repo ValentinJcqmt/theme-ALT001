@@ -22,34 +22,36 @@ get_header(); ?>
 						</div>
 					</div>
 					<div class="owl-carousel-offres-hp owl-carousel text-black">
-						<?php ?>
-						<div class="carousel-offre">
-							<div class="offre-titre text-uppercase d-inline-block">Titre offre</div>
-							<div class="offre-ref my-1">Référence : <b>123/456/789</b></div>
-							<div class="offre-info">Contrat : <b>CDI</b></div>
-							<div class="offre-info">Fonction : <b>Ingénieur</b></div>
-							<div class="offre-info">Secteur : <b>Ingénierie Générale Bâtiment</b></div>
-							<div class="offre-info">Salaire (€/an) : <b>45000 à 52000</b></div>
-							<div class="offre-info">Localisation : <b>Ivry sur Seine (France)</b></div>
-							<div class="offre-update my-1">Mise à jour le 11/09/2017 Atlantis RH...</div>
-							<a href="#" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
-								voir l'annonce
-							</a>
-						</div>
-						<div class="carousel-offre">
-							<div class="offre-titre text-uppercase d-inline-block">Titre offre</div>
-							<div class="offre-ref my-1">Référence : <b>123/456/789</b></div>
-							<div class="offre-info">Contrat : <b>CDI</b></div>
-							<div class="offre-info">Fonction : <b>Ingénieur</b></div>
-							<div class="offre-info">Secteur : <b>Ingénierie Générale Bâtiment</b></div>
-							<div class="offre-info">Salaire (€/an) : <b>45000 à 52000</b></div>
-							<div class="offre-info">Localisation : <b>Ivry sur Seine (France)</b></div>
-							<div class="offre-update my-1">Mise à jour le 11/09/2017 Atlantis RH...</div>
-							<a href="#" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
-								voir l'annonce
-							</a>
-						</div>
-						<?php ?>
+						<?php $offres_urgentes = get_field('offres_urgentes', 'option');
+						foreach ($offres_urgentes as $offre) {?>
+							<div class="carousel-offre">
+								<div class="offre-titre text-uppercase d-inline-block"><?php echo $offre->post_title; ?></div>
+								<?php if(get_field('ref', $offre->ID)){ ?>
+									<div class="offre-ref my-1">Référence : <b><?php echo get_field('ref', $offre->ID); ?></b></div>
+								<?php }
+								if(get_field('contrat', $offre->ID)){ ?>
+									<div class="offre-info">Contrat : <b><?php echo get_field('contrat', $offre->ID); ?></b></div>
+								<?php }
+								if(get_field('fonction', $offre->ID)){ ?>
+									<div class="offre-info">Fonction : <b><?php echo get_field('fonction', $offre->ID); ?></b></div>
+								<?php }
+								if(get_field('secteur', $offre->ID)){ ?>
+									<div class="offre-info">Secteur : <b><?php echo get_field('secteur', $offre->ID); ?></b></div>
+								<?php }
+								if(get_field('salary-min', $offre->ID) && get_field('salary-max', $offre->ID)){ ?>
+									<div class="offre-info">Salaire (€/an) : <b><?php echo get_field('salary-min', $offre->ID); ?> à <?php echo get_field('salary-max', $offre->ID); ?></b></div>
+								<?php }
+								if(get_field('city', $offre->ID) && get_field('pays', $offre->ID)){ ?>
+									<div class="offre-info">Localisation : <b><?php echo get_field('city', $offre->ID); ?> (<?php echo get_field('pays', $offre->ID); ?>)</b></div>
+								<?php }
+								if(get_field('descrassignement', $offre->ID)){ ?>
+									<div class="offre-update my-1"><?php echo get_field('descrassignement', $offre->ID); ?></div>
+								<?php } ?>
+								<a href="#" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+									voir l'annonce
+								</a>
+							</div>
+						<?}?>
 					</div>
 				</div>
 			</div>
@@ -260,82 +262,88 @@ get_header(); ?>
 			<div class="list-offers my-5">
 				<div class="row">
 					<div class="col-12 text-center">
-						<!--Offre1-->
+						<?php
+						$offers =  array();
+						$offres_urgentes = get_field('offres_urgentes', 'option');
+						foreach ($offres_urgentes as $offre) {
+							$offers[$offre->ID] = 'urgent';
+						}
+						$recent_post = wp_get_recent_posts( array(
+						    'post_type' =>'annonce',
+						    'posts_per_page' => 8,
+						    'orderby' => 'post_date',
+							'order' => 'DESC',
+						), OBJECT);
+						foreach ($recent_post as $offre) {
+							if(count($offers) < 8 && !in_array($offre->ID, $offers))
+							$offers[$offre->ID] = 'non-urgent';
+						}
+						$n = 0;
+						foreach($offers as $id => $urgent){ ?>
 						<div class="row">
-							<div class="offre-left offre-urgente col-12 col-lg-6 my-2 my-lg-1">
+							<div class="<?php if($urgent == 'urgent') echo'offre-urgente'; ?> <?php if($n%2 == 0) echo'offre-left col-12 col-lg-6'; else echo'offre-right col-12 col-lg-6 offset-lg-6'; ?> my-2 my-lg-1">
 								<div class="row">
-									<div class="col-3 offre-title text-white px-2 py-4 bg-red">
-										<p class="name-offre text-uppercase">Ingénieur synthèse BIM (H/F)</p>
-										<p class="ref-offre">Référence : <em>123/456/789</em></p>
-									</div>
+									<?php if($n%2 == 0){
+										if($urgent == 'urgent'){ ?>
+											<div class="col-3 offre-title text-white px-2 py-4 bg-red">
+												<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+												<?php if(get_field('ref', $id)){?>
+													<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+												<?php } ?>
+											</div>
+										<?php }
+										else{ ?>
+											<div class="col-3 offre-title text-white px-2 py-4 bg-black">
+												<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+												<?php if(get_field('ref', $id)){?>
+													<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+												<?php } ?>
+											</div>
+										<?php }
+									} ?>
 									<div class="col-9 bg-white text-black px-3 py-2 offre-infos">
-										<p class="info-offre">Contrat : <em>CDI</em></p>
-										<p class="info-offre">Fonction : <em>Ingénieur Synthèse</em></p>
-										<p class="info-offre">Secteur : <em>Ingénierie Générale Bâtiment</em></p>
-										<p class="info-offre">Salaire (€/an) : <em>45000 à 52000</em></p>
-										<p class="info-offre">Localisation : <em>Ivry sur Seine (France)</em></p>
-										<p class="update-offre my-1">Mis à jour le 11/09/2017 Atlantis RH cherche pour un client, groupe de l'ingénieie de la construction, un ingénieur Synthèse BIM (H/F) sur l'Île de France</p>
+										<?php if(get_field('contrat', $id)){ ?>
+											<p class="info-offre">Contrat : <em><?php echo get_field('contrat', $id); ?></em></p>
+										<?php }
+										if(get_field('fonction', $id)){ ?>
+											<p class="info-offre">Fonction : <em><?php echo get_field('fonction', $id); ?></em></p>
+										<?php }
+										if(get_field('secteur', $id)){ ?>
+											<p class="info-offre">Secteur : <em><?php echo get_field('secteur', $id); ?></em></p>
+										<?php }
+										if(get_field('salary-min', $id) && get_field('salary-max', $id)){ ?>
+											<p class="info-offre">Salaire (€/an) : <em><?php echo get_field('salary-min', $id); ?> à <?php echo get_field('salary-max', $id); ?></em></p>
+										<?php }
+										if(get_field('city', $id) && get_field('pays', $id)){ ?>
+											<p class="info-offre">Localisation : <em><?php echo get_field('city', $id); ?> (<?php echo get_field('pays', $id); ?>)</em></p>
+										<?php }
+										if(get_field('descrassignement', $id)){ ?>
+											<p class="update-offre my-1"><?php echo get_field('descrassignement', $id); ?></p>
+										<?php } ?>
 									</div>
+									<?php if($n%2 != 0){
+										if($urgent == 'urgent'){ ?>
+											<div class="col-3 offre-title text-white px-2 py-4 bg-red">
+												<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+												<?php if(get_field('ref', $id)){?>
+													<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+												<?php } ?>
+											</div>
+										<?php }
+										else{ ?>
+											<div class="col-3 offre-title text-white px-2 py-4 bg-black">
+												<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+												<?php if(get_field('ref', $id)){?>
+													<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+												<?php } ?>
+											</div>
+										<?php }
+									} ?>
 								</div>
 							</div>
 						</div>
-						<!--Offre2-->
-						<div class="row">
-							<div class="offre-right offre-urgente col-12 col-lg-6 offset-lg-6 my-2 my-lg-1">
-								<div class="row">
-									<div class="col-9 bg-white text-black px-3 py-2 offre-infos">
-										<p class="info-offre">Contrat : <em>CDI</em></p>
-										<p class="info-offre">Fonction : <em>Ingénieur Synthèse</em></p>
-										<p class="info-offre">Secteur : <em>Ingénierie Générale Bâtiment</em></p>
-										<p class="info-offre">Salaire (€/an) : <em>45000 à 52000</em></p>
-										<p class="info-offre">Localisation : <em>Ivry sur Seine (France)</em></p>
-										<p class="update-offre my-1">Mis à jour le 11/09/2017 Atlantis RH cherche pour un client, groupe de l'ingénieie de la construction, un ingénieur Synthèse BIM (H/F) sur l'Île de France</p>
-									</div>
-									<div class="col-3 offre-title text-white px-2 py-4 bg-red">
-										<p class="name-offre text-uppercase">Ingénieur synthèse BIM (H/F)</p>
-										<p class="ref-offre">Référence : <em>123/456/789</em></p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--Offre3-->
-						<div class="row">
-							<div class="offre-left col-12 col-lg-6 my-2 my-lg-1">
-								<div class="row">
-									<div class="col-3 offre-title bg-black text-white px-2 py-4">
-										<p class="name-offre text-uppercase">Ingénieur synthèse BIM (H/F)</p>
-										<p class="ref-offre">Référence : <em>123/456/789</em></p>
-									</div>
-									<div class="col-9 bg-white text-black px-3 py-2 offre-infos">
-										<p class="info-offre">Contrat : <em>CDI</em></p>
-										<p class="info-offre">Fonction : <em>Ingénieur Synthèse</em></p>
-										<p class="info-offre">Secteur : <em>Ingénierie Générale Bâtiment</em></p>
-										<p class="info-offre">Salaire (€/an) : <em>45000 à 52000</em></p>
-										<p class="info-offre">Localisation : <em>Ivry sur Seine (France)</em></p>
-										<p class="update-offre my-1">Mis à jour le 11/09/2017 Atlantis RH cherche pour un client, groupe de l'ingénieie de la construction, un ingénieur Synthèse BIM (H/F) sur l'Île de France</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!--Offre4-->
-						<div class="row">
-							<div class="offre-right col-12 col-lg-6 offset-lg-6 my-2 my-lg-1">
-								<div class="row">
-									<div class="col-9 bg-white text-black px-3 py-2 offre-infos">
-										<p class="info-offre">Contrat : <em>CDI</em></p>
-										<p class="info-offre">Fonction : <em>Ingénieur Synthèse</em></p>
-										<p class="info-offre">Secteur : <em>Ingénierie Générale Bâtiment</em></p>
-										<p class="info-offre">Salaire (€/an) : <em>45000 à 52000</em></p>
-										<p class="info-offre">Localisation : <em>Ivry sur Seine (France)</em></p>
-										<p class="update-offre my-1">Mis à jour le 11/09/2017 Atlantis RH cherche pour un client, groupe de l'ingénieie de la construction, un ingénieur Synthèse BIM (H/F) sur l'Île de France</p>
-									</div>
-									<div class="col-3 offre-title bg-black text-white px-2 py-4">
-										<p class="name-offre text-uppercase">Ingénieur synthèse BIM (H/F)</p>
-										<p class="ref-offre">Référence : <em>123/456/789</em></p>
-									</div>
-								</div>
-							</div>
-						</div>
+						<? $n++;
+						} ?>
 					</div>
 				</div>
 			</div>

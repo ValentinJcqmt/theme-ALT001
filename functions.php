@@ -1,5 +1,5 @@
 <?php
-//include('import_annonces.php');
+//require_once WP_CONTENT_DIR . '/themes/atlantisrh/import_annonces.php';
 
 add_theme_support( 'post-thumbnails' );
 
