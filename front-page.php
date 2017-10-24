@@ -59,12 +59,12 @@ get_header(); ?>
 						<div class="col-4">
 							<div class="img-container">
 								<img src="<?php echo get_field('hp-top-gauche-img')['url']; ?>">
-								<div class="img-caption text-uppercase text-white p-3">
+								<div class="img-caption text-uppercase text-white p-1 p-md-2 p-lg-3">
 									<?php echo get_field('hp-top-gauche-txt'); ?>
 								</div>
 							</div>
 						</div>
-						<div class="col-4 bg-white px-4 py-5">
+						<div class="col-4 bg-white px-1 px-md-2 px-lg-4 py-5">
 							<div class="hp-top-card-top">
 								<p class="text-black text-uppercase hp-top-card-title">
 									<?php echo get_field('hp-top-centre-titre'); ?>	
@@ -80,7 +80,7 @@ get_header(); ?>
 								<?php echo get_field('hp-top-centre-offres'); ?>
 							</a>
 						</div>
-						<div class="col-4 bg-blue-transparent px-4 py-5">
+						<div class="col-4 bg-blue-transparent px-1 px-md-2 px-lg-4 py-5">
 							<div class="hp-top-card-top">
 								<p class="text-white text-uppercase hp-top-card-title">
 									<?php echo get_field('hp-top-droite-titre'); ?>
