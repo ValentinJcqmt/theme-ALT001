@@ -2,13 +2,13 @@
 get_header(); ?>
 
 <div class="main">
-	<div style="background-image: url(<?php echo get_field('hp-top-bg')['url']; ?>);" class="hp-bg">
+	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);" class="hp-bg">
 		<div class="container-fluid">
 			<div class="row hp-top-row">
 				<div class="col-12 col-lg-4 carousel-urgentes">
 					<div class="row mt-2 mb-5">
 						<div class="col-12">
-							<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-big')['url']; ?>">
+							<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
 						</div>
 					</div>
 					<div class="row mt-5 mb-2">
@@ -21,31 +21,36 @@ get_header(); ?>
 							</div>
 						</div>
 					</div>
+					<?php
+					$offres_urgentes = get_field('offres_urgentes', 'option');
+					if(!$offres_urgentes){ ?>
+						<div><?php echo get_field('pas-d-offres-urgentes', 'option'); ?></div>
+					<?php }
+					else{ ?>
 					<div class="owl-carousel-offres-hp owl-carousel text-black">
-						<?php $offres_urgentes = get_field('offres_urgentes', 'option');
-						foreach ($offres_urgentes as $offre) {?>
+						<?php foreach ($offres_urgentes as $offre) {?>
 							<div class="carousel-offre">
-								<div class="offre-titre text-uppercase d-inline-block"><?php echo $offre->post_title; ?></div>
-								<?php if(get_field('ref', $offre->ID)){ ?>
-									<div class="offre-ref my-1">Référence : <b><?php echo get_field('ref', $offre->ID); ?></b></div>
+								<div class="offre-titre text-uppercase d-inline-block"><?php echo get_the_title($offre); ?></div>
+								<?php if(get_field('ref', $offre)){ ?>
+									<div class="offre-ref my-1">Référence : <b><?php echo get_field('ref', $offre); ?></b></div>
 								<?php }
-								if(get_field('contrat', $offre->ID)){ ?>
-									<div class="offre-info">Contrat : <b><?php echo get_field('contrat', $offre->ID); ?></b></div>
+								if(get_field('contrat', $offre)){ ?>
+									<div class="offre-info">Contrat : <b><?php echo get_field('contrat', $offre); ?></b></div>
 								<?php }
-								if(get_field('fonction', $offre->ID)){ ?>
-									<div class="offre-info">Fonction : <b><?php echo get_field('fonction', $offre->ID); ?></b></div>
+								if(get_field('fonction', $offre)){ ?>
+									<div class="offre-info">Fonction : <b><?php echo get_field('fonction', $offre); ?></b></div>
 								<?php }
-								if(get_field('secteur', $offre->ID)){ ?>
-									<div class="offre-info">Secteur : <b><?php echo get_field('secteur', $offre->ID); ?></b></div>
+								if(get_field('secteur', $offre)){ ?>
+									<div class="offre-info">Secteur : <b><?php echo get_field('secteur', $offre); ?></b></div>
 								<?php }
-								if(get_field('salary-min', $offre->ID) && get_field('salary-max', $offre->ID)){ ?>
-									<div class="offre-info">Salaire (€/an) : <b><?php echo get_field('salary-min', $offre->ID); ?> à <?php echo get_field('salary-max', $offre->ID); ?></b></div>
+								if(get_field('salary-min', $offre) && get_field('salary-max', $offre)){ ?>
+									<div class="offre-info">Salaire (€/an) : <b><?php echo get_field('salary-min', $offre); ?> à <?php echo get_field('salary-max', $offre); ?></b></div>
 								<?php }
-								if(get_field('city', $offre->ID) && get_field('pays', $offre->ID)){ ?>
-									<div class="offre-info">Localisation : <b><?php echo get_field('city', $offre->ID); ?> (<?php echo get_field('pays', $offre->ID); ?>)</b></div>
+								if(get_field('city', $offre) && get_field('pays', $offre)){ ?>
+									<div class="offre-info">Localisation : <b><?php echo get_field('city', $offre); ?> (<?php echo get_field('pays', $offre); ?>)</b></div>
 								<?php }
-								if(get_field('descrassignement', $offre->ID)){ ?>
-									<div class="offre-update my-1"><?php echo get_field('descrassignement', $offre->ID); ?></div>
+								if(get_field('descrassignement', $offre)){ ?>
+									<div class="d-none offre-update my-1"><?php echo get_field('descrassignement', $offre); ?></div>
 								<?php } ?>
 								<a href="#" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
 									voir l'annonce
@@ -53,6 +58,7 @@ get_header(); ?>
 							</div>
 						<?}?>
 					</div>
+					<?php } ?>
 				</div>
 			</div>
 			<div class="row hp-top-row">
@@ -266,7 +272,7 @@ get_header(); ?>
 						$offers =  array();
 						$offres_urgentes = get_field('offres_urgentes', 'option');
 						foreach ($offres_urgentes as $offre) {
-							$offers[$offre->ID] = 'urgent';
+							$offers[$offre] = 'urgent';
 						}
 						$recent_post = wp_get_recent_posts( array(
 						    'post_type' =>'annonce',
@@ -318,7 +324,7 @@ get_header(); ?>
 											<p class="info-offre">Localisation : <em><?php echo get_field('city', $id); ?> (<?php echo get_field('pays', $id); ?>)</em></p>
 										<?php }
 										if(get_field('descrassignement', $id)){ ?>
-											<p class="update-offre my-1"><?php echo get_field('descrassignement', $id); ?></p>
+											<p class="d-none update-offre my-1"><?php echo get_field('descrassignement', $id); ?></p>
 										<?php } ?>
 									</div>
 									<?php if($n%2 != 0){

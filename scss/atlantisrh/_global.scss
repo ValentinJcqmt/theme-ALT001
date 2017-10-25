@@ -313,7 +313,16 @@ h5,.h5{font-weight:700;}
 .offre-infos p{margin-bottom: 3px;}
 .offre-right:after{left:-14px;}
 .offre-left:after{right:-14px;}
-
+/*************************************************************************************************************/
+//NOS OFFRES
+.nos-offres{
+	h1{font-size: 30px;}
+	.sous-titre{font-size: 15px; font-weight: 700;}
+	.offre-card{display:none; opacity: 0; transition:opacity .3s;}
+	.filtered:nth-of-type(-n+12){
+		display: block; opacity: 1;
+	}
+}
 
 
 /**************************************************************************************************************/

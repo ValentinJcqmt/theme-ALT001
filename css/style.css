@@ -9178,7 +9178,7 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
       background: #869791; }
 
 /*! 
- * atlantisrh
+ * tour atlantisrh
 !*/
 html {
   background: none; }
@@ -9650,6 +9650,20 @@ h5, .h5 {
 .offre-left:after {
   right: -14px; }
 
+/*************************************************************************************************************/
+.nos-offres h1 {
+  font-size: 30px; }
+.nos-offres .sous-titre {
+  font-size: 15px;
+  font-weight: 700; }
+.nos-offres .offre-card {
+  display: none;
+  opacity: 0;
+  transition: opacity .3s; }
+.nos-offres .filtered:nth-of-type(-n+12) {
+  display: block;
+  opacity: 1; }
+
 /**************************************************************************************************************/
 /*QUERIES*/
 @media (max-width: 1730px) {
@@ -9717,6 +9731,8 @@ header {
   header.sticky {
     color: #333;
     background-color: #fff; }
+    header.sticky .header-title a .h1 {
+      color: #333; }
     header.sticky .header-nav ul#menu-menu-header li a {
       color: #333; }
     header.sticky #header-logo {
@@ -9729,6 +9745,8 @@ header {
         background-color: #fff; }
     header.sticky img {
       filter: brightness(0%); }
+  header .header-title a .h1 {
+    color: #fff; }
   header img {
     transition: .3s;
     filter: brightness(100%); }

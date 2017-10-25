@@ -9,6 +9,7 @@ header{
 	&.sticky{
 		color:$black;
 		background-color: $white;
+		.header-title a .h1{color:$black;}
 		.header-nav ul#menu-menu-header li a{
 			color: $black;
 		}
@@ -28,6 +29,7 @@ header{
 			filter: brightness(0%);
 		}
 	}
+	.header-title a .h1{color:$white;}
 	img{
 		transition:.3s;
 		filter: brightness(100%);

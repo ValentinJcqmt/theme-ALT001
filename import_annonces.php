@@ -158,7 +158,7 @@ function add_annonce(
 			add_post_meta($post_id, 'zip', $code_postal);
 			add_post_meta($post_id, 'city', $ville);
 			add_post_meta($post_id, 'pays', $pays);
-			add_post_meta($post_id, 'descrassignement', $annonce);
+			add_post_meta($post_id, 'descrassignement', imap_utf8($annonce));
 			add_post_meta($post_id, 'descrcustomer', esc_sql($client));
 			add_post_meta($post_id, 'date-debut', $date_debut);
 			add_post_meta($post_id, 'id-annonce', $id_annonce);

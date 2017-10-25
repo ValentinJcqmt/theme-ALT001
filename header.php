@@ -3,6 +3,7 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
 <head>
+	<title><?php echo wp_title(); ?></title>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- Favicon -->
@@ -18,6 +19,9 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/functions.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/owl.carousel.min.js"></script>
+	<?php if(is_page('nos-offres-demploi')){ ?>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/list-offres.js"></script>
+	<?php } ?>
 	<?php wp_head(); ?>
 </head>
 
@@ -26,15 +30,19 @@
 		<div class="container-fluid">
 			<div class="row header-nav">
 				<div class="header-title d-flex my-auto mr-auto">
-					<?php if(is_front_page()){
-						echo '<h1 class="text-uppercase h1">'.get_field('titre', 'option').'</h1>';
-					}
-					else{
-						echo '<div class="text-uppercase h1">'.get_field('titre', 'option').'</div>';
-					}?>
+					<a href="<?php echo get_home_url(); ?>" class="d-block">
+						<?php if(is_front_page()){
+							echo '<h1 class="text-uppercase h1">'.get_field('titre', 'option').'</h1>';
+						}
+						else{
+							echo '<div class="text-uppercase h1">'.get_field('titre', 'option').'</div>';
+						}?>
+					</a>
 				</div>
 				<div id="header-logo" class="mx-auto">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
+					<a href="<?php echo get_home_url(); ?>" class="d-block">
+						<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
+					</a>
 				</div>
 				<div class="header-menu d-flex my-auto">
 					<?php wp_nav_menu(array('menu' => 'Menu header')); ?>

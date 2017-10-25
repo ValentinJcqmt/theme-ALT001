@@ -1,6 +1,9 @@
 <?php
 
-get_header(); ?>
+get_header();
 
+if(is_page('nos-offres-demploi')){
+	include('archive/annonces.php');
+}
 
-<?php get_footer();
+get_footer();
