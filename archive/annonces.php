@@ -79,10 +79,7 @@
 				<img src="<?php echo get_field('picto-search')['url']; ?>" class="img-fluid"><?php echo get_field('titre-search'); ?>
 			</div>
 			<div class="col">
-				<select>
-					<option><?php echo get_field('txt-keywords'); ?></option>
-					<option>plop</option>
-				</select>
+				<input type="search" placeholder="<?php echo get_field('txt-keywords'); ?>">
 			</div>
 		</div>
 	</div>
@@ -98,20 +95,31 @@
 		'posts_per_page' => -1,
 	), OBJECT);
 	$nb_offres = count($offres_all);
+	$nb_pages = floor($nb_offres/12);
 	$offres_urgentes = array();
 	if(get_field('offres_urgentes', 'option'))
 		$offres_urgentes = get_field('offres_urgentes', 'option');
 	$offres_non_urgentes = array_filter($offres_all, function($e) use ($offres_urgentes){
 		return !in_array($e->ID, $offres_urgentes);
 	}, ARRAY_FILTER_USE_BOTH);
+	$n = 1;
 	?>
+	<style>
+		<?php if($nb_pages > 1){
+			for($i=2; $i<=$nb_pages; $i++){
+				echo".page-".$i." .offre-card.filtered:nth-of-type(n+".(12*$i+1)."), .page-".$i." .offre-card.filtered:not(:nth-of-type(n+".(12*$i-11).")){
+						display: none !important;
+					}";
+			}
+		} ?>
+	</style>
 	<div class="px-4 bg-light-gray mb-1 offers-list">
 		<div class="row">
 			<div class="col-12 nb-offers my-5">
-				<?php echo get_field('txt-nb-offres-1'); ?> <b><?php echo $nb_offres; ?> offres d'emploi</b> <?php echo get_field('txt-nb-offres-2'); ?>
+				<?php echo get_field('txt-nb-offres-1'); ?> <b id="nb-offres"><?php echo $nb_offres; ?> offres d'emploi</b> <?php echo get_field('txt-nb-offres-2'); ?>
 			</div>
 		</div>
-		<div class="row" id="list-offer-cards">
+		<div class="row page-1" id="list-offer-cards">
 			<?php foreach ($offres_urgentes as $id) { ?>
 				<script type="text/javascript">
 					offres.push({
@@ -174,7 +182,8 @@
 						</div>
 					</a>
 				</div>
-			<?php }
+			<?php $n++;
+			}
 
 			foreach ($offres_non_urgentes as $offre) { ?>
 				<script type="text/javascript">
@@ -238,7 +247,20 @@
 						</div>
 					</a>
 				</div>
-			<?php } ?>
+			<?php $n++;
+			} ?>
+		</div>
+		<div class="row">
+			<div class="col-12">
+				<div id="pages">
+					<?php if($nb_pages > 1 ){
+						for($i = 1; $i <= $nb_pages; $i++){ ?>
+							<div class="page-number" id="go-to-page-<?php echo $i; ?>"><?php echo $i; ?></div>
+						<?php } ?>
+						<div class="page-number" id="go-to-page-next">Page suivante</div>
+					<?php } ?>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

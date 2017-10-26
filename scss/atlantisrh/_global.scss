@@ -318,9 +318,8 @@ h5,.h5{font-weight:700;}
 .nos-offres{
 	h1{font-size: 30px;}
 	.sous-titre{font-size: 15px; font-weight: 700;}
-	.offre-card{display:none; opacity: 0; transition:opacity .3s;}
-	.filtered:nth-of-type(-n+12){
-		display: block; opacity: 1;
+	.page-1 .offre-card.filtered:nth-of-type(n+13){
+		display: none !important;
 	}
 }
 

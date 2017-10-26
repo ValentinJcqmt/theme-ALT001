@@ -9656,13 +9656,8 @@ h5, .h5 {
 .nos-offres .sous-titre {
   font-size: 15px;
   font-weight: 700; }
-.nos-offres .offre-card {
-  display: none;
-  opacity: 0;
-  transition: opacity .3s; }
-.nos-offres .filtered:nth-of-type(-n+12) {
-  display: block;
-  opacity: 1; }
+.nos-offres .page-1 .offre-card.filtered:nth-of-type(n+13) {
+  display: none !important; }
 
 /**************************************************************************************************************/
 /*QUERIES*/
