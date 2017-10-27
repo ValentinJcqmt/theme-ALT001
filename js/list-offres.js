@@ -14,8 +14,11 @@ $(window).on('load', function (){
 		filter();
 	});
 	$('#pages').on('click', function(e){
-		var n = e.target.id;
-		goToPage(n);
+		var n = e.target.id.substring(11);
+		var current = $('#list-offer-cards')[0].className.match((/(^|\s)page-\S+/g) || []).join(' ').substring(6);
+		if(n != current){
+			goToPage(n, current);
+		}
 	})
 	//Functions
 	var resetPages = function(){
@@ -63,10 +66,27 @@ $(window).on('load', function (){
 		resetPages();
 	}
 
-	var goToPage = function(n){
-		$("#list-offer-cards").removeClass(function (index, className) {
-		    return (className.match (/(^|\s)page-\S+/g) || []).join(' ');
-		});
-		$("#list-offer-cards").addClass('page-'+n);
+	var goToPage = function(n, current){
+		var nextPage = parseInt(current)+1;
+		if(n.match(/^[0-9]+$/) != null){
+			$("#list-offer-cards").removeClass(function (index, className) {
+			    return (className.match(/(^|\s)page-\S+/g) || []).join(' ');
+			});
+			$("#list-offer-cards").addClass('page-'+n);
+			$(".filtered").animate({opacity:"0"},275).animate({opacity:"1"}, 275);
+			$('body, html').animate({
+	        	scrollTop: $('#list-offer-cards').offset().top - 50
+		    }, 750);
+		}
+		else if(n == "next" && current.match(/^[0-9]+$/) != null && $('#go-to-page-'+nextPage).length > 0){
+			$("#list-offer-cards").removeClass(function (index, className) {
+			    return (className.match(/(^|\s)page-\S+/g) || []).join(' ');
+			});
+			$("#list-offer-cards").addClass('page-'+(nextPage));
+			$(".filtered").animate({opacity:"0"},275).animate({opacity:"1"}, 275);
+			$('body, html').animate({
+	        	scrollTop: $('#list-offer-cards').offset().top - 50
+		    }, 750);
+		}
 	}
 });

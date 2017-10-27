@@ -20,50 +20,50 @@
 			</div>
 		</div>
 	</div>
-	<div class="px-4 bg-light-gray mb-1 filters">
+	<div class="px-4 bg-light-gray filters">
 		<div class="row py-5 text-uppercase">
-			<div class="col-3 align-self-center">
-				<img src="<?php echo get_field('picto-filtre')['url']; ?>" class="img-fluid"><?php echo get_field('titre-filtre'); ?>
+			<div class="col-3 align-self-center font-weight-bold">
+				<img src="<?php echo get_field('picto-filtre')['url']; ?>" class="img-fluid pr-1"><?php echo get_field('titre-filtre'); ?>
 			</div>
 			<div class="col-9">
 				<div class=row>
-					<div class="col">
+					<div class="col-3">
 						<select>
 							<option><?php echo get_field('txt-metier'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col">
+					<div class="col-3">
 						<select>
 							<option><?php echo get_field('txt-monde'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col">
+					<div class="col-3">
 						<select>
 							<option><?php echo get_field('txt-salary-min'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col">
-						<input id="is-urgent" type="checkbox" name="">
-						<p><?php echo get_field('txt-urgent'); ?></p>
+					<div class="col-3">
+						<input id="is-urgent" type="checkbox">
+						<label for="is-urgent" class="d-inline-block text-uppercase"><?php echo get_field('txt-urgent'); ?></label>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col">
+					<div class="col-3">
 						<select>
 							<option><?php echo get_field('txt-contrat'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col">
+					<div class="col-3">
 						<select>
 							<option><?php echo get_field('txt-localite'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col">
+					<div class="col-3">
 						<select>
 							<option><?php echo get_field('txt-salary-max'); ?></option>
 							<option>plop</option>
@@ -73,13 +73,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="px-4 bg-light-gray mb-1 search">
+	<div class="px-4 bg-light-gray search">
 		<div class="row py-5 text-uppercase">
-			<div class="col">
-				<img src="<?php echo get_field('picto-search')['url']; ?>" class="img-fluid"><?php echo get_field('titre-search'); ?>
+			<div class="col-3 font-weight-bold search-txt">
+				<img src="<?php echo get_field('picto-search')['url']; ?>" class="img-fluid pr-1"><?php echo get_field('titre-search'); ?>
 			</div>
-			<div class="col">
-				<input type="search" placeholder="<?php echo get_field('txt-keywords'); ?>">
+			<div class="col-2">
+				<div class="search-box">
+					<input type="search" placeholder="<?php echo get_field('txt-keywords'); ?>">
+					<img class="search-icon" src="<?php echo get_template_directory_uri(); ?>/img/search.png">
+				</div>
 			</div>
 		</div>
 	</div>
@@ -109,11 +112,12 @@
 			for($i=2; $i<=$nb_pages; $i++){
 				echo".page-".$i." .offre-card.filtered:nth-of-type(n+".(12*$i+1)."), .page-".$i." .offre-card.filtered:not(:nth-of-type(n+".(12*$i-11).")){
 						display: none !important;
-					}";
+					}\n";
+				echo".page-".$i." #go-to-page-".$i."{color:#FFF; background:#333;}\n";
 			}
 		} ?>
 	</style>
-	<div class="px-4 bg-light-gray mb-1 offers-list">
+	<div class="px-4 bg-light-gray offers-list">
 		<div class="row">
 			<div class="col-12 nb-offers my-5">
 				<?php echo get_field('txt-nb-offres-1'); ?> <b id="nb-offres"><?php echo $nb_offres; ?> offres d'emploi</b> <?php echo get_field('txt-nb-offres-2'); ?>
@@ -144,10 +148,10 @@
 						'urgent': true,
 					});
 				</script>
- 				<div id="<?php echo $id; ?>" class="offre-card filtered col-12 col-md-4 col-lg-3 my-2 my-lg-1">
+ 				<div id="<?php echo $id; ?>" class="offre-card filtered col-12 col-md-4 col-lg-3 my-2 my-lg-1 px-1">
 					<a href="<?php echo get_permalink($id); ?>" class="d-block">
 						<div class="row">
-							<div class="col-12 offre-title text-white px-4 py-4 text-center bg-red urgente">
+							<div class="col-12 offre-title text-white px-4 py-auto text-center bg-red urgente">
 								<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
 								<?php if(get_field('ref', $id)){?>
 									<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
@@ -209,10 +213,10 @@
 						'urgent': false,
 					});
 				</script>
- 				<div id="<?php echo $offre->ID; ?>" class="offre-card filtered col-12 col-md-4 col-lg-3 my-2 my-lg-1">
+ 				<div id="<?php echo $offre->ID; ?>" class="offre-card filtered col-12 col-md-4 col-lg-3 my-2 my-lg-1 px-1">
 					<a href="<?php echo get_permalink($offre->ID); ?>" class="d-block">
 						<div class="row">
-							<div class="col-12 offre-title text-white px-4 py-4 text-center bg-black">
+							<div class="col-12 offre-title text-white px-4 py-auto text-center bg-black">
 								<p class="name-offre text-uppercase"><?php echo get_the_title($offre->ID); ?></p>
 								<?php if(get_field('ref', $offre->ID)){?>
 									<p class="ref-offre">Référence : <em><?php echo get_field('ref', $offre->ID); ?></em></p>
@@ -249,18 +253,19 @@
 				</div>
 			<?php $n++;
 			} ?>
-		</div>
-		<div class="row">
-			<div class="col-12">
-				<div id="pages">
-					<?php if($nb_pages > 1 ){
-						for($i = 1; $i <= $nb_pages; $i++){ ?>
-							<div class="page-number" id="go-to-page-<?php echo $i; ?>"><?php echo $i; ?></div>
+			<div class="row">
+				<div class="col-12">
+					<div id="pages" class="px-1 my-2 noselect">
+						<?php if($nb_pages > 1 ){
+							for($i = 1; $i <= $nb_pages; $i++){ ?>
+								<div class="page-number" id="go-to-page-<?php echo $i; ?>"><?php echo $i; ?></div>
+							<?php } ?>
+							<div class="page-number" id="go-to-page-next">Page suivante</div>
 						<?php } ?>
-						<div class="page-number" id="go-to-page-next">Page suivante</div>
-					<?php } ?>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<?php include TEMPLATEPATH . '/contenus/contenu.php'; ?>
 </div>
