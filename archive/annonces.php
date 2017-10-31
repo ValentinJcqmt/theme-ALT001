@@ -22,48 +22,46 @@
 	</div>
 	<div class="px-4 bg-light-gray filters">
 		<div class="row py-5 text-uppercase">
-			<div class="col-3 align-self-center font-weight-bold">
+			<div class="col-12 col-lg-3 py-2 py-lg-0 align-self-center font-weight-bold">
 				<img src="<?php echo get_field('picto-filtre')['url']; ?>" class="img-fluid pr-1"><?php echo get_field('titre-filtre'); ?>
 			</div>
-			<div class="col-9">
+			<div class="col-12 col-lg-9">
 				<div class=row>
-					<div class="col-3">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3 metier">
 						<select>
 							<option><?php echo get_field('txt-metier'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col-3">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3 monde">
 						<select>
 							<option><?php echo get_field('txt-monde'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col-3">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-min">
 						<select>
 							<option><?php echo get_field('txt-salary-min'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col-3">
+					<div class="col-12 col-sm-6 col-md-4 push-md-12 col-lg-3 chackbox-urgent">
 						<input id="is-urgent" type="checkbox">
 						<label for="is-urgent" class="d-inline-block text-uppercase"><?php echo get_field('txt-urgent'); ?></label>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-3">
+					<div class="col-12 col-sm-6 col-md-4 pull-md-4 col-lg-3 contrat">
 						<select>
 							<option><?php echo get_field('txt-contrat'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col-3">
+					<div class="col-12 col-sm-6 col-md-4 pull-md-4 col-lg-3 localite">
 						<select>
 							<option><?php echo get_field('txt-localite'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col-3">
+					<div class="col-12 col-sm-6 col-md-4 pull-md-4 col-lg-3 salary-max">
 						<select>
 							<option><?php echo get_field('txt-salary-max'); ?></option>
 							<option>plop</option>
@@ -148,7 +146,7 @@
 						'urgent': true,
 					});
 				</script>
- 				<div id="<?php echo $id; ?>" class="offre-card filtered col-12 col-md-4 col-lg-3 my-2 my-lg-1 px-1">
+ 				<div id="<?php echo $id; ?>" class="offre-card filtered col-12 col-md-6 col-lg-4 col-xl-3 my-2 my-lg-1 px-1">
 					<a href="<?php echo get_permalink($id); ?>" class="d-block">
 						<div class="row">
 							<div class="col-12 offre-title text-white px-4 py-auto text-center bg-red urgente">
@@ -213,7 +211,7 @@
 						'urgent': false,
 					});
 				</script>
- 				<div id="<?php echo $offre->ID; ?>" class="offre-card filtered col-12 col-md-4 col-lg-3 my-2 my-lg-1 px-1">
+ 				<div id="<?php echo $offre->ID; ?>" class="offre-card filtered col-12 col-md-6 col-lg-4 col-xl-3 my-2 my-lg-1 px-1">
 					<a href="<?php echo get_permalink($offre->ID); ?>" class="d-block">
 						<div class="row">
 							<div class="col-12 offre-title text-white px-4 py-auto text-center bg-black">

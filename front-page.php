@@ -52,7 +52,7 @@ get_header(); ?>
 								if(get_field('descrassignement', $offre)){ ?>
 									<div class="d-none offre-update my-1"><?php echo get_field('descrassignement', $offre); ?></div>
 								<?php } ?>
-								<a href="#" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+								<a href="<?php echo get_permalink($offre); ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
 									voir l'annonce
 								</a>
 							</div>
