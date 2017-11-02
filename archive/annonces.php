@@ -45,23 +45,23 @@
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col-12 col-sm-6 col-md-4 push-md-12 col-lg-3 chackbox-urgent">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3 checkbox-urgent">
 						<input id="is-urgent" type="checkbox">
 						<label for="is-urgent" class="d-inline-block text-uppercase"><?php echo get_field('txt-urgent'); ?></label>
 					</div>
-					<div class="col-12 col-sm-6 col-md-4 pull-md-4 col-lg-3 contrat">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3 contrat">
 						<select>
 							<option><?php echo get_field('txt-contrat'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col-12 col-sm-6 col-md-4 pull-md-4 col-lg-3 localite">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3 localite">
 						<select>
 							<option><?php echo get_field('txt-localite'); ?></option>
 							<option>plop</option>
 						</select>
 					</div>
-					<div class="col-12 col-sm-6 col-md-4 pull-md-4 col-lg-3 salary-max">
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-max">
 						<select>
 							<option><?php echo get_field('txt-salary-max'); ?></option>
 							<option>plop</option>
@@ -73,10 +73,10 @@
 	</div>
 	<div class="px-4 bg-light-gray search">
 		<div class="row py-5 text-uppercase">
-			<div class="col-3 font-weight-bold search-txt">
+			<div class="col-12 col-md-7 col-lg-3 font-weight-bold search-txt">
 				<img src="<?php echo get_field('picto-search')['url']; ?>" class="img-fluid pr-1"><?php echo get_field('titre-search'); ?>
 			</div>
-			<div class="col-2">
+			<div class="col-12 col-md-5 col-lg-2">
 				<div class="search-box">
 					<input type="search" placeholder="<?php echo get_field('txt-keywords'); ?>">
 					<img class="search-icon" src="<?php echo get_template_directory_uri(); ?>/img/search.png">

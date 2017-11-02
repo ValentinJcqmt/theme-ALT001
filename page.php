@@ -3,7 +3,7 @@
 get_header();
 
 if(is_page('nos-offres-demploi')){
-	include('archive/annonces.php');
+	include('archive/annonce.php');
 }
 
 get_footer();

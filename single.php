@@ -1,6 +1,9 @@
 <?php
 
-get_header(); ?>
+get_header();
 
+if(is_singular('annonce')){
+	include('single/annonce.php');
+}
 
-<?php get_footer();
+get_footer();

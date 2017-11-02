@@ -6,6 +6,7 @@ header{
 	height: 56px;
 	color:$white;
 	background-color: $blue;
+	@media (max-width: 1590px){ .header-title{display: none !important;} }
 	&.sticky{
 		color:$black;
 		background-color: $white;

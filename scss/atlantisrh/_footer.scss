@@ -18,6 +18,9 @@
 		letter-spacing: 1px;
 	}
 }
+@media (max-width: 768px){
+	#cta-footer .cta-footer-title{font-size:30px;}
+}
 #back-to-top{
 	height:60px;
 	cursor: pointer;
