@@ -332,7 +332,7 @@ h5,.h5{font-weight:700;}
 	h1{font-size: 30px;}
 	.sous-titre{font-size: 15px; font-weight: 700;}
 	.page-1 .offre-card.filtered:nth-of-type(n+13){
-		display: none !important;
+		display: none;
 	}
 	.filters, .search{margin-bottom: 2px;}
 	.filters, .search, select, input[type=search]{font-size: 15px;}

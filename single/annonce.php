@@ -1,3 +1,8 @@
+<?php if(get_field('zip')){ ?>
+	<script type="text/javascript">
+		var zipcode = '<?php echo get_field('zip'); ?>';
+	</script>
+<?php } ?>
 <div class="main single-offre">
 	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
 		<div class="container-fluid">
@@ -11,10 +16,10 @@
 	<div class="bg-white">
 		<div class="container-fluid">
 			<div class="row bc-offre">
-				<div class="col-12 col-md-6 breadcrumb-offre text-left">
-					<div class="d-inline text-black">offres d'emploi / </div><div class="d-inline text-green font-weight-bold"><?php echo get_the_title(); ?></div>
+				<div class="col-12 col-md-9 breadcrumb-offre text-left">
+					<div class="d-inline text-black"><a href="<?php echo get_permalink(4735); ?>">offres d'emploi</a> / </div><div class="d-inline text-green font-weight-bold"><?php echo get_the_title(); ?></div>
 				</div>
-				<div class="col-12 col-md-6 text-right">
+				<div class="col-12 col-md-3 text-left text-md-right">
 					<div class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
 						postulez !
 					</div>
@@ -84,12 +89,14 @@
 					<?php } ?>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 offre-map">
-					<h2 class="my-2 text-uppercase">votre localisaiton</h2>
-					<div id="map-localisation"></div>
+			<?php if(get_field('zip')){ ?>
+				<div class="row">
+					<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 offre-map">
+						<h2 class="my-2 text-uppercase">votre localisaiton</h2>
+						<div id="map-localisation"></div>
+					</div>
 				</div>
-			</div>
+			<?php } ?>
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 py-4 offre-apply text-center">
 					<div class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
@@ -103,19 +110,19 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12">
-					<div class="d-flex">
-						<div class="col-6 col-md-4 text-left">
-							<a href="<?php echo get_permalink(get_previous_post()); ?>" class="my-1 d-inline-block mr-auto py-1 px-5 bg-black text-uppercase text-white prev-offre-btn">
+					<div class="row">
+						<div class="col-12 col-lg-4 text-center text-lg -left">
+							<a href="<?php echo get_permalink(get_previous_post()); ?>" class="my-1 d-inline-block mr-auto py-1 px-3 bg-black text-uppercase text-white prev-offre-btn">
 								voir l'offre précédente
 							</a>
 						</div>
-						<div class="col-12 col-md-4 text-center">
-							<a href="<?php echo get_permalink(4735); ?>" class="d-inline-block my-1 mx-auto py-1 px-5 bg-white text-uppercase text-black offre-back-btn">
+						<div class="col-12 col-lg-4 text-center">
+							<a href="<?php echo get_permalink(4735); ?>" class="d-inline-block my-1 py-1 px-3 bg-white text-uppercase text-black offre-back-btn">
 								Retour aux offres d'emploi
 							</a>
 						</div>
-						<div class="col-6 col-md-4 text-right">
-							<a href="<?php echo get_permalink(get_next_post()); ?>" class="my-1 d-inline-block ml-auto py-1 px-5 bg-black text-uppercase text-white next-offre-btn">
+						<div class="col-12 col-lg-4 text-center text-lg -right">
+							<a href="<?php echo get_permalink(get_next_post()); ?>" class="my-1 d-inline-block ml-auto py-1 px-3 bg-black text-uppercase text-white next-offre-btn">
 								voir l'offre suivante
 							</a>
 						</div>
@@ -154,7 +161,7 @@
 
 				$recent_posts = wp_get_recent_posts( $args, ARRAY_A );
 				?>
-				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+				<div class="col-12 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
 					<div class="row">
 						<?php if($urgent_post){ ?>
 						<div class="offre-card col-12 col-md-6">

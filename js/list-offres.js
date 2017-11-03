@@ -6,11 +6,20 @@ $(window).on('load', function (){
 		'salary-max': null,
 		'city': null,
 		'pays': null,
+		'cat': null,
 		'urgent': false,
 	};
 	//Events
 	$('#is-urgent').on('click', function(){
 		filterObj.urgent = this.checked;
+		filter();
+	});
+	$('#check-pays').on('change', function(){
+		filterObj.pays = this.value;
+		filter();
+	});
+	$('#check-contrat').on('change', function(){
+		filterObj.contrat = this.value;
 		filter();
 	});
 	$('#pages').on('click', function(e){
@@ -22,10 +31,23 @@ $(window).on('load', function (){
 	})
 	//Functions
 	var resetPages = function(){
+		$(".offre-card").animate({opacity:"0"},275)
 		$("#list-offer-cards").removeClass(function (index, className) {
 		    return (className.match (/(^|\s)page-\S+/g) || []).join(' ');
 		});
+		var filteredDom = $('.offre-card');
+			[].forEach.call(filteredDom, function(e,i,a) {
+				if(!e.classList.contains('filtered')){
+					window.setTimeout(function(){e.style.display = "none";}, 275);
+				}
+			});
+			[].forEach.call($('.offre-card.filtered'), function(e,i,a) {
+				if(i >= 0 && i <= 11){
+					window.setTimeout(function(){e.style.display = "block";}, 275);
+				}
+			});
 		$("#list-offer-cards").addClass('page-1');
+		$(".offre-card").animate({opacity:"0"},275).animate({opacity:"1"}, 275);
 		var nbPages = Math.floor($('.filtered').length/12);
 		//$('#nb-offres')[0].textContent = $('.filtered').length+" offres d'emploi";
 		$('#pages').empty();
@@ -44,23 +66,20 @@ $(window).on('load', function (){
 				if(key == 'urgent'){
 					if(filterObj.urgent && offre.urgent == false)
 						itemFiltered = false;
-					else
-						itemFiltered = true;
 				}
 				else{
-					if(filterObj[key] != null && offre[key] == filterObj[key])
-						itemFiltered = true;
-					else if(filterObj[key] != null && offre[key] != filterObj[key])
-						itemFiltered = false;
+					if(filterObj[key] != null){
+						if(offre[key] != filterObj[key]){
+							itemFiltered = false;
+						}
+					}
 				}
 			});
 			if(itemFiltered && !offreCard.hasClass('filtered')){
 				offreCard.addClass('filtered');
-				offreCard.fadeIn();
 			}
 			else if(!itemFiltered && offreCard.hasClass('filtered')){
 				offreCard.removeClass('filtered');
-				offreCard.fadeOut();
 			}
 		});
 		resetPages();
@@ -69,21 +88,41 @@ $(window).on('load', function (){
 	var goToPage = function(n, current){
 		var nextPage = parseInt(current)+1;
 		if(n.match(/^[0-9]+$/) != null){
+			$(".offre-card").animate({opacity:"0"},275)
 			$("#list-offer-cards").removeClass(function (index, className) {
 			    return (className.match(/(^|\s)page-\S+/g) || []).join(' ');
 			});
+			var filteredDom = $('.offre-card');
+			[].forEach.call(filteredDom, function(e,i,a) {
+				if(i >= (n-1)*12 && i <= (n-1)*12+11 && e.classList.contains('filtered')){
+					window.setTimeout(function(){e.style.display = "block";}, 275);
+				}
+				else{
+					window.setTimeout(function(){e.style.display = "none";}, 275);
+				}
+			});
 			$("#list-offer-cards").addClass('page-'+n);
-			$(".filtered").animate({opacity:"0"},275).animate({opacity:"1"}, 275);
+			$(".offre-card").animate({opacity:"0"},275).animate({opacity:"1"}, 275);
 			$('body, html').animate({
 	        	scrollTop: $('#list-offer-cards').offset().top - 50
 		    }, 750);
 		}
 		else if(n == "next" && current.match(/^[0-9]+$/) != null && $('#go-to-page-'+nextPage).length > 0){
+			$(".offre-card").animate({opacity:"0"},275)
 			$("#list-offer-cards").removeClass(function (index, className) {
 			    return (className.match(/(^|\s)page-\S+/g) || []).join(' ');
 			});
+			var filteredDom = $('.offre-card');
+			[].forEach.call(filteredDom, function(e,i,a) {
+				if(i >= (n-1)*12 && i <= (n-1)*12+11 && e.classList.contains('filtered')){
+					window.setTimeout(function(){e.style.display = "block";}, 275);
+				}
+				else{
+					window.setTimeout(function(){e.style.display = "none";;}, 275);
+				}
+			});
 			$("#list-offer-cards").addClass('page-'+(nextPage));
-			$(".filtered").animate({opacity:"0"},275).animate({opacity:"1"}, 275);
+			$(".offre-card").animate({opacity:"0"},275).animate({opacity:"1"}, 275);
 			$('body, html').animate({
 	        	scrollTop: $('#list-offer-cards').offset().top - 50
 		    }, 750);

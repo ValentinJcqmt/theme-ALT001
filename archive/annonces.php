@@ -1,3 +1,51 @@
+<?php
+	$offres = array();
+	$offres_all = get_posts( array(
+	    'post_type' =>'annonce',
+	    'orderby' => 'post_date',
+		'order' => 'DESC',
+		'posts_per_page' => -1,
+	), OBJECT);
+	$nb_offres = count($offres_all);
+	$nb_pages = floor($nb_offres/12);
+	$offres_urgentes = array();
+	if(get_field('offres_urgentes', 'option'))
+		$offres_urgentes = get_field('offres_urgentes', 'option');
+	$offres_non_urgentes = array_filter($offres_all, function($e) use ($offres_urgentes){
+		return !in_array($e->ID, $offres_urgentes);
+	}, ARRAY_FILTER_USE_BOTH);
+	
+	$mondeList = array('France');
+	$salaryMin=0;
+	$salaryMax=0;
+	$contratList = array('CDI');
+	$localiteList = array();
+
+	foreach ($offres_urgentes as $offre) {
+		if(get_field('pays', $offre) && !in_array(get_field('pays', $offre), $mondeList))
+			array_push($mondeList, get_field('pays', $offre));
+		if( ( get_field('salary-min', $offre) && get_field('salary-min', $offre) < $salaryMin ) || ( get_field('salary-min', $offre) && $salaryMin==0 ))
+			$salaryMin = get_field('salary-min', $offre);
+		if( ( get_field('salary-max', $offre) && get_field('salary-max', $offre) > $salaryMax ) || ( get_field('salary-max', $offre) && $salaryMax==0 ))
+			$salaryMax = get_field('salary-max', $offre);
+		if(get_field('contrat', $offre) && !in_array(get_field('contrat', $offre), $contratList))
+			array_push($contratList, get_field('contrat', $offre));
+		if(get_field('city', $offre) && !in_array(get_field('city', $offre), $localiteList))
+			array_push($localiteList, get_field('city', $offre));
+	}
+	foreach ($offres_non_urgentes as $offre) {
+		if(get_field('pays', $offre->ID) && !in_array(get_field('pays', $offre->ID), $mondeList))
+			array_push($mondeList, get_field('pays', $offre->ID));
+		if( ( get_field('salary-min', $offre->ID) && get_field('salary-min', $offre->ID) < $salaryMin ) || ( get_field('salary-min', $offre->ID) && $salaryMin==0 ))
+			$salaryMin = get_field('salary-min', $offre->ID);
+		if( ( get_field('salary-max', $offre->ID) && get_field('salary-max', $offre->ID) > $salaryMax ) || ( get_field('salary-max', $offre->ID) && $salaryMax==0 ))
+			$salaryMax = get_field('salary-max', $offre->ID);
+		if(get_field('contrat', $offre->ID) && !in_array(get_field('contrat', $offre->ID), $contratList))
+			array_push($contratList, get_field('contrat', $offre->ID));
+		if(get_field('city', $offre->ID) && !in_array(get_field('city', $offre->ID), $localiteList))
+			array_push($localiteList, get_field('city', $offre->ID));
+	}
+?>
 <div class="main nos-offres">
 	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
 		<div class="container-fluid">
@@ -28,21 +76,29 @@
 			<div class="col-12 col-lg-9">
 				<div class=row>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 metier">
-						<select>
-							<option><?php echo get_field('txt-metier'); ?></option>
-							<option>plop</option>
+						<?php
+						$categories = get_terms('category', array('hide_empty' => false));
+						?>
+						<select id="check-cat">
+							<option value="none"><?php echo get_field('txt-metier'); ?></option>
+							<?php foreach ($categories as $cat) { ?>
+								<option value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
+							<?php } ?>
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 monde">
-						<select>
-							<option><?php echo get_field('txt-monde'); ?></option>
-							<option>plop</option>
+						<select id="check-pays">
+							<?php foreach ($mondeList as $pays) { ?>
+								<option value="<?php echo $pays; ?>"><?php echo $pays; ?></option>
+							<?php } ?>
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-min">
-						<select>
-							<option><?php echo get_field('txt-salary-min'); ?></option>
-							<option>plop</option>
+						<select id="check-sal-min">
+							<option value="none"><?php echo get_field('txt-salary-min'); ?></option>
+							<?php for($i=$salaryMin; $i<$salaryMax; $i+=10000){ ?>
+								<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+							<?php } ?>
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 checkbox-urgent">
@@ -50,21 +106,27 @@
 						<label for="is-urgent" class="d-inline-block text-uppercase"><?php echo get_field('txt-urgent'); ?></label>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 contrat">
-						<select>
-							<option><?php echo get_field('txt-contrat'); ?></option>
-							<option>plop</option>
+						<select id="check-contrat">
+							<option value="none"><?php echo get_field('txt-contrat'); ?></option>
+							<?php foreach ($contratList as $contrat){ ?>
+								<option value="<?php echo $contrat; ?>"><?php echo $contrat; ?></option>
+							<?php } ?>
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 localite">
-						<select>
-							<option><?php echo get_field('txt-localite'); ?></option>
-							<option>plop</option>
+						<select id="check-local">
+							<option value="none"><?php echo get_field('txt-localite'); ?></option>
+							<?php foreach ($localiteList as $localite){ ?>
+								<option value="<?php echo $localite; ?>"><?php echo $localite; ?></option>
+							<?php } ?>
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-max">
-						<select>
-							<option><?php echo get_field('txt-salary-max'); ?></option>
-							<option>plop</option>
+						<select id="check-sal-max">
+							<option value="none"><?php echo get_field('txt-salary-max'); ?></option>
+							<?php for($i=$salaryMax; $i>$salaryMin; $i-=10000){ ?>
+								<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+							<?php } ?>
 						</select>
 					</div>
 				</div>
@@ -78,7 +140,7 @@
 			</div>
 			<div class="col-12 col-md-5 col-lg-2">
 				<div class="search-box">
-					<input type="search" placeholder="<?php echo get_field('txt-keywords'); ?>">
+					<input id="search-offres" type="search" placeholder="<?php echo get_field('txt-keywords'); ?>">
 					<img class="search-icon" src="<?php echo get_template_directory_uri(); ?>/img/search.png">
 				</div>
 			</div>
@@ -87,25 +149,8 @@
 	<script type="text/javascript">
 		var offres = [];
 	</script>
-	<?php
-	$offres = array();
-	$offres_all = get_posts( array(
-	    'post_type' =>'annonce',
-	    'orderby' => 'post_date',
-		'order' => 'DESC',
-		'posts_per_page' => -1,
-	), OBJECT);
-	$nb_offres = count($offres_all);
-	$nb_pages = floor($nb_offres/12);
-	$offres_urgentes = array();
-	if(get_field('offres_urgentes', 'option'))
-		$offres_urgentes = get_field('offres_urgentes', 'option');
-	$offres_non_urgentes = array_filter($offres_all, function($e) use ($offres_urgentes){
-		return !in_array($e->ID, $offres_urgentes);
-	}, ARRAY_FILTER_USE_BOTH);
-	$n = 1;
-	?>
-	<style>
+	<?php $n = 1; ?>
+<!-- 	<style>
 		<?php if($nb_pages > 1){
 			for($i=2; $i<=$nb_pages; $i++){
 				echo".page-".$i." .offre-card.filtered:nth-of-type(n+".(12*$i+1)."), .page-".$i." .offre-card.filtered:not(:nth-of-type(n+".(12*$i-11).")){
@@ -114,7 +159,7 @@
 				echo".page-".$i." #go-to-page-".$i."{color:#FFF; background:#333;}\n";
 			}
 		} ?>
-	</style>
+	</style> -->
 	<div class="px-4 bg-light-gray offers-list">
 		<div class="row">
 			<div class="col-12 nb-offers my-5">
@@ -144,6 +189,7 @@
 						'etat': '<?php echo addslashes(get_field('etat', $id)); ?>',
 						'profil': '<?php echo str_replace(array("\r", "\n"), '', nl2br(addslashes(get_field('profil', $id)))); ?>',
 						'urgent': true,
+						'cat' : [<?php foreach (wp_get_post_categories($id) as $cat){echo"'".addslashes(get_cat_name($cat))."',";} ?>],
 					});
 				</script>
  				<div id="<?php echo $id; ?>" class="offre-card filtered col-12 col-md-6 col-lg-4 col-xl-3 my-2 my-lg-1 px-1">
@@ -172,7 +218,7 @@
 									<p class="info-offre">Localisation : <em><?php echo get_field('city', $id); ?> (<?php echo get_field('pays', $id); ?>)</em></p>
 								<?php }
 								if(get_field('descrassignement', $id)){ ?>
-									<p class="d-none update-offre my-1"><?php echo get_field('descrassignement', $id); ?></p>
+									<div class="d-none update-offre my-1"><?php echo get_field('descrassignement', $id); ?></div>
 								<?php }
 								$daysago = round((date('U') - get_the_time('U', $id)) / (60*60*24));
 								if($daysago == 0){?>
@@ -209,6 +255,7 @@
 						'etat': '<?php echo addslashes(get_field('etat', $offre->ID)); ?>',
 						'profil': '<?php echo str_replace(array("\r", "\n"), '', nl2br(addslashes(get_field('profil', $offre->ID)))); ?>',
 						'urgent': false,
+						'cat' : [<?php foreach (wp_get_post_categories($offre->ID) as $cat){echo("'".get_cat_name(intval($cat))."'");} ?>]
 					});
 				</script>
  				<div id="<?php echo $offre->ID; ?>" class="offre-card filtered col-12 col-md-6 col-lg-4 col-xl-3 my-2 my-lg-1 px-1">
@@ -237,7 +284,7 @@
 									<p class="info-offre">Localisation : <em><?php echo get_field('city', $offre->ID); ?> (<?php echo get_field('pays', $offre->ID); ?>)</em></p>
 								<?php }
 								if(get_field('descrassignement', $offre->ID)){ ?>
-									<p class="d-none update-offre my-1"><?php echo get_field('descrassignement', $offre->ID); ?></p>
+									<div class="d-none update-offre my-1"><?php echo get_field('descrassignement', $offre->ID); ?></div>
 								<?php }
 								$daysago = round((date('U') - get_the_time('U', $offre->ID)) / (60*60*24));
 								if($daysago == 0){?>

@@ -9683,7 +9683,7 @@ h5, .h5 {
     font-size: 15px;
     font-weight: 700; }
   .nos-offres .page-1 .offre-card.filtered:nth-of-type(n+13) {
-    display: none !important; }
+    display: none; }
   .nos-offres .filters, .nos-offres .search {
     margin-bottom: 2px; }
   .nos-offres .filters, .nos-offres .search, .nos-offres select, .nos-offres input[type=search] {
