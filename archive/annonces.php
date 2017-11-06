@@ -80,7 +80,7 @@
 						$categories = get_terms('category', array('hide_empty' => false));
 						?>
 						<select id="check-cat">
-							<option value="none"><?php echo get_field('txt-metier'); ?></option>
+							<option value="null"><?php echo get_field('txt-metier'); ?></option>
 							<?php foreach ($categories as $cat) { ?>
 								<option value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
 							<?php } ?>
@@ -95,7 +95,7 @@
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-min">
 						<select id="check-sal-min">
-							<option value="none"><?php echo get_field('txt-salary-min'); ?></option>
+							<option value="null"><?php echo get_field('txt-salary-min'); ?></option>
 							<?php for($i=$salaryMin; $i<$salaryMax; $i+=10000){ ?>
 								<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 							<?php } ?>
@@ -107,7 +107,7 @@
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 contrat">
 						<select id="check-contrat">
-							<option value="none"><?php echo get_field('txt-contrat'); ?></option>
+							<option value="null"><?php echo get_field('txt-contrat'); ?></option>
 							<?php foreach ($contratList as $contrat){ ?>
 								<option value="<?php echo $contrat; ?>"><?php echo $contrat; ?></option>
 							<?php } ?>
@@ -115,7 +115,7 @@
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 localite">
 						<select id="check-local">
-							<option value="none"><?php echo get_field('txt-localite'); ?></option>
+							<option value="null"><?php echo get_field('txt-localite'); ?></option>
 							<?php foreach ($localiteList as $localite){ ?>
 								<option value="<?php echo $localite; ?>"><?php echo $localite; ?></option>
 							<?php } ?>
@@ -123,7 +123,7 @@
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-max">
 						<select id="check-sal-max">
-							<option value="none"><?php echo get_field('txt-salary-max'); ?></option>
+							<option value="null"><?php echo get_field('txt-salary-max'); ?></option>
 							<?php for($i=$salaryMax; $i>$salaryMin; $i-=10000){ ?>
 								<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 							<?php } ?>
@@ -150,16 +150,16 @@
 		var offres = [];
 	</script>
 	<?php $n = 1; ?>
-<!-- 	<style>
+	<style>
 		<?php if($nb_pages > 1){
 			for($i=2; $i<=$nb_pages; $i++){
-				echo".page-".$i." .offre-card.filtered:nth-of-type(n+".(12*$i+1)."), .page-".$i." .offre-card.filtered:not(:nth-of-type(n+".(12*$i-11).")){
+				/*echo".page-".$i." .offre-card.filtered:nth-of-type(n+".(12*$i+1)."), .page-".$i." .offre-card.filtered:not(:nth-of-type(n+".(12*$i-11).")){
 						display: none !important;
-					}\n";
+					}\n";*/
 				echo".page-".$i." #go-to-page-".$i."{color:#FFF; background:#333;}\n";
 			}
 		} ?>
-	</style> -->
+	</style>
 	<div class="px-4 bg-light-gray offers-list">
 		<div class="row">
 			<div class="col-12 nb-offers my-5">
@@ -175,8 +175,8 @@
 						'contrat': '<?php echo addslashes(get_field('contrat', $id)); ?>',
 						'fonction': '<?php echo addslashes(get_field('fonction', $id)); ?>',
 						'secteur': '<?php echo addslashes(get_field('secteur', $id)); ?>',
-						'salary-min': '<?php echo addslashes(get_field('salary-min', $id)); ?>',
-						'salary-max': '<?php echo addslashes(get_field('salary-max', $id)); ?>',
+						'salarymin': '<?php echo addslashes(get_field('salary-min', $id)); ?>',
+						'salarymax': '<?php echo addslashes(get_field('salary-max', $id)); ?>',
 						'region': '<?php echo addslashes(get_field('region', $id)); ?>',
 						'zip': '<?php echo addslashes(get_field('zip', $id)); ?>',
 						'city': '<?php echo addslashes(get_field('city', $id)); ?>',
@@ -217,9 +217,15 @@
 								if(get_field('city', $id) && get_field('pays', $id)){ ?>
 									<p class="info-offre">Localisation : <em><?php echo get_field('city', $id); ?> (<?php echo get_field('pays', $id); ?>)</em></p>
 								<?php }
-								if(get_field('descrassignement', $id)){ ?>
-									<div class="d-none update-offre my-1"><?php echo get_field('descrassignement', $id); ?></div>
-								<?php }
+								if(get_field('descrassignement', $offre->ID)){
+									$descrSplit = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement', $offre->ID));
+									if(count($descrSplit)==2){ ?>
+										<div class="update-offre my-1"><?php echo $descrSplit[0]; ?></div>
+									<?php }
+									else{ ?>
+										<div class="update-offre my-1"><?php echo substr(get_field('descrassignement', $offre->ID), 0, 140)."[...]"; ?></div>
+									<?php }
+								}
 								$daysago = round((date('U') - get_the_time('U', $id)) / (60*60*24));
 								if($daysago == 0){?>
 								<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
@@ -241,8 +247,8 @@
 						'contrat': '<?php echo addslashes(get_field('contrat', $offre->ID)); ?>',
 						'fonction': '<?php echo addslashes(get_field('fonction', $offre->ID)); ?>',
 						'secteur': '<?php echo addslashes(get_field('secteur', $offre->ID)); ?>',
-						'salary-min': '<?php echo addslashes(get_field('salary-min', $offre->ID)); ?>',
-						'salary-max': '<?php echo addslashes(get_field('salary-max', $offre->ID)); ?>',
+						'salarymin': '<?php echo addslashes(get_field('salary-min', $offre->ID)); ?>',
+						'salarymax': '<?php echo addslashes(get_field('salary-max', $offre->ID)); ?>',
 						'region': '<?php echo addslashes(get_field('region', $offre->ID)); ?>',
 						'zip': '<?php echo addslashes(get_field('zip', $offre->ID)); ?>',
 						'city': '<?php echo addslashes(get_field('city', $offre->ID)); ?>',
@@ -283,9 +289,15 @@
 								if(get_field('city', $offre->ID) && get_field('pays', $offre->ID)){ ?>
 									<p class="info-offre">Localisation : <em><?php echo get_field('city', $offre->ID); ?> (<?php echo get_field('pays', $offre->ID); ?>)</em></p>
 								<?php }
-								if(get_field('descrassignement', $offre->ID)){ ?>
-									<div class="d-none update-offre my-1"><?php echo get_field('descrassignement', $offre->ID); ?></div>
-								<?php }
+								if(get_field('descrassignement', $offre->ID)){
+									$descrSplit = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement', $offre->ID));
+									if(count($descrSplit)==2){ ?>
+										<div class="update-offre my-1"><?php echo $descrSplit[0]; ?></div>
+									<?php }
+									else{ ?>
+										<div class="update-offre my-1"><?php echo substr(get_field('descrassignement', $offre->ID), 0, 140)."[...]"; ?></div>
+									<?php }
+								}
 								$daysago = round((date('U') - get_the_time('U', $offre->ID)) / (60*60*24));
 								if($daysago == 0){?>
 								<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
@@ -298,15 +310,17 @@
 				</div>
 			<?php $n++;
 			} ?>
-			<div class="row">
-				<div class="col-12">
-					<div id="pages" class="px-1 my-2 noselect">
-						<?php if($nb_pages > 1 ){
-							for($i = 1; $i <= $nb_pages; $i++){ ?>
-								<div class="page-number" id="go-to-page-<?php echo $i; ?>"><?php echo $i; ?></div>
+			<div class="col-12">
+				<div class="row">
+					<div class="col-12">
+						<div id="pages" class="px-1 my-2 noselect">
+							<?php if($nb_pages > 1 ){
+								for($i = 1; $i <= $nb_pages; $i++){ ?>
+									<div class="page-number" id="go-to-page-<?php echo $i; ?>"><?php echo $i; ?></div>
+								<?php } ?>
+								<div class="page-number" id="go-to-page-next">Page suivante</div>
 							<?php } ?>
-							<div class="page-number" id="go-to-page-next">Page suivante</div>
-						<?php } ?>
+						</div>
 					</div>
 				</div>
 			</div>

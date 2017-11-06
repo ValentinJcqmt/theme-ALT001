@@ -47,6 +47,16 @@
 				</div>
 			</div>
 			<div class="row">
+				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 offre-update">
+					<?php $splitDescr = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement'));
+					if(count($splitDescr) == 2){ ?>
+						<div class="info-offre-update">
+							<?php echo $splitDescr[0]; ?>
+						</div>
+					<?php } ?>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 offre-details">
 					<h2 class="my-2 text-uppercase">détails de l'annocne</h2>
 					<?php if(get_field('ref')){ ?>
@@ -74,7 +84,14 @@
 					<h2 class="my-2 text-uppercase">votre mission</h2>
 					<?php if(get_field('descrassignement') ){ ?>
 						<div class="profil-offre">
-							<?php echo get_field('descrassignement'); ?>
+							<?php if(count($splitDescr) == 2){ ?>
+								<div class="info-offre-update">
+									<?php echo $splitDescr[1]; ?>
+								</div>
+							<?php }
+							else{
+								echo get_field('descrassignement');
+							} ?>
 						</div>
 					<?php } ?>
 				</div>
@@ -190,7 +207,7 @@
 											<p class="info-offre">Localisation : <em><?php echo get_field('city', $urgent_post); ?> (<?php echo get_field('pays', $urgent_post); ?>)</em></p>
 										<?php }
 										if(get_field('descrassignement', $urgent_post)){ ?>
-											<p class="d-none update-offre my-1"><?php echo get_field('descrassignement', $urgent_post); ?></p>
+											<div class="d-none update-offre my-1"><?php echo get_field('descrassignement', $urgent_post); ?></div>
 										<?php }
 										$daysago = round((date('U') - get_the_time('U', $urgent_post)) / (60*60*24));
 										if($daysago == 0){?>

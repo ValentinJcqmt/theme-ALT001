@@ -3,7 +3,51 @@
 get_header();
 
 if(is_page('nos-offres-demploi')){
-	include('archive/annonce.php');
+	include TEMPLATEPATH . '/archive/annonces.php';
 }
+else{
+the_post(); ?>
+
+<div class="main page">
+	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 py-3">
+					<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg-light-gray page-title">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+					<h1 class="my-3 text-uppercase"><?php echo get_the_title(); ?></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg-white page-content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center page-share my-2">
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 page-content-txt">
+					<?php echo get_the_content(); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php if(get_field('contenus'))
+		include TEMPLATEPATH . '/contenus/contenu.php';
+	?>
+</div>
+<?php }
 
 get_footer();

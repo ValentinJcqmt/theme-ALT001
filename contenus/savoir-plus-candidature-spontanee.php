@@ -38,11 +38,20 @@
 					<div class="col-12 cand-spont-txt my-1">
 						<?php echo $contenu['txt-secondaire']; ?>
 					</div>
-					<div class="col-12 cand-spont-btn my-1 text-uppercase">
-						<a href="<?php echo $contenu['url-btn']; ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
-							<?php echo $contenu['txt-btn']; ?>
-						</a>
-					</div>
+						<?php if($contenu['url-btn'] && $contenu['txt-btn']){ ?>
+							<div class="col-12 cand-spont-btn my-1 text-uppercase">
+								<a href="<?php echo $contenu['url-btn']; ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
+									<?php echo $contenu['txt-btn']; ?>
+								</a>
+							</div>
+						<?php } ?>
+						<?php if($contenu['url-btn-2'] && $contenu['txt-btn-2']){ ?>
+							<div class="col-12 cand-spont-btn my-1 text-uppercase">
+								<a href="<?php echo $contenu['url-btn-2']; ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
+									<?php echo $contenu['txt-btn-2']; ?>
+								</a>
+							</div>
+						<?php } ?>
 					<hr class="cand-spont-separator my-2">
 					<div class="col-12 cand-spont-contact text-light-gray my-1">
 						<?php echo $contenu['txt-contact']; ?>

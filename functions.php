@@ -7,6 +7,13 @@ register_nav_menus(array('primary' => 'Menu'));
 
 show_admin_bar( false );
 
+/**
+ * Register our sidebars and widgetized areas.
+ *
+ */
+if ( function_exists('register_sidebar') )
+register_sidebar(array('id' => 'sidebar-1'));
+
 /***********************************************************************************************************************/
 //Register Custom Post Type
 function custom_post_type_offre() {

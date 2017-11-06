@@ -324,7 +324,7 @@ get_header(); ?>
 											<p class="info-offre">Localisation : <em><?php echo get_field('city', $id); ?> (<?php echo get_field('pays', $id); ?>)</em></p>
 										<?php }
 										if(get_field('descrassignement', $id)){ ?>
-											<p class="d-none update-offre my-1"><?php echo get_field('descrassignement', $id); ?></p>
+											<div class="d-none update-offre my-1"><?php echo get_field('descrassignement', $id); ?></div>
 										<?php } ?>
 									</div>
 									<?php if($n%2 != 0){
