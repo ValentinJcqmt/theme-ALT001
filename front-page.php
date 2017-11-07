@@ -29,7 +29,7 @@ get_header(); ?>
 					else{ ?>
 					<div class="owl-carousel-offres-hp owl-carousel text-black">
 						<?php foreach ($offres_urgentes as $offre) {?>
-							<div class="carousel-offre">
+							<div class="carousel-offre px-1">
 								<div class="offre-titre text-uppercase d-inline-block"><?php echo get_the_title($offre); ?></div>
 								<?php if(get_field('ref', $offre)){ ?>
 									<div class="offre-ref my-1">Référence : <b><?php echo get_field('ref', $offre); ?></b></div>
@@ -49,9 +49,15 @@ get_header(); ?>
 								if(get_field('city', $offre) && get_field('pays', $offre)){ ?>
 									<div class="offre-info">Localisation : <b><?php echo get_field('city', $offre); ?> (<?php echo get_field('pays', $offre); ?>)</b></div>
 								<?php }
-								if(get_field('descrassignement', $offre)){ ?>
-									<div class="d-none offre-update my-1"><?php echo get_field('descrassignement', $offre); ?></div>
-								<?php } ?>
+								if(get_field('descrassignement', $offre)){
+									$descrSplit = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement', $offre));
+									if(count($descrSplit)==2){ ?>
+										<div class="offre-update my-1"><?php echo $descrSplit[0]; ?></div>
+									<?php }
+									else{ ?>
+										<div class="offre-update my-1"><?php echo substr(get_field('descrassignement', $offre), 0, 140)."[...]"; ?></div>
+									<?php }
+								} ?>
 								<a href="<?php echo get_permalink($offre); ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
 									voir l'annonce
 								</a>
@@ -131,9 +137,15 @@ get_header(); ?>
 				<div class="col-12 text-uppercase hp-offers-number-title">
 					<?php echo get_field('hp-3bloc-i-centre-texte-haut'); ?>
 				</div>
-				<div class="col-12 odometer text-uppercase hp-odometer">
-					0
-				</div>
+				<script>
+					var odometerCount = <?php echo count(get_posts( array(
+					    'post_type' =>'annonce',
+					    'orderby' => 'post_date',
+						'order' => 'DESC',
+						'posts_per_page' => -1,
+					), OBJECT)); ?>;
+			</script>
+				<div class="col-12 odometer text-uppercase" id="hp-odometer">0</div>
 				<div class="col-12 hp-offers-number-txt">
 					<?php echo get_field('hp-3bloc-i-centre-texte-bas'); ?>
 				</div>
@@ -288,7 +300,7 @@ get_header(); ?>
 						foreach($offers as $id => $urgent){ ?>
 						<div class="row">
 							<div class="<?php if($urgent == 'urgent') echo'offre-urgente'; ?> <?php if($n%2 == 0) echo'offre-left col-12 col-lg-6'; else echo'offre-right col-12 col-lg-6 offset-lg-6'; ?> my-2 my-lg-1">
-								<div class="row">
+								<div class="row bg-white">
 									<?php if($n%2 == 0){
 										if($urgent == 'urgent'){ ?>
 											<div class="col-3 offre-title text-white px-2 py-4 bg-red">
@@ -307,7 +319,7 @@ get_header(); ?>
 											</div>
 										<?php }
 									} ?>
-									<div class="col-9 bg-white text-black px-3 py-2 offre-infos">
+									<div class="col-9 bg-white text-black px-3 py-2 offre-infos align-self-center">
 										<?php if(get_field('contrat', $id)){ ?>
 											<p class="info-offre">Contrat : <em><?php echo get_field('contrat', $id); ?></em></p>
 										<?php }
@@ -323,9 +335,15 @@ get_header(); ?>
 										if(get_field('city', $id) && get_field('pays', $id)){ ?>
 											<p class="info-offre">Localisation : <em><?php echo get_field('city', $id); ?> (<?php echo get_field('pays', $id); ?>)</em></p>
 										<?php }
-										if(get_field('descrassignement', $id)){ ?>
-											<div class="d-none update-offre my-1"><?php echo get_field('descrassignement', $id); ?></div>
-										<?php } ?>
+										if(get_field('descrassignement', $id)){
+											$descrSplit = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement', $id));
+											if(count($descrSplit)==2){ ?>
+												<div class="offre-update my-1"><?php echo $descrSplit[0]; ?></div>
+											<?php }
+											else{ ?>
+												<div class="offre-update my-1"><?php echo substr(get_field('descrassignement', $id), 0, 140)."[...]"; ?></div>
+											<?php }
+										} ?>
 									</div>
 									<?php if($n%2 != 0){
 										if($urgent == 'urgent'){ ?>

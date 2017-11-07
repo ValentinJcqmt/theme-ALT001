@@ -111,6 +111,7 @@ h5,.h5{font-weight:700;}
 		}
 	}
 }
+.owl-carousel-offres-hp .owl-dots{padding-left:10px;padding-right:10px;}
 .owl-carousel-offres-hp .owl-dot{
 	width: 10px;
     height: 10px;
@@ -147,6 +148,7 @@ h5,.h5{font-weight:700;}
 	.offre-update{font-size: 10px; font-style: italic;}
 	.gray-btn-arrow{font-size: 10px; font-weight: 700;}
 }
+.offre-update{font-size: 10px; font-style: italic;}
 .hp-top-card-title{font-size: 8px;font-weight: 400;letter-spacing: 1px;}
 .hp-top-card-txt{font-size: 12px; line-height: 23px;}
 .hp-top-card-btn{font-size: 10px; width:calc(100% - 33px);}
@@ -201,7 +203,13 @@ h5,.h5{font-weight:700;}
 	position: relative;	
 }
 .hp-offers-number-title{font-size: 30px; font-weight: 700;}
-.hp-odometer{font-size:200px; font-weight: 700;}
+#hp-odometer{
+	.odometer-inside {
+	    font-size: 200px;
+	    line-height: 200px;
+		font-weight: 700;
+	}
+}
 .hp-offers-number-txt{font-size: 15px; font-weight: 700;}
 .hp-offers-number:after {
     content: '';
@@ -529,6 +537,8 @@ h5,.h5{font-weight:700;}
 /**************************************************************************************************************/
 /*SINGLE OFFRE*/
 .single.single-annonce{
+	.offre-update{font-size: 15px;}
+	.offre-card .offre-update{font-size: 12px;}
 	#map-localisation{width:100%; height:400px;}
 	.offre-title{
 		height: 150px;
@@ -643,6 +653,35 @@ h5,.h5{font-weight:700;}
 	    line-height: 37px;
 	}
 }
+/**************************************************************************************************************/
+/*PAGE*/
+.page .main.page{
+	h1{font-size: 30px;}
+	.page-content-txt{
+		h2, h3, h4, h5{font-size:16px;font-weight: bold; text-transform: uppercase; margin-top:20px; margin-bottom: 20px; letter-spacing: 1px;}
+	}
+	.page-content{border:solid $light-gray 15px;}
+	.page-thumbnail{height:320px; background-position: center center; background-repeat: no-repeat; background-size:cover;}
+	.col2-bg-black-white{
+		background: linear-gradient(to right, #FFF 50%, #333 50%);
+		letter-spacing: 1px;
+		.white-btn-arrow:after{background:#454545;}
+	}
+	@media (max-width: 992px){
+		div.col2-bg-black-white{
+			background: none;
+			.container-fluid{padding-left: 0; padding-right: 0;}
+			.savoir-plus{padding-right: 10px; padding-left: 10px; background:$white;}
+			.candidature-spont{padding-right: 10px; padding-left: 10px; background:$black;}
+		}
+	}
+	.know-more-title{font-size:12px;}
+	.know-more-txt, .cand-spont-title{font-size:40px;}
+	.cand-spond-txt, .cand-spond-contact{font-size:15px;}
+	.know-more-btn, .cand-spont-btn, .know-more-subtitle{font-size:10px;}
+	hr.cand-spont-separator{height: 1px;width: 100%;background: #FFF;border: none;}
+}
+
 
 /**************************************************************************************************************/
 /*QUERIES*/

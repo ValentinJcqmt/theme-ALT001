@@ -58,6 +58,34 @@ $(window).on('load', function (){
         dots:true,
     });
 /*********************************************************************/
+ if($('#hp-odometer').length){
+
+        Odometer.init();
+
+        // Function used to detect if the element is scrolled in view
+        function elementScrolled(elem)
+        {
+            var docViewTop = $(window).scrollTop();
+            var docViewBottom = docViewTop + $(window).height();
+            var elemTop = $(elem).offset().top;
+            return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
+        }
+
+        function animateChiffresHp(){
+            if(elementScrolled('#hp-odometer')) {
+                if($('#hp-odometer').text() == 0)
+                    $('#hp-odometer').text(odometerCount);
+            }
+        }
+
+        //On scroll, check if numbers should be animated
+        $(window).scroll(function(){
+            animateChiffresHp();
+        });
+        //On page loaded, check if numbers should be animated
+        animateChiffresHp();
+    }
+/*******************************************************************************************/
 });
 
 

@@ -58,7 +58,7 @@
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 offre-details">
-					<h2 class="my-2 text-uppercase">détails de l'annocne</h2>
+					<h2 class="my-2 text-uppercase">détails de l'annonce</h2>
 					<?php if(get_field('ref')){ ?>
 						<p class="info-offre">Référence <em><?php echo get_field('ref'); ?></em></p>
 					<?php }
@@ -206,9 +206,15 @@
 										if(get_field('city', $urgent_post) && get_field('pays', $urgent_post)){ ?>
 											<p class="info-offre">Localisation : <em><?php echo get_field('city', $urgent_post); ?> (<?php echo get_field('pays', $urgent_post); ?>)</em></p>
 										<?php }
-										if(get_field('descrassignement', $urgent_post)){ ?>
-											<div class="d-none update-offre my-1"><?php echo get_field('descrassignement', $urgent_post); ?></div>
-										<?php }
+										if(get_field('descrassignement', $urgent_post)){
+											$descrSplit = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement', $urgent_post));
+											if(count($descrSplit)==2){ ?>
+												<div class="offre-update my-1"><?php echo $descrSplit[0]; ?></div>
+											<?php }
+											else{ ?>
+												<div class="offre-update my-1"><?php echo substr(get_field('descrassignement', $urgent_post), 0, 140)."[...]"; ?></div>
+											<?php }
+										}
 										$daysago = round((date('U') - get_the_time('U', $urgent_post)) / (60*60*24));
 										if($daysago == 0){?>
 										<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
@@ -247,9 +253,15 @@
 											if(get_field('city', $annonce['ID']) && get_field('pays', $annonce['ID'])){ ?>
 												<p class="info-offre">Localisation : <em><?php echo get_field('city', $annonce['ID']); ?> (<?php echo get_field('pays', $annonce['ID']); ?>)</em></p>
 											<?php }
-											if(get_field('descrassignement', $annonce['ID'])){ ?>
-												<p class="d-none update-offre my-1"><?php echo get_field('descrassignement', $annonce['ID']); ?></p>
-											<?php }
+											if(get_field('descrassignement', $annonce['ID'])){
+												$descrSplit = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement', $annonce['ID']));
+												if(count($descrSplit)==2){ ?>
+													<div class="offre-update my-1"><?php echo $descrSplit[0]; ?></div>
+												<?php }
+												else{ ?>
+													<div class="offre-update my-1"><?php echo substr(get_field('descrassignement', $annonce['ID']), 0, 140)."[...]"; ?></div>
+												<?php }
+											}
 											$daysago = round((date('U') - get_the_time('U', $annonce['ID'])) / (60*60*24));
 											if($daysago == 0){?>
 											<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
