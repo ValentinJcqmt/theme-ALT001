@@ -77,7 +77,7 @@
 				<div class=row>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 metier">
 						<?php
-						$categories = get_terms('category', array('hide_empty' => false));
+						$categories = get_terms('offer-category', array('hide_empty' => false));
 						?>
 						<select id="check-cat">
 							<option value="null"><?php echo get_field('txt-metier'); ?></option>

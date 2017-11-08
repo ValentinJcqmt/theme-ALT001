@@ -9300,7 +9300,7 @@ h5, .h5 {
     width: 33px;
     text-align: center;
     vertical-align: middle;
-    line-height: 37px; }
+    line-height: 40px; }
 
 .gray-btn-arrow:after {
   content: url(../img/btn-arrow-black.png); }
@@ -9850,6 +9850,9 @@ h5, .h5 {
       line-height: 40px; }
     .nos-offres div.know-more-txt, .nos-offres div.cand-spont-title, .nos-offres div.social-connect-title {
       font-size: 30px; } }
+  @media (max-width: 576px) {
+    .nos-offres div.know-more-txt, .nos-offres div.cand-spont-title, .nos-offres div.social-connect-title {
+      font-size: 20px; } }
   @media (max-width: 992px) {
     .nos-offres .page-number {
       font-size: 10px;
@@ -10103,6 +10106,22 @@ h5, .h5 {
   width: 100%;
   background: #FFF;
   border: none; }
+@media (max-width: 768px) {
+  .page .main.page .filters .checkbox-urgent label[for="is-urgent"] {
+    line-height: 40px; }
+  .page .main.page div.know-more-txt, .page .main.page div.cand-spont-title, .page .main.page div.social-connect-title {
+    font-size: 30px; } }
+@media (max-width: 576px) {
+  .page .main.page div.know-more-txt, .page .main.page div.cand-spont-title, .page .main.page div.social-connect-title {
+    font-size: 22px; } }
+
+/***************************************************************************************************************/
+/*ARTICLE*/
+.single-article h1 {
+  font-size: 30px; }
+.single-article .article-content-txt h2, .single-article .article-content-txt h3, .single-article .article-content-txt h4 {
+  margin-top: 15px;
+  margin-bottom: 5px; }
 
 /**************************************************************************************************************/
 /*QUERIES*/
@@ -10168,8 +10187,15 @@ header {
   height: 56px;
   color: #fff;
   background-color: #3665a4; }
-  @media (max-width: 1590px) {
-    header .header-title {
+  @media (max-width: 1610px) {
+    header .desktop-header #header-logo {
+      display: none !important; }
+    header .desktop-header .header-title {
+      margin-right: 5px !important; }
+    header .desktop-header .header-sodial {
+      margin-right: auto; } }
+  @media (max-width: 1365px) {
+    header .desktop-header .header-social {
       display: none !important; } }
   header.sticky {
     color: #333;
@@ -10188,12 +10214,69 @@ header {
         background-color: #fff; }
     header.sticky img {
       filter: brightness(0%); }
+  header nav.navbar h1, header nav.navbar .h1 {
+    font-size: 10px;
+    padding-left: 5px;
+    letter-spacing: 1px; }
+  header nav.navbar .burger-icon {
+    height: 3px;
+    margin-top: 5px;
+    width: 30px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: #fff; }
+  header nav.navbar button.navbar-toggler {
+    border: solid 1px #fff;
+    border-radius: 3px;
+    margin-right: 10px; }
+  header nav.navbar .account-link {
+    color: #fff;
+    transition: .3s;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0 7px;
+    letter-spacing: 1px; }
+  header nav.navbar ul {
+    padding: 0;
+    margin: 0; }
+    header nav.navbar ul li {
+      display: block; }
+      header nav.navbar ul li a {
+        transition: .3s;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 0 7px;
+        letter-spacing: 1px; }
+  header nav.navbar.sticky {
+    color: #333;
+    background-color: #fff; }
+    header nav.navbar.sticky .burger-icon {
+      background-color: #333; }
+    header nav.navbar.sticky button.navbar-toggler {
+      border: solid 1px #333; }
+    header nav.navbar.sticky .account-link {
+      color: #333; }
+    header nav.navbar.sticky .header-title a .h1 {
+      color: #333; }
+    header nav.navbar.sticky ul li a {
+      color: #333; }
+    header nav.navbar.sticky .account-link {
+      color: #333; }
+      header nav.navbar.sticky .account-link .account-img {
+        background-color: #fff; }
+    header nav.navbar.sticky img {
+      filter: brightness(0%); }
   header .header-title a .h1 {
     color: #fff; }
   header img {
     transition: .3s;
     filter: brightness(100%); }
   header .header-nav {
+    color: #fff;
     height: 56px; }
     header .header-nav h1, header .header-nav .h1 {
       font-size: 10px;

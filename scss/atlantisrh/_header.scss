@@ -6,7 +6,18 @@ header{
 	height: 56px;
 	color:$white;
 	background-color: $blue;
-	@media (max-width: 1590px){ .header-title{display: none !important;} }
+	@media (max-width: 1610px){
+		.desktop-header{
+			#header-logo{display:none !important;}
+			.header-title{margin-right: 5px !important;}
+			.header-sodial{margin-right: auto;}
+		}
+	}
+	@media (max-width: 1365px){
+		.desktop-header{
+			.header-social{display: none !important;}
+		}
+	}
 	&.sticky{
 		color:$black;
 		background-color: $white;
@@ -30,12 +41,78 @@ header{
 			filter: brightness(0%);
 		}
 	}
+	nav.navbar{
+		h1, .h1{font-size:10px;padding-left:5px;letter-spacing: 1px;}
+		.burger-icon {
+		    height: 3px;
+		    margin-top: 5px;
+		    width: 30px;
+		    margin-bottom: 5px;
+		    border-radius: 5px;
+		    background-color: $white;
+		}
+		button.navbar-toggler {
+		    border: solid 1px $white;
+		    border-radius: 3px;
+		    margin-right: 10px;
+		}
+		.account-link{
+			color:$white;transition:.3s;
+			color: $white;
+			font-size: 12px;
+			font-weight: 700;
+			text-transform: uppercase;
+			padding: 0 7px;
+			letter-spacing: 1px;
+		}
+		ul{
+			padding:0;
+			margin:0;
+			li{
+				display:block;
+				a{
+					transition:.3s;
+					color: $white;
+					font-size: 12px;
+					font-weight: 700;
+					text-transform: uppercase;
+					padding: 0 7px;
+					letter-spacing: 1px;
+				}
+			}
+		}
+		&.sticky{
+			color:$black;
+			background-color: $white;
+			.burger-icon {
+			    background-color: $black;
+			}
+			button.navbar-toggler {
+			    border: solid 1px $black;
+			}
+			.account-link{color:$black;}
+			.header-title a .h1{color:$black;}
+			ul li a{
+				color: $black;
+			}
+			.account-link{
+				color:$black;
+				.account-img{
+					background-color: $white;
+				}
+			}
+			img{
+				filter: brightness(0%);
+			}
+		}
+	}
 	.header-title a .h1{color:$white;}
 	img{
 		transition:.3s;
 		filter: brightness(100%);
 	}
 	.header-nav{
+		color:$white;
 		height: 56px;
 		h1, .h1{font-size:10px;padding-left:5px;letter-spacing: 1px;}
 		ul#menu-menu-header{

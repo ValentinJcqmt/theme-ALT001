@@ -38,15 +38,29 @@
 					<div class="col-12 cand-spont-txt my-1">
 						<?php echo $contenu['txt-secondaire']; ?>
 					</div>
-						<?php if($contenu['url-btn'] && $contenu['txt-btn']){ ?>
-							<div class="col-12 cand-spont-btn my-1 text-uppercase">
+						<?php if($contenu['picto-btn']){ ?>
+							<style type="text/css">
+								.cand-spont-btn.btn-1 .white-btn-arrow:after{
+									content: url(<?php echo $contenu['picto-btn']['url'] ?>);
+								}
+							</style>
+						<?php }
+						if($contenu['url-btn'] && $contenu['txt-btn']){ ?>
+							<div class="col-12 cand-spont-btn btn-1 my-1 text-uppercase">
 								<a href="<?php echo $contenu['url-btn']; ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
 									<?php echo $contenu['txt-btn']; ?>
 								</a>
 							</div>
-						<?php } ?>
-						<?php if($contenu['url-btn-2'] && $contenu['txt-btn-2']){ ?>
-							<div class="col-12 cand-spont-btn my-1 text-uppercase">
+						<?php }
+						if($contenu['picto-btn-2']){ ?>
+							<style type="text/css">
+								.cand-spont-btn.btn-2 .white-btn-arrow:after{
+									content: url(<?php echo $contenu['picto-btn-2']['url'] ?>);
+								}
+							</style>
+						<?php }
+						if($contenu['url-btn-2'] && $contenu['txt-btn-2']){ ?>
+							<div class="col-12 cand-spont-btn btn-2 my-1 text-uppercase">
 								<a href="<?php echo $contenu['url-btn-2']; ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
 									<?php echo $contenu['txt-btn-2']; ?>
 								</a>

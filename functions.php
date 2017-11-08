@@ -13,6 +13,20 @@ show_admin_bar( false );
  */
 if ( function_exists('register_sidebar') )
 register_sidebar(array('id' => 'sidebar-1'));
+/**********************************************************************************************************************/
+function tr_create_my_taxonomy() {
+
+    register_taxonomy(
+        'offer-category',
+        'annonce',
+        array(
+            'label' => __( 'Catégorie d\'annonce' ),
+            'rewrite' => array( 'slug' => 'offer-category' ),
+            'hierarchical' => true,
+        )
+    );
+}
+add_action( 'init', 'tr_create_my_taxonomy' );
 
 /***********************************************************************************************************************/
 //Register Custom Post Type
@@ -26,7 +40,7 @@ function custom_post_type_offre() {
 		'label'                 => __( 'Offre d\'emploi', 'text_domain' ),
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'custom-fields', ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'taxonomies'            => array( 'offer-category' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,

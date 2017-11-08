@@ -29,9 +29,11 @@ $(window).on('load', function (){
         if ($(window).width() > 991) {
             if(y_scroll_pos > 0) {
             	$('header').addClass('sticky');
+                $('nav').addClass('sticky');
             }
             else{
             	$('header').removeClass('sticky');
+                $('nav').removeClass('sticky');
             }
         }
     }

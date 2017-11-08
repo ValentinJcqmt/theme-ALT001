@@ -70,7 +70,7 @@ h5,.h5{font-weight:700;}
 	    width: 33px;
 	    text-align: center;
 	    vertical-align: middle;
-	    line-height: 37px;
+	    line-height: 40px;
 	}
 }
 .gray-btn-arrow:after{
@@ -508,6 +508,11 @@ h5,.h5{font-weight:700;}
 		    font-size: 30px;
 		}
 	}
+	@media (max-width: 576px){
+		div.know-more-txt, div.cand-spont-title, div.social-connect-title {
+		    font-size: 20px;
+		}
+	}
 	@media (max-width: 992px){
 		.page-number{font-size: 10px; padding: 10px 14px 9px; margin-bottom: 10px;}
 		div.col2-bg-black-white{
@@ -680,6 +685,25 @@ h5,.h5{font-weight:700;}
 	.cand-spond-txt, .cand-spond-contact{font-size:15px;}
 	.know-more-btn, .cand-spont-btn, .know-more-subtitle{font-size:10px;}
 	hr.cand-spont-separator{height: 1px;width: 100%;background: #FFF;border: none;}
+	@media (max-width: 768px){
+		.filters  .checkbox-urgent label[for="is-urgent"]{line-height: 40px}
+		div.know-more-txt, div.cand-spont-title, div.social-connect-title {
+		    font-size: 30px;
+		}
+	}
+	@media (max-width: 576px){
+		div.know-more-txt, div.cand-spont-title, div.social-connect-title {
+		    font-size: 22px;
+		}
+	}
+}
+/***************************************************************************************************************/
+/*ARTICLE*/
+.single-article{
+	h1{font-size: 30px;}
+	.article-content-txt{
+		h2,h3,h4{margin-top: 15px; margin-bottom:5px;}
+	}
 }
 
 

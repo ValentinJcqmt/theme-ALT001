@@ -128,7 +128,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="row">
-						<div class="col-12 col-lg-4 text-center text-lg -left">
+						<div class="col-12 col-lg-4 text-center text-lg-left">
 							<a href="<?php echo get_permalink(get_previous_post()); ?>" class="my-1 d-inline-block mr-auto py-1 px-3 bg-black text-uppercase text-white prev-offre-btn">
 								voir l'offre précédente
 							</a>
@@ -138,7 +138,7 @@
 								Retour aux offres d'emploi
 							</a>
 						</div>
-						<div class="col-12 col-lg-4 text-center text-lg -right">
+						<div class="col-12 col-lg-4 text-center text-lg-right">
 							<a href="<?php echo get_permalink(get_next_post()); ?>" class="my-1 d-inline-block ml-auto py-1 px-3 bg-black text-uppercase text-white next-offre-btn">
 								voir l'offre suivante
 							</a>
@@ -151,7 +151,7 @@
 	<div class="offre-similar bg-light-gray">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 py-2">
+				<div class="col-12 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3 py-2">
 					<b>4 offres d'emploi</b> qui peuvent vous intéresser
 				</div>
 			</div>

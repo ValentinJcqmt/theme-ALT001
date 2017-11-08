@@ -4,6 +4,17 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/wp-config.php' );
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set("display_errors", true);
 
+$ref = array();
+$currentoffers = get_posts( array(
+    'post_type' =>'annonce',
+    'orderby' => 'post_date',
+	'order' => 'DESC',
+	'posts_per_page' => -1,
+), OBJECT);
+foreach ($currentoffers as $offer) {
+	$ref[$offer->ID] = get_field('ref', $offer->ID);
+}
+
 $xml = csv2xml('/home/atlantis/preprod/import/annonces.csv', 'channel', 'item');
 
 function csv2xml($file, $container = 'data', $rows = 'row') {
@@ -97,6 +108,10 @@ foreach ($ar_annonce->channel->item as $item){
 	$contrat = @(string)$item->contrat;
 	$date_debut = @(string)$item->date_debut;
 	$reference = @(string)$item->reference;
+	if(in_array($reference, $ref)){
+		$pos = array_search($reference, $ref);
+		unset($ref[$pos]);
+	};
 	global $wpdb;
 	$postid = "";
 	$update = false;
@@ -133,6 +148,9 @@ foreach ($ar_annonce->channel->item as $item){
 		}
 	}
 }
+foreach($ref as $removeid => $removeref){
+	wp_trash_post($removeid);
+}
 echo "bien";exit();
 function add_annonce(
 			$title,$statut,$support,$secteur,$fonction,
@@ -159,12 +177,12 @@ function add_annonce(
 			add_post_meta($post_id, 'city', $ville);
 			add_post_meta($post_id, 'pays', $pays);
 			add_post_meta($post_id, 'descrassignement', imap_utf8($annonce));
-			add_post_meta($post_id, 'descrcustomer', esc_sql($client));
+			add_post_meta($post_id, 'descrcustomer', imap_utf8($client));
 			add_post_meta($post_id, 'date-debut', $date_debut);
 			add_post_meta($post_id, 'id-annonce', $id_annonce);
 			add_post_meta($post_id, 'id-support', $support);
 			add_post_meta($post_id, 'etat', $statut);
-			add_post_meta($post_id, 'profil', esc_sql($profil));
+			add_post_meta($post_id, 'profil', imap_utf8($profil));
 		}
 		
 function update_annonce(
@@ -176,7 +194,7 @@ function update_annonce(
 		
 			$my_post = array(
 			  'ID'           => $post_id,
-			  'post_date' => date('Y-m-d H:i:s',time()),
+			  //'post_date' => date('Y-m-d H:i:s',time()),
 			  'post_date_gmt' => date('Y-m-d H:i:s',time()),
 			  'post_modified' => date('Y-m-d H:i:s',time()),
 			  'post_modified_gmt' => date('Y-m-d H:i:s',time()),
@@ -194,11 +212,11 @@ function update_annonce(
 			update_post_meta($post_id, 'city', $ville);
 			update_post_meta($post_id, 'pays', $pays);
 			update_post_meta($post_id, 'descrassignement', $annonce);
-			update_post_meta($post_id, 'descrcustomer', esc_sql($client));
+			update_post_meta($post_id, 'descrcustomer', $client);
 			update_post_meta($post_id, 'date-debut', $date_debut);
 			update_post_meta($post_id, 'id-annonce', $id_annonce);
 			update_post_meta($post_id, 'id-support', $support);
 			update_post_meta($post_id, 'etat', $statut);
-			update_post_meta($post_id, 'profil', esc_sql($profil));
+			update_post_meta($post_id, 'profil', $profil);
 		}
 ?>

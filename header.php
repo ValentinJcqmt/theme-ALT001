@@ -32,9 +32,74 @@
 
 <body <?php body_class(); ?>>
 	<header class="fixed-top">
-		<div class="container-fluid">
-			<div class="row header-nav">
-				<div class="header-title d-flex my-auto mr-auto">
+		<div class="desktop-header hidden-lg-down">
+			<div class="container-fluid">
+				<div class="row header-nav">
+					<div class="header-title d-flex my-auto mr-auto">
+						<a href="<?php echo get_home_url(); ?>" class="d-block">
+							<?php if(is_front_page()){
+								echo '<h1 class="text-uppercase h1">'.get_field('titre', 'option').'</h1>';
+							}
+							else{
+								echo '<div class="text-uppercase h1">'.get_field('titre', 'option').'</div>';
+							}?>
+						</a>
+					</div>
+					<div id="header-logo" class="mx-auto">
+						<a href="<?php echo get_home_url(); ?>" class="d-block">
+							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
+						</a>
+					</div>
+					<div class="header-menu d-flex my-auto">
+						<?php wp_nav_menu(array('menu' => 'Menu header')); ?>
+					</div>
+					<div class="header-social d-flex my-auto">
+						<?php
+						$twitter_url = get_field('lien_twitter', 'option');
+						$linkedin_url = get_field('lien_linkedin', 'option');
+						$rss_url = get_field('lien_rss', 'option');
+						$scoopit_url = get_field('lien_scoopit', 'option');
+						$twitter_picto = get_field('picto_twitter', 'option');
+						$linkedin_picto = get_field('picto_linkedin', 'option');
+						$rss_picto = get_field('picto_rss', 'option');
+						$scoopit_picto = get_field('picto_scoopit', 'option');
+						if($twitter_url){ ?>
+							<a class="pl-1" href="<?php echo $twitter_url; ?>" target="_blank">
+								<img src="<?php echo $twitter_picto; ?>" class="img-fluid">
+							</a>
+						<?php }
+						if($linkedin_url){ ?>
+							<a class="pl-1" href="<?php echo $linkedin_url; ?>" target="_blank">
+								<img src="<?php echo $linkedin_picto; ?>" class="img-fluid">
+							</a>
+						<?php }
+						if($rss_url){ ?>
+							<a class="pl-1" href="<?php echo $rss_url; ?>" target="_blank">
+								<img src="<?php echo $rss_picto; ?>" class="img-fluid">
+							</a>
+						<?php }
+						if($scoopit_url){ ?>
+							<a class="pl-1" href="<?php echo $scoopit_url; ?>" target="_blank">
+								<img src="<?php echo $scoopit_picto; ?>" class="img-fluid">
+							</a>
+						<?php }
+						?>
+					</div>
+				</div>
+			</div>
+			<a href="#">
+				<div id="account" class="text-center">
+					<span class="text-uppercase d-inline-block">votre profil</span>
+					<div class="account-img d-inline-block">
+						<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<nav class="navbar navbar-toggleable-lg bg-blue text-white hidden-xl-up py-1">
+			<div class="row">
+			  	<div class="header-title d-flex my-auto mr-auto">
 					<a href="<?php echo get_home_url(); ?>" class="d-block">
 						<?php if(is_front_page()){
 							echo '<h1 class="text-uppercase h1">'.get_field('titre', 'option').'</h1>';
@@ -44,54 +109,56 @@
 						}?>
 					</a>
 				</div>
-				<div id="header-logo" class="mx-auto">
-					<a href="<?php echo get_home_url(); ?>" class="d-block">
-						<img src="<?php echo get_template_directory_uri(); ?>/img/logo.png">
-					</a>
-				</div>
-				<div class="header-menu d-flex my-auto">
-					<?php wp_nav_menu(array('menu' => 'Menu header')); ?>
-				</div>
-				<div class="header-social d-flex my-auto">
-					<?php
-					$twitter_url = get_field('lien_twitter', 'option');
-					$linkedin_url = get_field('lien_linkedin', 'option');
-					$rss_url = get_field('lien_rss', 'option');
-					$scoopit_url = get_field('lien_scoopit', 'option');
-					$twitter_picto = get_field('picto_twitter', 'option');
-					$linkedin_picto = get_field('picto_linkedin', 'option');
-					$rss_picto = get_field('picto_rss', 'option');
-					$scoopit_picto = get_field('picto_scoopit', 'option');
-					if($twitter_url){ ?>
-						<a class="pl-1" href="<?php echo $twitter_url; ?>" target="_blank">
-							<img src="<?php echo $twitter_picto; ?>" class="img-fluid">
-						</a>
-					<?php }
-					if($linkedin_url){ ?>
-						<a class="pl-1" href="<?php echo $linkedin_url; ?>" target="_blank">
-							<img src="<?php echo $linkedin_picto; ?>" class="img-fluid">
-						</a>
-					<?php }
-					if($rss_url){ ?>
-						<a class="pl-1" href="<?php echo $rss_url; ?>" target="_blank">
-							<img src="<?php echo $rss_picto; ?>" class="img-fluid">
-						</a>
-					<?php }
-					if($scoopit_url){ ?>
-						<a class="pl-1" href="<?php echo $scoopit_url; ?>" target="_blank">
-							<img src="<?php echo $scoopit_picto; ?>" class="img-fluid">
-						</a>
-					<?php }
-					?>
-				</div>
+			  	<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+			    	<div class="burger-icon"></div>
+			    	<div class="burger-icon"></div>
+			    	<div class="burger-icon"></div>
+			  	</button>
 			</div>
-		</div>
-		<a href="#">
-			<div id="account" class="text-center">
-				<span class="text-uppercase d-inline-block">votre profil</span>
-				<div class="account-img d-inline-block">
-					<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
+		    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+				<div class="header-menu d-flex my-auto text-right py-1">
+					<div class="ml-auto">
+						<?php wp_nav_menu(array('menu' => 'Menu header')); ?>
+					</div>
 				</div>
-			</div>
-		</a>
+				<div class="header-social d-flex my-auto text-right">
+					<div class="ml-auto px-1">
+						<?php
+						$twitter_url = get_field('lien_twitter', 'option');
+						$linkedin_url = get_field('lien_linkedin', 'option');
+						$rss_url = get_field('lien_rss', 'option');
+						$scoopit_url = get_field('lien_scoopit', 'option');
+						$twitter_picto = get_field('picto_twitter', 'option');
+						$linkedin_picto = get_field('picto_linkedin', 'option');
+						$rss_picto = get_field('picto_rss', 'option');
+						$scoopit_picto = get_field('picto_scoopit', 'option');
+						if($twitter_url){ ?>
+							<a class="pl-1" href="<?php echo $twitter_url; ?>" target="_blank">
+								<img src="<?php echo $twitter_picto; ?>" class="img-fluid">
+							</a>
+						<?php }
+						if($linkedin_url){ ?>
+							<a class="pl-1" href="<?php echo $linkedin_url; ?>" target="_blank">
+								<img src="<?php echo $linkedin_picto; ?>" class="img-fluid">
+							</a>
+						<?php }
+						if($rss_url){ ?>
+							<a class="pl-1" href="<?php echo $rss_url; ?>" target="_blank">
+								<img src="<?php echo $rss_picto; ?>" class="img-fluid">
+							</a>
+						<?php }
+						if($scoopit_url){ ?>
+							<a class="pl-1" href="<?php echo $scoopit_url; ?>" target="_blank">
+								<img src="<?php echo $scoopit_picto; ?>" class="img-fluid">
+							</a>
+						<?php } ?>
+					</div>
+				</div>
+				<a href="#">
+					<div class="text-right account-link text-uppercase py-1">
+						votre profil
+					</div>
+				</a>
+		  	</div>
+		</nav>
 	</header>
