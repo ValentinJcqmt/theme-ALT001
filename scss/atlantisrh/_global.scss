@@ -704,6 +704,54 @@ h5,.h5{font-weight:700;}
 	.article-content-txt{
 		h2,h3,h4{margin-top: 15px; margin-bottom:5px;}
 	}
+	.offre-card{
+		min-height: 350px;
+		&> a{
+			height:100%;
+			&>.row{
+				height:100%;
+				& > .offre-infos{height:calc(100% - 150px);display: flex;flex-direction: column;}
+				p.time{margin-top: auto;font-size: 11px;font-weight: 700;letter-spacing: 1px;padding-left: 17px;position: relative;}
+				p.time:before{content:url('../img/time.png');position: absolute;left:0;}
+			}
+		}
+		.offre-update{font-size: 12px;}
+	}
+	.offre-title{
+		height: 150px;
+	    display: flex;
+	    flex-direction: column;
+	    position: relative;
+	    p.name-offre{margin-top: auto;}
+	    p.ref-offre{margin-bottom: auto;}
+	    &.urgente:after{
+	    	content:url('../img/red-bell-small.png');
+	    }
+	    &.urgente:after{
+	    	background: #fff;
+		    border: solid 4px #e7e7e7;
+		    position: absolute;
+		    bottom: -15px;
+		    border-radius: 50%;
+		    height: 30px;
+		    width: 30px;
+		    z-index: 2;
+		    left: calc((100% - 30px)/2);
+	    }
+	}
+	.col2-bg-black-white{
+		background: linear-gradient(to right, #FFF 50%, #333 50%);
+		letter-spacing: 1px;
+		.white-btn-arrow:after{background:#454545;}
+	}
+	@media (max-width: 992px){
+		div.col2-bg-black-white{
+			background: none;
+			.container-fluid{padding-left: 0; padding-right: 0;}
+			.savoir-plus{padding-right: 10px; padding-left: 10px; background:$white;}
+			.candidature-spont{padding-right: 10px; padding-left: 10px; background:$black;}
+		}
+	}
 }
 
 

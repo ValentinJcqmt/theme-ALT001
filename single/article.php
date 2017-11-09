@@ -211,14 +211,81 @@
 			</div>
 		</div>
 	</div>
-	<?php
-		// $contenus = get_field('contenus', 4735);
-		// if($contenus){
-		// 	foreach ($contenus as $contenu) {
-		// 		if($contenu['acf_fc_layout'] == "social-connect"){
-		// 			include TEMPLATEPATH . '/contenus/social-connect.php';
-		// 		}
-		// 	}
-		// }
-	?>
+	<div class="col2-bg-black-white font-weight-bold">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12 col-lg-6 savoir-plus text-black text-uppercase">
+					<div class="row py-5 px-5 px-lg-0">
+						<div class="col-12 know-more-title mb-2">
+							<?php echo get_field('post-sous-titre-know-more', 'option'); ?>
+						</div>
+						<div class="col-12 know-more-subtitle">
+							<?php echo get_field('post-sous-titre-entreprise', 'option'); ?>
+						</div>
+						<div class="col-12 know-more-txt">
+							<?php echo get_field('pst-txt-entreprise', 'option'); ?>
+						</div>
+						<div class="col-12 know-more-btn py-1">
+							<a href="<?php echo get_field('post-url-btn-entreprise', 'option'); ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+								<?php echo get_field('post-txt-btn-entreprise', 'option'); ?>
+							</a>
+						</div>
+						<div class="col-12 know-more-subtitle mt-3">
+							<?php echo get_field('post-sous-titre-candidat','option'); ?>
+						</div>
+						<div class="col-12 know-more-txt">
+							<?php echo get_field('post-txt-candidat','option'); ?>
+						</div>
+						<div class="col-12 know-more-btn py-1">
+							<a href="<?php echo get_field('post-url-btn-candidat', 'option'); ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+								<?php echo get_field('post-txt-btn-candidat', 'option'); ?>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-lg-6 candidature-spont text-white">
+					<div class="row py-5 pl-5 pr-5 pr-lg-0">
+						<div class="col-12 cand-spont-title text-uppercase">
+							<?php echo get_field('post-contact-titre','option'); ?>
+						</div>
+						<div class="col-12 cand-spont-txt my-1">
+							<?php echo get_field('post-contact-txt','option'); ?>
+						</div>
+							<?php if(get_field('post-picto-btn','option')){ ?>
+								<style type="text/css">
+									.cand-spont-btn.btn-1 .white-btn-arrow:after{
+										content: url(<?php echo get_field('post-picto-btn','option')['url'] ?>);
+									}
+								</style>
+							<?php }
+							if(get_field('post-url-btn','option') && get_field('post-txt-btn','option')){ ?>
+								<div class="col-12 cand-spont-btn btn-1 my-1 text-uppercase">
+									<a href="<?php echo get_field('post-url-btn','option'); ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
+										<?php echo get_field('post-txt-btn','option'); ?>
+									</a>
+								</div>
+							<?php }
+							if(get_field('post-picto-btn-2','option')){ ?>
+								<style type="text/css">
+									.cand-spont-btn.btn-2 .white-btn-arrow:after{
+										content: url(<?php echo get_field('post-picto-btn-2','option')['url'] ?>);
+									}
+								</style>
+							<?php }
+							if(get_field('post-url-btn-2','option') && get_field('post-txt-btn-2','option')){ ?>
+								<div class="col-12 cand-spont-btn btn-2 my-1 text-uppercase">
+									<a href="<?php echo get_field('post-url-btn-2','option'); ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
+										<?php echo get_field('post-txt-btn-2','option'); ?>
+									</a>
+								</div>
+							<?php } ?>
+						<hr class="cand-spont-separator my-2">
+						<div class="col-12 cand-spont-contact text-light-gray my-1">
+							<?php echo get_field('post-contact-bottom-txt','option'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
