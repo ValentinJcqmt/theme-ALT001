@@ -108,31 +108,41 @@
 			if($recent_posts){?>
 			<div class="row">
 				<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 py-2">
-					Nos <b>6 dernières actualités</b> publiées
+					Nos <b><?php echo count($recent_posts); ?> dernières actualités</b> publiées
 				</div>
 			</div>
 			<div class=row>
 				<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
 					<div class="row">
 					<?php foreach ($recent_posts as $article) { ?>
-						<div class="article-card col-12 col-md-6 col-lg-4">
-							<a href="<?php echo get_permalink($article->ID); ?>">
-								<div class="row p-1">
-									<div class="col-12">
-										<div class="thumbnail-card">
-											<img src="">
+						<div class="article-card col-12 col-md-6 col-lg-4 p-1">
+							<a href="<?php echo get_permalink($article['ID']); ?>">
+								<div class="row bg-white">
+									<?php if(has_post_thumbnail($article['ID'])) {?>
+										<div class="col-12 post-thumbnail-container">
+											<div class="post-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url($article['ID']); ?>');">
+											</div>
 										</div>
-									</div>
-									<div clss="col-12">
-										<p class="article-cat text-uppercase color-blue font-weight-bold"><?php echo 'cat'; ?></p>
-										<p class="article-title text-uppercase color-black font-weight-bold"><?php echo the_title($article->ID); ?></p>
-										<p class="article-excerpt color-black"><?php echo substr(get_the_content($article['ID']), 0, 140)." [...]"; ?></p>
-										<?php $daysago = round((date('U') - get_the_time('U', $article->ID)) / (60*60*24));
-										if($daysago == 0){?>
-										<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
-										<?php } else{ ?>
-										<p class="time text-uppercase text-light-gray">Il y a <?php echo $daysago; ?> jour<?php if($daysago>1) echo's'; ?></p>
-										<?php } ?>
+									<?php } else{ ?>
+										<div class="col-12 post-thumbnail-container">
+											<div class="post-thumbnail" style="background-image:url('<?php echo get_template_directory_uri(); ?>/img/actu-thumb.png');">
+											</div>
+										</div>
+									<?php } ?>
+									<div class="col-12 post-info-container">
+										<div class="p-1 p-lg-2 d-flex post-infos">
+											<?php if(has_category('', $article['ID'])){ ?>
+											<p class="text-blue article-cat text-uppercase color-blue font-weight-bold"><?php echo get_the_category($article['ID'])[0]->name; ?></p>
+											<?php } ?>
+											<p class="article-title text-uppercase color-black font-weight-bold"><?php echo get_the_title($article['ID']); ?></p>
+											<div class="article-excerpt color-black"><?php echo substr(strip_tags(get_the_content($article['ID'])), 0, 140); ?> [...]</div>
+											<?php $daysago = round((date('U') - get_the_time('U', $article['ID'])) / (60*60*24));
+											if($daysago == 0){?>
+											<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
+											<?php } else{ ?>
+											<p class="time text-uppercase text-light-gray">Il y a <?php echo $daysago; ?> jour<?php if($daysago>1) echo's'; ?></p>
+											<?php } ?>
+										</div>
 									</div>
 								</div>
 							</a>
@@ -164,13 +174,13 @@
 						<div class="offre-card col-12 col-md-6 col-lg-4">
 							<a href="<?php echo get_permalink($offer); ?>">
 								<div class="row p-1">
-									<div class="col-12 offre-title urgente text-white px-4 py-auto text-center bg-red">
+									<div class="col-12 offre-title urgente text-white px-1 px-lg-2 py-auto text-center bg-red">
 										<p class="name-offre text-uppercase"><?php echo get_the_title($offer); ?></p>
 										<?php if(get_field('ref', $offer)){?>
 											<p class="ref-offre">Référence : <em><?php echo get_field('ref', $offer); ?></em></p>
 										<?php } ?>
 									</div>
-									<div class="col-12 bg-white text-black px-4 py-2 offre-infos">
+									<div class="col-12 bg-white text-black px-1 px-lg-2 py-2 offre-infos">
 										<?php if(get_field('contrat', $offer)){ ?>
 											<p class="info-offre">Contrat : <em><?php echo get_field('contrat', $offer); ?></em></p>
 										<?php }

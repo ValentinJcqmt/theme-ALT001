@@ -661,6 +661,20 @@ h5,.h5{font-weight:700;}
 /**************************************************************************************************************/
 /*PAGE*/
 .page .main.page{
+	.page-title:after {
+	    content: url(../img/btn-arrow-black-small-down.png);
+	    background: #fff;
+	    border: solid 4px $light-gray;
+	    position: absolute;
+	    bottom: -15px;
+	    border-radius: 50%;
+	    height: 30px;
+	    width: 30px;
+	    z-index: 2;
+	    text-align: center;
+	    left: calc((100% - 30px)/2);
+	}
+	.page-title{position:relative;}
 	h1{font-size: 30px;}
 	.page-content-txt{
 		h2, h3, h4, h5{font-size:16px;font-weight: bold; text-transform: uppercase; margin-top:20px; margin-bottom: 20px; letter-spacing: 1px;}
@@ -704,6 +718,9 @@ h5,.h5{font-weight:700;}
 	.article-content-txt{
 		h2,h3,h4{margin-top: 15px; margin-bottom:5px;}
 	}
+	.article-content {
+	    border: solid 15px $light-gray;
+	}
 	.offre-card{
 		min-height: 350px;
 		&> a{
@@ -716,6 +733,60 @@ h5,.h5{font-weight:700;}
 			}
 		}
 		.offre-update{font-size: 12px;}
+	}
+	.article-next-prev{background-image: url('../img/offre-back-bg.png'); background-position: center center; background-size: cover; background-repeat: no-repeat;}
+	.prev-article-btn{position:relative; font-size:15px; margin-left:40px;font-weight:700;}
+	.next-article-btn{position:relative; font-size:15px; margin-right:40px;font-weight:700;}
+	.article-back-btn{position: relative; font-size: 15px; margin-left:40px;font-weight:700;}
+	.article-back-btn:before{
+		content:url('../img/back-arrow-black.png');
+		background-color: $gray;
+	    position: absolute;
+	    left: -40px;
+	    top: 0;
+	    height: 100%;
+	    width: 40px;
+	    text-align: center;
+	    vertical-align: middle;
+	    line-height: 37px;
+	}
+	.prev-article-btn:before{
+		content:url('../img/btn-arrow-black-small-invert.png');
+		background-color: $white;
+	    position: absolute;
+	    left: -40px;
+	    top: 0;
+	    height: 100%;
+	    width: 40px;
+	    text-align: center;
+	    vertical-align: middle;
+	    line-height: 37px;
+	}
+	.next-article-btn:after{
+		content:url('../img/btn-arrow-black-small.png');
+		background-color: $white;
+	    position: absolute;
+	    right: -40px;
+	    top: 0;
+	    height: 100%;
+	    width: 40px;
+	    text-align: center;
+	    vertical-align: middle;
+	    line-height: 37px;
+	}
+	.page-title{position:relative;}
+	.page-title:after {
+	    content: url(../img/btn-arrow-black-small-down.png);
+	    background: #fff;
+	    border: solid 4px $light-gray;
+	    position: absolute;
+	    bottom: -30px;
+	    border-radius: 50%;
+	    height: 30px;
+	    width: 30px;
+	    z-index: 2;
+	    text-align: center;
+	    left: calc((100% - 30px)/2);
 	}
 	.offre-title{
 		height: 150px;
@@ -751,6 +822,27 @@ h5,.h5{font-weight:700;}
 			.savoir-plus{padding-right: 10px; padding-left: 10px; background:$white;}
 			.candidature-spont{padding-right: 10px; padding-left: 10px; background:$black;}
 		}
+	}
+	.article-card{
+		a{height:100%;}
+		a>.row{height:100%;}
+		.article-cat{font-size:10px;}
+		.article-excerpt{font-size: 12px;font-style: italic;}
+		.time {
+		    margin-top: auto;
+		    font-size: 11px;
+		    font-weight: 700;
+		    letter-spacing: 1px;
+		    padding-left: 17px;
+		    position: relative;
+		    padding-top: 20px;
+		    margin-bottom: 0;
+		}
+		p.time:before{content:url('../img/time.png');position: absolute;left:0;}
+		.post-thumbnail-container{height:150px;}
+		.post-info-container{height:calc(100% - 150px);}
+		.post-infos{flex-direction:column; height:100%;}
+		.post-thumbnail{height:150px;background-position: center;background-size: cover;background-repeat: no-repeat;}
 	}
 }
 

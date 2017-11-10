@@ -5,6 +5,9 @@ get_header();
 if(is_page('nos-offres-demploi')){
 	include TEMPLATEPATH . '/archive/annonces.php';
 }
+elseif(is_page('blog')){
+	include TEMPLATEPATH . '/archive/articles.php';
+}
 else{
 the_post(); ?>
 

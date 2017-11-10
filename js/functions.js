@@ -26,15 +26,13 @@ $(window).on('load', function (){
     function checkStickyMenu(){
         var y_scroll_pos = window.pageYOffset;
 
-        if ($(window).width() > 991) {
-            if(y_scroll_pos > 0) {
-            	$('header').addClass('sticky');
-                $('nav').addClass('sticky');
-            }
-            else{
-            	$('header').removeClass('sticky');
-                $('nav').removeClass('sticky');
-            }
+        if(y_scroll_pos > 0) {
+        	$('header').addClass('sticky');
+            $('nav').addClass('sticky');
+        }
+        else{
+        	$('header').removeClass('sticky');
+            $('nav').removeClass('sticky');
         }
     }
     $(window).on('scroll', function() {
