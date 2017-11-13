@@ -172,10 +172,14 @@ get_header(); ?>
 					<div class="row">
 						<div class="col-12 choix-profil-form my-3">
 							<form>
+								<?php
+								$categories = get_terms('offer-category', array('hide_empty' => false));
+								?>
 								<select id="hp-choix-profil" class="p-1 bg-white text-uppercase text-black">
-									<option><?php echo get_field('hp-profils-list-txt'); ?></option>
-									<option>Plop 1</option>
-									<option>Plop 2</option>
+									<option value="null"><?php echo get_field('hp-profils-list-txt'); ?></option>
+									<?php foreach ($categories as $cat) { ?>
+										<option value="<?php echo get_permalink(4735).'?cat='.urlencode($cat->name); ?>"><?php echo $cat->name; ?></option>
+									<?php } ?>
 								</select>
 							</form>
 						</div>

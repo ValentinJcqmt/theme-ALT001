@@ -10304,6 +10304,126 @@ h5, .h5 {
   background-repeat: no-repeat; }
 
 /**************************************************************************************************************/
+/*ARCHIVE ARTICLES*/
+.nos-articles .page-1 .article-card.filtered:nth-of-type(n+10) {
+  display: none; }
+.nos-articles h1 {
+  font-size: 30px; }
+.nos-articles .sous-titre {
+  font-size: 15px;
+  font-weight: 700; }
+.nos-articles select#check-cat {
+  text-transform: uppercase;
+  background: #fff;
+  border: none;
+  color: #333;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: calc(100% - 30px); }
+.nos-articles .offre-title {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  position: relative; }
+  .nos-articles .offre-title p.name-offre {
+    margin-top: auto; }
+  .nos-articles .offre-title p.ref-offre {
+    margin-bottom: auto; }
+  .nos-articles .offre-title:after {
+    content: url("../img/red-bell-small.png");
+    background: #fff;
+    border: solid 4px #e7e7e7;
+    position: absolute;
+    bottom: -15px;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    z-index: 2;
+    left: calc((100% - 30px)/2); }
+.nos-articles .offre-card {
+  min-height: 350px; }
+  .nos-articles .offre-card > a {
+    height: 100%; }
+    .nos-articles .offre-card > a > .row {
+      height: 100%; }
+      .nos-articles .offre-card > a > .row > .offre-infos {
+        height: calc(100% - 150px);
+        display: flex;
+        flex-direction: column; }
+      .nos-articles .offre-card > a > .row p.time {
+        margin-top: auto;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        padding-left: 17px;
+        position: relative; }
+      .nos-articles .offre-card > a > .row p.time:before {
+        content: url("../img/time.png");
+        position: absolute;
+        left: 0; }
+.nos-articles .article-card:hover .bg-white {
+  background: #333;
+  color: #fff; }
+.nos-articles .article-card:hover .color-blue {
+  color: #fff; }
+.nos-articles .article-card .bg-white {
+  transition: .3s; }
+.nos-articles .article-card .color-blue {
+  transition: .3s; }
+.nos-articles .article-card a {
+  height: 100%; }
+.nos-articles .article-card a > .row {
+  height: 100%; }
+.nos-articles .article-card .article-cat {
+  font-size: 10px; }
+.nos-articles .article-card .article-excerpt {
+  font-size: 12px;
+  font-style: italic; }
+.nos-articles .article-card .time {
+  margin-top: auto;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding-left: 17px;
+  position: relative;
+  padding-top: 20px;
+  margin-bottom: 0; }
+.nos-articles .article-card p.time:before {
+  content: url("../img/time.png");
+  position: absolute;
+  left: 0; }
+.nos-articles .article-card .post-thumbnail-container {
+  height: 150px; }
+.nos-articles .article-card .post-info-container {
+  height: calc(100% - 150px); }
+.nos-articles .article-card .post-infos {
+  flex-direction: column;
+  height: 100%; }
+.nos-articles .article-card .post-thumbnail {
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+.nos-articles .page-number {
+  display: inline-block;
+  margin-right: 1px;
+  background: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  padding: 18px 25px 17px;
+  cursor: pointer;
+  color: #333; }
+.nos-articles .page-1 #go-to-page-1 {
+  color: #FFF;
+  background: #333; }
+@media (max-width: 992px) {
+  .nos-articles .page-number {
+    font-size: 10px;
+    padding: 10px 14px 9px;
+    margin-bottom: 10px; } }
+
+/**************************************************************************************************************/
 /*QUERIES*/
 @media (max-width: 1730px) {
   .hp-twitter-list li {

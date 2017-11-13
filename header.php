@@ -24,6 +24,9 @@
 	<?php if(is_singular('annonce')){ ?>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwym5r3aF4FiPneGmwyRcyn4ZfGntaQ1g&callback=initMap" async defer></script>
 	<?php } ?>
+	<?php if(is_page('blog')){ ?>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/list-posts.js"></script>
+	<?php } ?>
 	<?php if(is_page('nos-offres-demploi')){ ?>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/list-offres.js"></script>
 	<?php } ?>

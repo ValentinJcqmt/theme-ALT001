@@ -45,6 +45,16 @@ $(window).on('load', function (){
 
 /******************************************************************/
 
+ if($('#hp-choix-profil')){
+    $('#hp-choix-profil').on('change', function(){
+        if(this.value != "null"){
+            window.location = this.value;
+        }
+    });
+ }
+
+/******************************************************************/
+
 	$('#back-to-top').on('click', function(){
 		$('html, body').animate({
         	scrollTop: 0

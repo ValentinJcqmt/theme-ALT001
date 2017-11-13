@@ -1,4 +1,7 @@
 $(window).on('load', function (){
+	var url = window.location.href;
+	url = new URL(url);
+	var c = url.searchParams.get("cat");
 	//Var
 	var filterObj = {
 		'contrat': null,
@@ -167,5 +170,10 @@ $(window).on('load', function (){
 	        	scrollTop: $('#list-offer-cards').offset().top - 50
 		    }, 750);
 		}
+	}
+
+	if(c != null){
+		filterObj.cat = c;
+		filter()
 	}
 });

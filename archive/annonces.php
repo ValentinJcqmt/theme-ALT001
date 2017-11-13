@@ -7,7 +7,7 @@
 		'posts_per_page' => -1,
 	), OBJECT);
 	$nb_offres = count($offres_all);
-	$nb_pages = floor($nb_offres/12);
+	$nb_pages = ceil($nb_offres/12);
 	$offres_urgentes = array();
 	if(get_field('offres_urgentes', 'option'))
 		$offres_urgentes = get_field('offres_urgentes', 'option');
@@ -81,8 +81,17 @@
 						?>
 						<select id="check-cat">
 							<option value="null"><?php echo get_field('txt-metier'); ?></option>
-							<?php foreach ($categories as $cat) { ?>
-								<option value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
+							<?php
+							$currentCat = false;
+							var_dump(urldecode($_GET['cat']));
+							foreach ($categories as $cat) {
+								var_dump($cat->name);
+								if(isset($_GET['cat']) && stripslashes(urldecode($_GET['cat'])) == $cat->name)
+									$currentCat = true;
+								else
+									$currentCat = false;
+								?>
+								<option <?php if($currentCat){echo'selected';} ?> value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
 							<?php } ?>
 						</select>
 					</div>
@@ -153,9 +162,6 @@
 	<style>
 		<?php if($nb_pages > 1){
 			for($i=2; $i<=$nb_pages; $i++){
-				/*echo".page-".$i." .offre-card.filtered:nth-of-type(n+".(12*$i+1)."), .page-".$i." .offre-card.filtered:not(:nth-of-type(n+".(12*$i-11).")){
-						display: none !important;
-					}\n";*/
 				echo".page-".$i." #go-to-page-".$i."{color:#FFF; background:#333;}\n";
 			}
 		} ?>
@@ -189,7 +195,7 @@
 						'etat': '<?php echo addslashes(get_field('etat', $id)); ?>',
 						'profil': '<?php echo str_replace(array("\r", "\n"), '', nl2br(addslashes(get_field('profil', $id)))); ?>',
 						'urgent': true,
-						'cat' : [<?php foreach (wp_get_post_categories($id) as $cat){echo"'".addslashes(get_cat_name($cat))."',";} ?>],
+						'cat' : [<?php if(has_category('', $id)){echo"'".addslashes(get_cat_name(wp_get_post_categories($id)[0]))."'";} ?>],
 					});
 				</script>
  				<div id="<?php echo $id; ?>" class="offre-card filtered col-12 col-md-6 col-lg-4 col-xl-3 my-2 my-lg-1 px-1">
@@ -261,7 +267,7 @@
 						'etat': '<?php echo addslashes(get_field('etat', $offre->ID)); ?>',
 						'profil': '<?php echo str_replace(array("\r", "\n"), '', nl2br(addslashes(get_field('profil', $offre->ID)))); ?>',
 						'urgent': false,
-						'cat' : [<?php foreach (wp_get_post_categories($offre->ID) as $cat){echo("'".get_cat_name(intval($cat))."'");} ?>]
+						'cat' : [<?php if(has_category('', $offre->ID)){echo("'".get_cat_name(intval(wp_get_post_categories($offre->ID)[0]))."'");} ?>]
 					});
 				</script>
  				<div id="<?php echo $offre->ID; ?>" class="offre-card filtered col-12 col-md-6 col-lg-4 col-xl-3 my-2 my-lg-1 px-1">
