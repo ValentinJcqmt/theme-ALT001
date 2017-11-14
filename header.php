@@ -30,6 +30,9 @@
 	<?php if(is_page('nos-offres-demploi')){ ?>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/list-offres.js"></script>
 	<?php } ?>
+	<?php if(is_page('nos-fiches-metiers')){ ?>
+		<script src="<?php echo get_template_directory_uri(); ?>/js/list-metiers.js"></script>
+	<?php } ?>
 	<?php wp_head(); ?>
 </head>
 

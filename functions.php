@@ -18,7 +18,7 @@ function tr_create_my_taxonomy() {
 
     register_taxonomy(
         'offer-category',
-        'annonce',
+        array('annonce', 'metier'),
         array(
             'label' => __( 'Catégorie d\'annonce' ),
             'rewrite' => array( 'slug' => 'offer-category' ),
@@ -69,8 +69,8 @@ function custom_post_type_metier() {
 	$args = array(
 		'label'                 => __( 'Métier', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'custom-fields', ),
-		'taxonomies'            => array( 'category', 'post_tag' ),
+		'supports'              => array( 'title', 'editor', 'custom-fields', 'thumbnail' ),
+		'taxonomies'            => array( 'offer-category' ),
 		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,

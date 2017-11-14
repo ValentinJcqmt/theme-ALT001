@@ -8,6 +8,9 @@ if(is_page('nos-offres-demploi')){
 elseif(is_page('blog')){
 	include TEMPLATEPATH . '/archive/articles.php';
 }
+elseif(is_page('nos-fiches-metiers')){
+	include TEMPLATEPATH . '/archive/metiers.php';
+}
 else{
 the_post(); ?>
 

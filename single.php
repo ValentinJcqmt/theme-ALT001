@@ -8,5 +8,8 @@ if(is_singular('annonce')){
 elseif(is_singular('post')){
 	include('single/article.php');
 }
+elseif(is_singular('metier')){
+	include('single/metier.php');
+}
 
 get_footer();

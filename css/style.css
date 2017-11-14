@@ -10424,6 +10424,50 @@ h5, .h5 {
     margin-bottom: 10px; } }
 
 /**************************************************************************************************************/
+/*LISTE FICHES METIER*/
+.nos-fiches-metiers .page-1 .metier-card.filtered:nth-of-type(n+11) {
+  display: none; }
+.nos-fiches-metiers h1 {
+  font-size: 30px; }
+.nos-fiches-metiers .sous-titre {
+  font-size: 15px;
+  font-weight: 700; }
+.nos-fiches-metiers .page-number {
+  display: inline-block;
+  margin-right: 1px;
+  background: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  padding: 18px 25px 17px;
+  cursor: pointer;
+  color: #333; }
+.nos-fiches-metiers .page-1 #go-to-page-1 {
+  color: #FFF;
+  background: #333; }
+@media (max-width: 992px) {
+  .nos-fiches-metiers .page-number {
+    font-size: 10px;
+    padding: 10px 14px 9px;
+    margin-bottom: 10px; } }
+.nos-fiches-metiers .metier-title {
+  font-size: 30px; }
+.nos-fiches-metiers .metier-thumbnail-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+  .nos-fiches-metiers .metier-thumbnail-bg .bg-white {
+    transition: .3s; }
+    .nos-fiches-metiers .metier-thumbnail-bg .bg-white:hover {
+      background-color: #3665a491 !important;
+      color: #FFF; }
+
+/**************************************************************************************************************/
+/*FICHE METIER*/
+.single-metier .metier-content {
+  border: solid 20px #FFF; }
+
+/**************************************************************************************************************/
 /*QUERIES*/
 @media (max-width: 1730px) {
   .hp-twitter-list li {
