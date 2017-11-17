@@ -38,10 +38,13 @@
 
 <body <?php body_class(); ?>>
 	<!-- Modal -->
-	<div class="modal fade text-center" id="modal-connect" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal text-center" id="modal-connect" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-content bg-white d-inline-block p-5">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span class="text-black" aria-hidden="true">&times;</span>
+	        </button>
 			<div class="row">
-				<div class="col-12 text-black text-uppercase py-2 text-center font-weight-bold titre-fenetre">
+				<div class="col-12 text-black text-uppercase pb-2 text-center font-weight-bold titre-fenetre">
 					<?php echo get_field('titre-fenetre', 'option'); ?>
 				</div>
 			</div>

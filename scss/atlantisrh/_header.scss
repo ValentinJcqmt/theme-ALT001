@@ -1,22 +1,31 @@
 /**********************************************************************************************************/
 // HEADER
 .modal#modal-connect{
+	button.close{
+		position :absolute;top: 0px;right: 5px;font-size: 30px;
+		span{text-shadow:none;}
+	}
 	.modal-content{
-		margin-top: 150px;
+		position:relative;
+		margin-top: 20px;
 		width: 700px;
-		border:solid 15px $black;
+		border:solid 20px $black;
+		border-radius: 0;
 		letter-spacing: 1px;
 		.titre-fenetre{font-size:12px;}
 		.titre-social-connect,.titre-wp-connect{font-size: 25px;}
 	}
 	label{margin-bottom: 5px;}
-	input{margin-bottom: 15px;}
+	input{margin-bottom: 15px; padding:5px;}
 	label,input {
 	    display: block;
 	    width: 100%;
 	}
 	input[type=search]{width:auto;}
 	.btn-change-form{margin-top: 15px; cursor:pointer; text-decoration: underline;}
+}
+.account{
+	span,.account-img{cursor:pointer;}
 }
 header{
 	transition: .3s;

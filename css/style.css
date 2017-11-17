@@ -9199,6 +9199,16 @@ body {
   padding-right: 10px;
   padding-left: 10px; }
 
+body.modal-open {
+  padding-right: 0 !important;
+  overflow: auto; }
+  body.modal-open div.modal .modal-content {
+    opacity: 1; }
+
+body:not(.modal-open) div.modal .modal-content {
+  opacity: 0;
+  transition: .2s; }
+
 a:hover, a:active, a:focus, a:visited {
   text-decoration: none; }
 
@@ -10746,10 +10756,19 @@ h5, .h5 {
   .hp-3bloc-container img {
     width: 100%; } }
 /**********************************************************************************************************/
+.modal#modal-connect button.close {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  font-size: 30px; }
+  .modal#modal-connect button.close span {
+    text-shadow: none; }
 .modal#modal-connect .modal-content {
-  margin-top: 150px;
+  position: relative;
+  margin-top: 20px;
   width: 700px;
-  border: solid 15px #333;
+  border: solid 20px #333;
+  border-radius: 0;
   letter-spacing: 1px; }
   .modal#modal-connect .modal-content .titre-fenetre {
     font-size: 12px; }
@@ -10758,7 +10777,8 @@ h5, .h5 {
 .modal#modal-connect label {
   margin-bottom: 5px; }
 .modal#modal-connect input {
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  padding: 5px; }
 .modal#modal-connect label, .modal#modal-connect input {
   display: block;
   width: 100%; }
@@ -10768,6 +10788,9 @@ h5, .h5 {
   margin-top: 15px;
   cursor: pointer;
   text-decoration: underline; }
+
+.account span, .account .account-img {
+  cursor: pointer; }
 
 header {
   transition: .3s;
