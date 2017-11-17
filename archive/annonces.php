@@ -206,6 +206,14 @@
 								<?php if(get_field('ref', $id)){?>
 									<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
 								<?php } ?>
+								<div class="date-box bg-red">
+									<div class="d-inline-block clock bg-white">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.png">
+									</div>
+									<div class="d-inline-block date px-1 text-white bg-red text-uppercase font-weight-bold">
+										<?php echo get_the_date('d M Y', $id); ?>
+									</div>
+								</div>
 							</div>
 							<div class="col-12 bg-white text-black px-4 py-2 offre-infos">
 								<?php if(get_field('contrat', $id)){ ?>
@@ -231,13 +239,7 @@
 									else{ ?>
 										<div class="update-offre my-1"><?php echo substr(get_field('descrassignement', $offre->ID), 0, 140)."[...]"; ?></div>
 									<?php }
-								}
-								$daysago = round((date('U') - get_the_time('U', $id)) / (60*60*24));
-								if($daysago == 0){?>
-								<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
-								<?php } else{ ?>
-								<p class="time text-uppercase text-light-gray">Il y a <?php echo $daysago; ?> jour<?php if($daysago>1) echo's'; ?></p>
-								<?php } ?>
+								} ?>
 							</div>
 						</div>
 					</a>
@@ -278,6 +280,14 @@
 								<?php if(get_field('ref', $offre->ID)){?>
 									<p class="ref-offre">Référence : <em><?php echo get_field('ref', $offre->ID); ?></em></p>
 								<?php } ?>
+								<div class="date-box bg-black">
+									<div class="d-inline-block clock bg-white">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/clock-black.png">
+									</div>
+									<div class="d-inline-block date px-1 text-white bg-black text-uppercase font-weight-bold">
+										<?php echo get_the_date('d M Y', $offre->id); ?>
+									</div>
+								</div>
 							</div>
 							<div class="col-12 bg-white text-black px-4 py-2 offre-infos">
 								<?php if(get_field('contrat', $offre->ID)){ ?>
@@ -303,13 +313,7 @@
 									else{ ?>
 										<div class="update-offre my-1"><?php echo substr(get_field('descrassignement', $offre->ID), 0, 140)."[...]"; ?></div>
 									<?php }
-								}
-								$daysago = round((date('U') - get_the_time('U', $offre->ID)) / (60*60*24));
-								if($daysago == 0){?>
-								<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
-								<?php } else{ ?>
-								<p class="time text-uppercase text-light-gray">Il y a <?php echo $daysago; ?> jour<?php if($daysago>1) echo's'; ?></p>
-								<?php } ?>
+								} ?>
 							</div>
 						</div>
 					</a>

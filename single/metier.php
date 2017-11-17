@@ -1,5 +1,5 @@
 <?php the_post(); ?>
-<div class="main single-article">
+<div class="main single-metier">
 	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
 		<div class="container-fluid">
 			<div class="row">
@@ -12,11 +12,11 @@
 	<div class="bg-white">
 		<div class="container-fluid">
 			<div class="row bc-offre">
-				<div class="col-12 col-md-9 breadcrumb-offre text-left py-2">
-					<div class="d-inline text-black"><a href="<?php echo '#'; ?>">Nos fiches métiers</a> / </div>
+				<div class="col-12 col-md-6 breadcrumb-offre text-left py-2">
+					<div class="d-inline text-black"><a href="<?php echo get_permalink(5260); ?>">Nos fiches métiers</a> / </div>
 					<div class="d-inline text-green font-weight-bold"><?php the_title(); ?></div>
 				</div>
-				<div class="col-12 col-md-3 text-left text-md-right">
+				<div class="col-12 col-md-6 text-left text-md-right">
 					<div class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white alert-btn-arrow">
 						s'inscrire aux alertes métier
 					</div>
@@ -43,24 +43,26 @@
 	</div>
 	<?php if(has_post_thumbnail( )) {?>
 		<div class="page-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>');"></div>
+	<?php }else{ ?>
+		<div class="page-thumbnail" style="background-image:url(<?php echo get_template_directory_uri().'/img/metier-thumb.png'; ?>);"></div>
 	<?php } ?>
 	<div class="bg-black metier-content">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 metier-content-txt text-white py-4">
-					<div class="metier-subtitle">
+					<div class="metier-subtitle font-weight-bold text-uppercase mb-2 mt-3">
 						<?php echo get_field('profil-titre'); ?>
 					</div>
 					<div class="metier-txt">
 						<?php echo get_field('profil-txt'); ?>
 					</div>
-					<div class="metier-subtitle">
+					<div class="metier-subtitle font-weight-bold text-uppercase mb-2 mt-3">
 						<?php echo get_field('competence-titre'); ?>
 					</div>
 					<div class="metier-txt">
 						<?php echo get_field('competence-txt'); ?>
 					</div>
-					<div class="metier-subtitle">
+					<div class="metier-subtitle font-weight-bold text-uppercase mb-2 mt-3">
 						<?php echo get_field('formation-titre'); ?>
 					</div>
 					<div class="metier-txt">
@@ -119,6 +121,14 @@
 											<?php if(get_field('ref', $annonce['ID'])){?>
 												<p class="ref-offre">Référence : <em><?php echo get_field('ref', $annonce['ID']); ?></em></p>
 											<?php } ?>
+											<div class="date-box bg-red">
+												<div class="d-inline-block clock bg-white">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.png">
+												</div>
+												<div class="d-inline-block date px-1 text-white bg-red text-uppercase font-weight-bold">
+													<?php echo get_the_date('d M Y', $annonce['ID']); ?>
+												</div>
+											</div>
 										</div>
 									<?php }
 									else{ ?>
@@ -127,6 +137,14 @@
 											<?php if(get_field('ref', $annonce['ID'])){?>
 												<p class="ref-offre">Référence : <em><?php echo get_field('ref', $annonce['ID']); ?></em></p>
 											<?php } ?>
+											<div class="date-box bg-black">
+												<div class="d-inline-block clock bg-white">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/clock-black.png">
+												</div>
+												<div class="d-inline-block date px-1 text-white bg-black text-uppercase font-weight-bold">
+													<?php echo get_the_date('d M Y', $annonce['ID']); ?>
+												</div>
+											</div>
 										</div>
 									<?php } ?>
 									<div class="col-12 bg-white text-black px-1 px-lg-2 py-2 offre-infos">
@@ -153,13 +171,7 @@
 											else{ ?>
 												<div class="offre-update my-1"><?php echo substr(get_field('descrassignement', $annonce['ID']), 0, 140)."[...]"; ?></div>
 											<?php }
-										}
-										$daysago = round((date('U') - get_the_time('U', $annonce['ID'])) / (60*60*24));
-										if($daysago == 0){?>
-										<p class="time text-uppercase text-light-gray">Aujoud'hui</p>
-										<?php } else{ ?>
-										<p class="time text-uppercase text-light-gray">Il y a <?php echo $daysago; ?> jour<?php if($daysago>1) echo's'; ?></p>
-										<?php } ?>
+										} ?>
 									</div>
 								</div>
 							</a>

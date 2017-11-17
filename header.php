@@ -37,6 +37,57 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<!-- Modal -->
+	<div class="modal fade text-center" id="modal-connect" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-content bg-white d-inline-block p-5">
+			<div class="row">
+				<div class="col-12 text-black text-uppercase py-2 text-center font-weight-bold titre-fenetre">
+					<?php echo get_field('titre-fenetre', 'option'); ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 text-black text-uppercase py-2 text-center font-weight-bold titre-social-connect">
+					<?php echo get_field('titre-rs', 'option'); ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 text-center social-connect">
+					<?php do_action('oa_social_login'); ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 text-black text-uppercase py-2 text-center font-weight-bold titre-wp-connect">
+					<?php echo get_field('titre-form', 'option'); ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div id="wp-signup" class="text-center">
+						<form>
+							<label class="text-left text-black text-uppercase">adresse mail</label>
+							<input type="text" name="signupmail" placeholder="...">
+							<label class="text-left text-black text-uppercase">mot de passe</label>
+							<input type="password" name="signupmdp" placeholder="...">
+							<label class="text-left text-black text-uppercase">confirmation de mot de passe</label>
+							<input type="password" name="signupmdpconfirm" placeholder="...">
+							<input type="submit" name="signup" class="text-uppercase bg-green text-white font-weight-bold btn-login-green" value="<?php echo get_field('txt-btn-signup', 'option'); ?>">
+						</form>
+						<div id="go-to-login" class="btn-change-form"><?php echo get_field('txt-btn-go-to-login', 'option'); ?></div>
+					</div>
+					<div id="wp-login" class="text-center" style="display:none;">
+						<form>
+							<label class="text-left text-black text-uppercase">adresse mail</label>
+							<input type="text" name="loginmail" placeholder="...">
+							<label class="text-left text-black text-uppercase">mot de passe</label>
+							<input type="password" name="loginmdp" placeholder="...">
+							<input type="submit" name="login" class="text-uppercase bg-green text-white font-weight-bold btn-login-green" value="<?php echo get_field('txt-btn-connect', 'option'); ?>">
+						</form>
+						<div id="go-to-signup" class="btn-change-form"><?php echo get_field('txt-btn-go-to-signup', 'option'); ?></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<header class="fixed-top">
 		<div class="desktop-header hidden-lg-down">
 			<div class="container-fluid">
@@ -93,14 +144,23 @@
 					</div>
 				</div>
 			</div>
-			<a href="#">
-				<div id="account" class="text-center">
-					<span class="text-uppercase d-inline-block">votre profil</span>
-					<div class="account-img d-inline-block">
-						<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
+				<?php if(is_user_logged_in()){ ?>
+					<a href="<?php echo get_permalink(5335); ?>">
+						<div class="account text-center">
+							<span class="text-uppercase d-inline-block">votre profil</span>
+							<div class="account-img d-inline-block">
+								<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
+							</div>
+						</div>
+					</a>
+				<?php }else{ ?>
+					<div data-toggle="modal" data-target="#modal-connect" class="account text-center">
+						<span class="text-uppercase d-inline-block">votre profil</span>
+						<div class="account-img d-inline-block">
+							<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
+						</div>
 					</div>
-				</div>
-			</a>
+				<?php } ?>
 		</div>
 
 		<nav class="navbar navbar-toggleable-lg bg-blue text-white hidden-xl-up py-1">
@@ -160,11 +220,19 @@
 						<?php } ?>
 					</div>
 				</div>
-				<a href="#">
-					<div class="text-right account-link text-uppercase py-1">
-						votre profil
+				<?php if(is_user_logged_in()){ ?>
+					<a href="<?php echo get_permalink(5335); ?>">
+						<div class="text-right account-link text-uppercase py-1">
+							votre profil
+						</div>
+					</a>
+				<?php }else{ ?>
+					<div data-toggle="modal" data-target="#modal-connect" class="text-center">
+						<div class="text-right account-link text-uppercase py-1">
+							votre profil
+						</div>
 					</div>
-				</a>
+				<?php } ?>
 		  	</div>
 		</nav>
 	</header>

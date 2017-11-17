@@ -51,13 +51,13 @@
 							<?php } ?>
 								<div class="row py-4 bg-white">
 									<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 metier-info-container text-center">
-										<div class="metier-infos">
+										<div class="metier-infos px-1">
 											<p class="text-center metier-title text-uppercase color-black font-weight-bold"><?php echo get_the_title($metier->ID); ?></p>
 											<div class="text-center metier-excerpt color-black py-2">
 												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lobortis vitae quam quis finibus. Proin scelerisque erat sit amet felis condimentum, vel efficitur ex ultricies. Suspendisse ut est sed nisl sagittis suscipit ut eget est. Phasellus cursus dui sed sapien facilisis, vitae dictum est dictum.
 												Vestibulum bibendum enim eu augue condimentum fringilla. Nulla imperdiet aliquam elit interdum varius. Morbi pretium ex ac enim fermentum laoreet. Nullam auctor elit sollicitudin interdum tincidunt. Nam semper ipsum ut facilisis aliquam. Curabitur malesuada tempus libero, id pharetra libero fringilla vel.
 											</div>
-											<a href="<?php echo get_permalink($metier->ID); ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+											<a href="<?php echo get_permalink($metier->ID); ?>" class="my-1 py-1 px-1 px-md-3 px-lg-5 bg-black text-uppercase text-white gray-btn-arrow">
 												<?php echo get_field('txt-btn-opportunites') ?>
 											</a>
 										</div>
