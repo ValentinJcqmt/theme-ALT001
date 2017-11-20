@@ -9199,6 +9199,13 @@ body {
   padding-right: 10px;
   padding-left: 10px; }
 
+.error-login {
+  background: #ffcccc;
+  color: #af0202;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 15px; }
+
 body.modal-open {
   padding-right: 0 !important;
   overflow: auto; }
@@ -9234,6 +9241,14 @@ p img.alignright {
   user-select: none;
   /* Non-prefixed version, currently
      supported by Chrome and Opera */ }
+
+.oneall_social_login_providers {
+  min-height: auto !important; }
+
+.oneall_social_login_providers iframe {
+  height: 60px !important;
+  width: 165px !important;
+  min-height: auto !important; }
 
 /**********************************************************************************************************/
 code {
@@ -9298,10 +9313,10 @@ h5, .h5 {
 
 /***********************************************************************************************************/
 /*Boutons*/
-.gray-btn-arrow, .green-btn-arrow, .white-btn-arrow, .facebook-btn-arrow, .twitter-btn-arrow, .google-btn-arrow, .linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow {
+.gray-btn-arrow, .green-btn-arrow, .white-btn-arrow, .facebook-btn-arrow, .twitter-btn-arrow, .google-btn-arrow, .linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow, .btn-login-green {
   display: inline-block;
   position: relative; }
-  .gray-btn-arrow:after, .green-btn-arrow:after, .white-btn-arrow:after, .facebook-btn-arrow:after, .twitter-btn-arrow:after, .google-btn-arrow:after, .linkedin-btn-arrow:after, .postulat-btn-arrow:after, .alert-btn-arrow:after {
+  .gray-btn-arrow:after, .green-btn-arrow:after, .white-btn-arrow:after, .facebook-btn-arrow:after, .twitter-btn-arrow:after, .google-btn-arrow:after, .linkedin-btn-arrow:after, .postulat-btn-arrow:after, .alert-btn-arrow:after, .btn-login-green:after {
     background-color: #fff;
     position: absolute;
     right: -33px;
@@ -9318,7 +9333,7 @@ h5, .h5 {
 .green-btn-arrow:after {
   content: url(../img/btn-arrow-green.png); }
 
-.postulat-btn-arrow:after {
+.postulat-btn-arrow:after, .btn-login-green:after {
   content: url(../img/green-apply.png);
   background-color: #cff2e4; }
 
@@ -10765,7 +10780,7 @@ h5, .h5 {
     text-shadow: none; }
 .modal#modal-connect .modal-content {
   position: relative;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 700px;
   border: solid 20px #333;
   border-radius: 0;
@@ -10774,14 +10789,38 @@ h5, .h5 {
     font-size: 12px; }
   .modal#modal-connect .modal-content .titre-social-connect, .modal#modal-connect .modal-content .titre-wp-connect {
     font-size: 25px; }
+  .modal#modal-connect .modal-content form {
+    font-size: 12px; }
+  .modal#modal-connect .modal-content .modal-arrow-top.bg-white {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: calc((100% - 30px)/2);
+    border-radius: 50%;
+    line-height: 18px;
+    border: solid 5px #e7e7e7; }
 .modal#modal-connect label {
   margin-bottom: 5px; }
 .modal#modal-connect input {
   margin-bottom: 15px;
   padding: 5px; }
+.modal#modal-connect input[type=text], .modal#modal-connect input[type="password"] {
+  background: #e7e7e7;
+  border: solid 1px #333; }
 .modal#modal-connect label, .modal#modal-connect input {
   display: block;
   width: 100%; }
+.modal#modal-connect .btn-login-green {
+  cursor: pointer; }
+  .modal#modal-connect .btn-login-green:after {
+    line-height: 45px; }
+  .modal#modal-connect .btn-login-green input[type=submit] {
+    border: none;
+    margin-bottom: 0;
+    font-size: 15px;
+    padding: 10px;
+    cursor: pointer; }
 .modal#modal-connect input[type=search] {
   width: auto; }
 .modal#modal-connect .btn-change-form {

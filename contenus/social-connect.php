@@ -8,26 +8,7 @@
 				<?php echo $contenu['titre']; ?>
 			</div>
 			<div class="col-12 social-login-btn">
-				<div class="fb-login">
-					<a href="<?php echo '#';?>" class="d-inline-block my-1 py-1 text-center bg-facebook text-uppercase text-white facebook-btn-arrow">
-						Se connecter avec facebook
-					</a>
-				</div>
-				<div class="twitter-login">
-					<a href="<?php echo '#';?>" class="d-inline-block my-1 py-1 text-center bg-twitter text-uppercase text-white twitter-btn-arrow">
-						Se connecter avec Twitter
-					</a>
-				</div>
-				<div class="google-login">
-					<a href="<?php echo '#';?>" class="d-inline-block my-1 py-1 text-center bg-google text-uppercase text-white google-btn-arrow">
-						Se connecter avec google +
-					</a>
-				</div>
-				<div class="linkedin-login">
-					<a href="<?php echo '#';?>" class="d-inline-block my-1 py-1 text-center bg-linkedin text-uppercase text-white bg-linkedin linkedin-btn-arrow">
-						Se connecter avec linkedin
-					</a>
-				</div>
+				<?php do_action('oa_social_login'); ?>
 			</div>
 		</div>
 	</div><!--End .container-fluid-->

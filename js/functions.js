@@ -28,6 +28,18 @@ $(window).on('load', function (){
         }, 0);
     });
 /******************************************************************/
+
+    $('#go-to-signup').on('click', function(){
+        $('#wp-login').hide();
+        $('#wp-signup').show();
+    });
+
+    $('#go-to-login').on('click', function(){
+        $('#wp-signup').hide();
+        $('#wp-login').show();
+    });
+
+/******************************************************************/
     //Sticky menu
     function checkStickyMenu(){
         var y_scroll_pos = window.pageYOffset;

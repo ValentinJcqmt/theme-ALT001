@@ -37,9 +37,28 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php
+	global $loginRes;
+	if($loginRes != NULL && (is_wp_error($loginRes) || !is_a($loginRes, 'WP_User'))){
+		if(is_wp_error($loginRes)){
+			if(array_shift($loginRes->errors)[0]){
+				echo'<div class="error-login">';
+				echo(array_shift($loginRes->errors)[0]);
+				echo'</div>';
+			}
+		}else{
+			echo'<div class="error-login">';
+			echo($loginRes);
+			echo'</div>';
+		}
+	}
+	?>
 	<!-- Modal -->
 	<div class="modal text-center" id="modal-connect" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content bg-white d-inline-block p-5">
+		<div class="modal-content bg-light-gray d-inline-block px-5 py-2">
+			<div class="modal-arrow-top bg-white">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/btn-arrow-black-small-down.png" class="img-fluid">
+			</div>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span class="text-black" aria-hidden="true">&times;</span>
 	        </button>
@@ -58,34 +77,55 @@
 					<?php do_action('oa_social_login'); ?>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12 text-black text-uppercase py-2 text-center font-weight-bold titre-wp-connect">
-					<?php echo get_field('titre-form', 'option'); ?>
+			<div id="wp-signup">
+				<div class="row">
+					<div class="col-12 text-black text-uppercase py-2 text-center font-weight-bold titre-wp-connect">
+						<?php echo get_field('titre-form', 'option'); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="text-center">
+							<form method="POST" id="form-signup">
+								<label class="text-left text-black text-uppercase">adresse mail</label>
+								<input type="text" name="signupmail" placeholder="...">
+								<label class="text-left text-black text-uppercase">mot de passe</label>
+								<input type="password" name="signupmdp" placeholder="...">
+								<label class="text-left text-black text-uppercase">confirmation de mot de passe</label>
+								<input type="password" name="signupmdpconfirm" placeholder="...">
+								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green">
+									<input type="submit" form="form-signup" name="signup" class="bg-green text-white font-weight-bold " value="<?php echo get_field('txt-btn-signup', 'option'); ?>">
+								</div>
+							</form>
+							<div id="go-to-login" class="btn-change-form">
+								<?php echo get_field('txt-btn-go-to-login', 'option'); ?>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12">
-					<div id="wp-signup" class="text-center">
-						<form>
-							<label class="text-left text-black text-uppercase">adresse mail</label>
-							<input type="text" name="signupmail" placeholder="...">
-							<label class="text-left text-black text-uppercase">mot de passe</label>
-							<input type="password" name="signupmdp" placeholder="...">
-							<label class="text-left text-black text-uppercase">confirmation de mot de passe</label>
-							<input type="password" name="signupmdpconfirm" placeholder="...">
-							<input type="submit" name="signup" class="text-uppercase bg-green text-white font-weight-bold btn-login-green" value="<?php echo get_field('txt-btn-signup', 'option'); ?>">
-						</form>
-						<div id="go-to-login" class="btn-change-form"><?php echo get_field('txt-btn-go-to-login', 'option'); ?></div>
+			<div id="wp-login" style="display:none;">
+				<div class="row">
+					<div class="col-12 text-black text-uppercase py-2 text-center font-weight-bold titre-wp-connect">
+						<?php echo get_field('titre-form-connect', 'option'); ?>
 					</div>
-					<div id="wp-login" class="text-center" style="display:none;">
-						<form>
-							<label class="text-left text-black text-uppercase">adresse mail</label>
-							<input type="text" name="loginmail" placeholder="...">
-							<label class="text-left text-black text-uppercase">mot de passe</label>
-							<input type="password" name="loginmdp" placeholder="...">
-							<input type="submit" name="login" class="text-uppercase bg-green text-white font-weight-bold btn-login-green" value="<?php echo get_field('txt-btn-connect', 'option'); ?>">
-						</form>
-						<div id="go-to-signup" class="btn-change-form"><?php echo get_field('txt-btn-go-to-signup', 'option'); ?></div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="text-center">
+							<form method="POST" id="form-login">
+								<label class="text-left text-black text-uppercase">adresse mail</label>
+								<input type="text" name="loginmail" placeholder="...">
+								<label class="text-left text-black text-uppercase">mot de passe</label>
+								<input type="password" name="loginmdp" placeholder="...">
+								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green">
+									<input type="submit" form="form-login" name="login" class="text-uppercase bg-green text-white font-weight-bold" value="<?php echo get_field('txt-btn-connect', 'option'); ?>">
+								</div>
+							</form>
+							<div id="go-to-signup" class="btn-change-form">
+								<?php echo get_field('txt-btn-go-to-signup', 'option'); ?>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -147,7 +187,7 @@
 					</div>
 				</div>
 			</div>
-				<?php if(is_user_logged_in()){ ?>
+				<?php if(is_user_logged_in() || is_a($loginRes, 'WP_User')){ ?>
 					<a href="<?php echo get_permalink(5335); ?>">
 						<div class="account text-center">
 							<span class="text-uppercase d-inline-block">votre profil</span>

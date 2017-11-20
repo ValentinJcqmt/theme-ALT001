@@ -11,6 +11,14 @@ elseif(is_page('blog')){
 elseif(is_page('nos-fiches-metiers')){
 	include TEMPLATEPATH . '/archive/metiers.php';
 }
+elseif(is_page('profil')){
+	$redirect = get_home_url();
+    if ( !is_user_logged_in() )
+        exit( wp_redirect( $redirect ) );
+    else{
+		include TEMPLATEPATH . '/page/profil.php';
+    }
+}
 else{
 the_post(); ?>
 

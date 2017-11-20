@@ -7,19 +7,36 @@
 	}
 	.modal-content{
 		position:relative;
-		margin-top: 20px;
+		margin-top: 10px;
 		width: 700px;
 		border:solid 20px $black;
 		border-radius: 0;
 		letter-spacing: 1px;
 		.titre-fenetre{font-size:12px;}
 		.titre-social-connect,.titre-wp-connect{font-size: 25px;}
+		form{font-size: 12px;}
+		.modal-arrow-top.bg-white {
+		    position: absolute;
+		    width: 30px;
+		    height: 30px;
+		    top: -15px;
+		    left: calc((100% - 30px)/2);
+		    border-radius: 50%;
+		    line-height: 18px;
+		    border: solid 5px $light-gray;
+		}
 	}
 	label{margin-bottom: 5px;}
 	input{margin-bottom: 15px; padding:5px;}
+	input[type=text], input[type="password"]{background:$light-gray; border:solid 1px $black;}
 	label,input {
 	    display: block;
 	    width: 100%;
+	}
+	.btn-login-green{
+		cursor:pointer;
+		&:after{line-height: 45px;}
+		input[type=submit]{border: none;margin-bottom: 0;font-size: 15px;padding: 10px;cursor:pointer;}
 	}
 	input[type=search]{width:auto;}
 	.btn-change-form{margin-top: 15px; cursor:pointer; text-decoration: underline;}

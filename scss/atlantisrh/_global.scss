@@ -4,6 +4,7 @@
 html{background:none;}
 body{padding-top:56px;position:relative;font-family:'Montserrat', sans-serif; background:$white;color:$black;font-size:18px;}
 .container-fluid{width:100%;max-width:1500px;margin-right:auto;margin-left:auto; padding-right:10px; padding-left: 10px;}
+.error-login{background: #ffcccc;color: #af0202;font-weight: bold;padding: 5px;font-size: 15px;}
 body.modal-open{
 	padding-right: 0 !important; overflow:auto;
 	div.modal .modal-content{opacity:1;}
@@ -29,6 +30,8 @@ p img.alignright {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+.oneall_social_login_providers{min-height: auto !important;}
+.oneall_social_login_providers iframe{height:60px !important; width: 165px !important; min-height: auto !important}
 /**********************************************************************************************************/
 
 //balise
@@ -62,7 +65,7 @@ h5,.h5{font-weight:700;}
 .text-decoration-none:hover, a:hover .text-decoration-none{text-decoration:transparent;display:inline-block;width:100%;}
 /***********************************************************************************************************/
 /*Boutons*/
-.gray-btn-arrow, .green-btn-arrow, .white-btn-arrow, .facebook-btn-arrow, .twitter-btn-arrow, .google-btn-arrow, .linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow{
+.gray-btn-arrow, .green-btn-arrow, .white-btn-arrow, .facebook-btn-arrow, .twitter-btn-arrow, .google-btn-arrow, .linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow, .btn-login-green{
 	display: inline-block;
 	position: relative;
 	&:after{
@@ -83,7 +86,7 @@ h5,.h5{font-weight:700;}
 .green-btn-arrow:after{
 	content: url(../img/btn-arrow-green.png);
 }
-.postulat-btn-arrow:after{
+.postulat-btn-arrow:after, .btn-login-green:after{
 	content: url(../img/green-apply.png);
 	background-color:#cff2e4;
 }

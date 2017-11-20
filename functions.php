@@ -14,6 +14,64 @@ show_admin_bar( false );
 if ( function_exists('register_sidebar') )
 register_sidebar(array('id' => 'sidebar-1'));
 /**********************************************************************************************************************/
+! defined( 'ABSPATH' ) AND exit;
+
+function wpse66093_no_admin_access()
+{
+    $redirect = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : home_url( '/' );
+    if ( !current_user_can( 'administrator' ) )
+        exit( wp_redirect( $redirect ) );
+}
+add_action( 'admin_init', 'wpse66093_no_admin_access', 100 );
+
+/**********************************************************************************************************************/
+//Modal Login
+add_action('template_redirect', 'my_check_login');
+
+function my_check_login(){
+    global $loginRes;
+    $loginRes = null;
+	if(isset($_POST) && isset($_POST['signup'])){
+		$loginRes = modalSignUp();
+	}
+	if(isset($_POST) && isset($_POST['login'])){
+		$loginRes = modalLogIn();
+	}
+}
+function modalSignUp(){
+	if(isset($_POST['signupmail']) && isset($_POST['signupmdp']) && isset($_POST['signupmdpconfirm'])){
+		if($_POST['signupmdp'] == $_POST['signupmdpconfirm'] && !email_exists($_POST['signupmail'])){
+			$userlog = wp_create_user( $_POST['signupmail'], $_POST['signupmdp'], $_POST['signupmail'] );
+			if(!is_wp_error($userlog)){
+			    $userlog = wp_signon( array(
+			        'user_login'    => $_POST['signupmail'],
+			        'user_password' => $_POST['signupmdp'],
+			        'remember'      => true
+			    ), false );
+			}
+			return $userlog;
+		}
+		else if(email_exists($_POST['signupmail'])){
+			return "Email allready exist";
+		}
+		else if(!($_POST['signupmdp'] == $_POST['signupmdpconfirm'])){
+			return "Passwords not matching";
+		}
+	}
+}
+
+function modalLogIn(){
+	if(isset($_POST['loginmail']) && isset($_POST['loginmdp'])){
+		    $user = wp_signon( array(
+		        'user_login'    => $_POST['loginmail'],
+		        'user_password' => $_POST['loginmdp'],
+		        'remember'      => true
+		    ), false );
+			return $user;
+	}
+}
+
+/**********************************************************************************************************************/
 function tr_create_my_taxonomy() {
 
     register_taxonomy(
