@@ -1,3 +1,4 @@
+<?php if(!is_page('profil')){ ?>
 <div class="py-5 footer-cta-thumb" style="background-image: linear-gradient(to right, rgba(0,0,0,.95)0%, rgba(0,0,0,.6)30%, rgba(0,0,0,0)60%), url('<?php echo get_field('img-cta', 'option')['sizes']['footer-thumb']; ?>');">	
 	<div class="container-fluid py-5">
 		<div id="cta-footer" class="px-1 py-5 my-5">
@@ -25,6 +26,7 @@
 		</div>
 	</div>
 </div>
+<?php } ?>
 <div id="back-to-top" class="bg-light-gray">
 	<div class="container-fluid">
 		<div>
@@ -47,7 +49,7 @@
 					<?php
 					$twitter_url = get_field('lien_twitter', 'option');
 					$linkedin_url = get_field('lien_linkedin', 'option');
-					$rss_url = get_field('lien_rss', 'option');
+					$rss_url = get_home_url()."/feed";
 					$scoopit_url = get_field('lien_scoopit', 'option');
 					$twitter_picto = get_field('picto_twitter', 'option');
 					$linkedin_picto = get_field('picto_linkedin', 'option');

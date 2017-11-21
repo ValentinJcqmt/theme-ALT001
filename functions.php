@@ -18,12 +18,37 @@ register_sidebar(array('id' => 'sidebar-1'));
 
 function wpse66093_no_admin_access()
 {
-    $redirect = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : home_url( '/' );
-    if ( !current_user_can( 'administrator' ) )
+    $redirect = get_home_url();
+    if ( is_user_logged_in() && !current_user_can( 'administrator' ) )
         exit( wp_redirect( $redirect ) );
 }
 add_action( 'admin_init', 'wpse66093_no_admin_access', 100 );
+/**********************************************************************************************************************/
+//Profile edit
+add_action('template_redirect', 'check_profile_edit');
 
+check_profile_edit(){
+	if(is_user_logged_in() && isset($_POST) && isset($_POST['save-profil'])){
+		$current_user = wp_get_current_user();
+		$user_id = "user_".$current_user->ID;
+		$userfields = get_field_objects($user_id);
+		if($_POST['firstname'] != $current_user->user_firstname){
+			//update user firstname
+		}
+		if($_POST['lastname'] != $current_user->user_lastname){
+			//update user lastname
+		}
+		if($_POST['mail'] != $current_user->user_email){
+			//update user mail
+		}
+		if (isset($_FILES) && isset($_FILES['cv']) && $_FILES['cv']['size'] != 0 ){
+		    update_field('cv', $value, $user_id);
+		}
+		if($_POST['linkedin'] != $userfields['url-linkedin']['value']){
+			update_field('url-linkedin', $value, $user_id);
+		}
+	}
+}
 /**********************************************************************************************************************/
 //Modal Login
 add_action('template_redirect', 'my_check_login');
