@@ -18,6 +18,19 @@ function initMap() {
     });
 }
 
+//Sticky menu
+function checkStickyMenu(){
+    var y_scroll_pos = window.pageYOffset;
+
+    if(y_scroll_pos > 0) {
+        $('header').addClass('sticky');
+        $('nav').addClass('sticky');
+    }
+    else{
+        $('header').removeClass('sticky');
+        $('nav').removeClass('sticky');
+    }
+}
 
 $(window).on('load', function (){
     $(document).on('show.bs.modal', '.modal', function (event) {
@@ -28,7 +41,50 @@ $(window).on('load', function (){
         }, 0);
     });
 /******************************************************************/
+    if($('#cv-input')){
+        $('#cv-input').on('change', function(){
+            var cutAt = this.value.lastIndexOf('\\')+1;
+            var fileName = this.value.substring(cutAt);
+            $('#cv-filename').text(fileName);
+        })
+    }
+/******************************************************************/
 
+    if($('.profil .offre-card')){
+        $('.offre-card .delete').on('click', function(){
+            var ajaxUrl = window.location.protocol + "//" + window.location.host + "/wp-admin/admin-ajax.php";
+            var offerIdUserId = this.id.substring(7).split('-');
+            var offerId = offerIdUserId[0];
+            var userId = offerIdUserId[1];
+            console.log(offerId);
+            console.log(userId);
+            $("#offre-"+offerId).css('filter', 'grayscale(0.7) contrast(0.60)');
+            $.ajax({
+                type: "POST",
+                url: ajax_params.ajax_url,
+                data: {
+                    'action' : 'deleteCandidature',
+                    'offerId': offerId,
+                    'userId': userId
+                },
+                async: true,
+                dataType: "json",
+                error: function (err) {
+                    console.error(err);
+                    $("#offre-"+offerId).css('filter', 'none');
+                },
+                success: function (response) {
+                    var data = response;
+                    console.log(data);
+                    if(data){
+                        $("#offre-"+offerId).fadeOut();
+                    }
+                }
+            });
+        })
+    }
+
+/******************************************************************/
     $('#go-to-signup').on('click', function(){
         $('#wp-login').hide();
         $('#wp-signup').show();
@@ -40,19 +96,6 @@ $(window).on('load', function (){
     });
 
 /******************************************************************/
-    //Sticky menu
-    function checkStickyMenu(){
-        var y_scroll_pos = window.pageYOffset;
-
-        if(y_scroll_pos > 0) {
-        	$('header').addClass('sticky');
-            $('nav').addClass('sticky');
-        }
-        else{
-        	$('header').removeClass('sticky');
-            $('nav').removeClass('sticky');
-        }
-    }
     $(window).on('scroll', function() {
         checkStickyMenu();
     });
@@ -86,8 +129,7 @@ $(window).on('load', function (){
         dots:true,
     });
 /*********************************************************************/
- if($('#hp-odometer').length){
-
+    if($('#hp-odometer').length){
         Odometer.init();
 
         // Function used to detect if the element is scrolled in view

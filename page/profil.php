@@ -33,7 +33,7 @@
 				<div class="apercu-profil-title text-uppercase font-weight-bold my-3">
 					Aperçu du profil
 				</div>
-				<form id="profil-edit-form" method="POST">
+				<form id="profil-edit-form" method="POST" enctype="multipart/form-data">
 					<fieldset id="profil-edit-fields">
 						<label>PRÉNOM</label>
 						<input type="text" name="firstname" class="mb-2" value="<?php echo $current_user->user_firstname; ?>">
@@ -42,11 +42,13 @@
 						<label>ADRESSE</label>
 						<input type="text" name="mail" class="mb-2" value="<?php echo $current_user->user_email; ?>">
 						<span id="cv-span">CV</span>
-						<label for="cv-input" class="mr-4 mb-2 d-block bg-black text-white text-uppercase text-center font-weight-bold p-1" id="cv-label">Ajouter un document</label>
-						<input id="cv-input" type="file" name="cv" >
-						<?php if($userfields['cv']['value']){ ?>
-							<?php var_dump($userfields['cv']['value']); ?>
-						<?php } ?>
+						<label for="cv-input" class="mr-4 d-block bg-black text-white text-uppercase text-center font-weight-bold p-1" id="cv-label">Ajouter un document</label>
+						<input id="cv-input" type="file" name="cv" accept=".pdf" >
+						<div id="cv-filename" class="mb-2 text-light-gray">
+						<?php if($userfields['cv']['value']){
+							echo $userfields['cv']['value']['filename'];
+						} ?>
+						</div>
 						<label>PROFIL EN LIGNE (site web, linkedin...)</label>
 						<input type="text" name="linkedin" class="mb-2" value="<?php echo $userfields['url-linkedin']['value']; ?>">
 						<div class="save-profil-container text-center">
@@ -59,7 +61,7 @@
 			</div>
 		</div>
 	</div>
-	<?php if($userfields['offres-postulees']['value']){
+	<?php if(isset($userfields['offres-postulees']) && $userfields['offres-postulees']['value']){
 	$urgents = get_field('offres_urgentes', 'option'); ?>
 	<div class="bg-light-gray">
 		<div class="container-fluid">
@@ -72,7 +74,7 @@
 				<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
 					<div class="row">
 						<?php foreach ($userfields['offres-postulees']['value'] as $id) { ?>
-							<div class="offre-card col-12 col-md-6">
+							<div id="offre-<?php echo $id; ?>" class="offre-card col-12 col-md-6">
 								<div class="row p-1">
 									<a href="<?php echo get_permalink($id); ?>">
 										<?php if(in_array($id, $urgents)){ ?>
@@ -133,7 +135,7 @@
 											} ?>
 										</div>
 									</a>
-									<div id="delete-<?php echo $id; ?>" class="col-12 delete bg-white py-1 text-center text-light-gray">
+									<div id="delete-<?php echo $id; ?>-<?php echo $current_user->ID; ?>" class="col-12 delete bg-white py-1 text-center text-light-gray">
 										<div class="d-inline">
 											<div class="text-uppercase d-inline">supprimer</div>
 											<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/trash-icon.png">

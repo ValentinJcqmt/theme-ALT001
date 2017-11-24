@@ -9330,7 +9330,8 @@ h5, .h5 {
     line-height: 40px; }
 
 .save-profil-btn:after {
-  content: url(../img/save-icon.png); }
+  content: url(../img/save-icon.png);
+  cursor: pointer; }
 
 #cv-label:after {
   content: url(../img/cv-icon.png); }
@@ -9909,6 +9910,8 @@ h5, .h5 {
       z-index: 2;
       left: calc((100% - 30px)/2); }
   .nos-offres .offre-card {
+    transition: .3s;
+    filter: grayscale(0) contrast(1);
     min-height: 350px; }
     .nos-offres .offre-card > a {
       height: 100%; }
@@ -10060,6 +10063,8 @@ h5, .h5 {
 .single.single-annonce .offre-content {
   border: solid #333 20px; }
 .single.single-annonce .offre-card {
+  transition: .3s;
+  filter: grayscale(0) contrast(1);
   min-height: 400px; }
   .single.single-annonce .offre-card > a {
     height: 100%; }
@@ -10246,6 +10251,8 @@ h5, .h5 {
 .single-article .article-content {
   border: solid 15px #e7e7e7; }
 .single-article .offre-card {
+  transition: .3s;
+  filter: grayscale(0) contrast(1);
   min-height: 350px; }
   .single-article .offre-card > a {
     height: 100%; }
@@ -10484,6 +10491,8 @@ h5, .h5 {
     z-index: 2;
     left: calc((100% - 30px)/2); }
 .nos-articles .offre-card {
+  transition: .3s;
+  filter: grayscale(0) contrast(1);
   min-height: 350px; }
   .nos-articles .offre-card > a {
     height: 100%; }
@@ -10683,6 +10692,8 @@ h5, .h5 {
     z-index: 2;
     left: calc((100% - 30px)/2); }
 .single-metier .offre-card {
+  transition: .3s;
+  filter: grayscale(0) contrast(1);
   min-height: 350px; }
   .single-metier .offre-card > a {
     height: 100%; }
@@ -10779,12 +10790,14 @@ h5, .h5 {
     font-size: 15px;
     line-height: 15px; }
 .main.profil .save-profil-container {
-  width: 100%;
-  cursor: pointer; }
+  width: 100%; }
 .main.profil .save-profil-btn {
   font-size: 15px;
   line-height: 15px;
-  margin-right: 43px; }
+  margin-right: 43px;
+  cursor: pointer; }
+  .main.profil .save-profil-btn input {
+    cursor: pointer; }
 .main.profil #save-profil {
   border: none; }
 .main.profil .offre-title {
@@ -10829,6 +10842,8 @@ h5, .h5 {
     z-index: 2;
     left: calc((100% - 30px)/2); }
 .main.profil .offre-card {
+  transition: .3s;
+  filter: grayscale(0) contrast(1);
   min-height: 350px; }
   .main.profil .offre-card > .row {
     height: 100%; }

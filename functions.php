@@ -1,6 +1,10 @@
 <?php
 //require_once WP_CONTENT_DIR . '/themes/atlantisrh/import_annonces.php';
 
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
 add_theme_support( 'post-thumbnails' );
 
 register_nav_menus(array('primary' => 'Menu'));
@@ -13,6 +17,37 @@ show_admin_bar( false );
  */
 if ( function_exists('register_sidebar') )
 register_sidebar(array('id' => 'sidebar-1'));
+/**********************************************************************************************************************/
+
+function my_enqueue() {
+    wp_enqueue_script( 'ajax-script', get_template_directory_uri() . '/js/functions.js', array('jquery') );
+
+    wp_localize_script( 'ajax-script', 'ajax_params', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+}
+add_action( 'wp_enqueue_scripts', 'my_enqueue' );
+/**********************************************************************************************************************/
+
+function deleteCandidature() {
+    if( isset($_POST['offerId']) && isset($_POST['userId']) ){
+        $offerId = $_POST['offerId'];
+        $user_id = "user_".$_POST['userId'];
+        $userfields = get_field_objects($user_id);
+		$candidatures = $userfields['offres-postulees']['value'];
+		$pos = array_search($offreId, $candidatures);
+		array_splice($candidatures, $pos, 1);
+		update_field('offres-postulees', $candidatures, $user_id);
+        echo true;
+        wp_die();
+    }
+    else{
+        echo false;
+        wp_die();
+    }
+    wp_die();
+}
+add_action('wp_ajax_deleteCandidature', 'deleteCandidature');
+add_action('wp_ajax_nopriv_deleteCandidature', 'deleteCandidature');
+
 /**********************************************************************************************************************/
 ! defined( 'ABSPATH' ) AND exit;
 
@@ -27,35 +62,71 @@ add_action( 'admin_init', 'wpse66093_no_admin_access', 100 );
 //Profile edit
 add_action('template_redirect', 'check_profile_edit');
 
-check_profile_edit(){
-	if(is_user_logged_in() && isset($_POST) && isset($_POST['save-profil'])){
+function check_profile_edit(){
+	if(is_user_logged_in() && isset($_POST) && isset($_POST['save-profil']) ){
 		$current_user = wp_get_current_user();
 		$user_id = "user_".$current_user->ID;
 		$userfields = get_field_objects($user_id);
 		if($_POST['firstname'] != $current_user->user_firstname){
-			//update user firstname
+			$args = array(
+			    'ID'         => $current_user->ID,
+			    'first_name' => esc_attr( $_POST['firstname'] )
+			);
+			wp_update_user( $args );
 		}
 		if($_POST['lastname'] != $current_user->user_lastname){
-			//update user lastname
+			$args = array(
+			    'ID'         => $current_user->ID,
+			    'last_name' => esc_attr( $_POST['lastname'] )
+			);
+			wp_update_user( $args );
 		}
 		if($_POST['mail'] != $current_user->user_email){
-			//update user mail
+			if (email_exists( $_POST['mail'] )){
+				global $loginRes;
+				$loginRes = "Un utilisateur est déjà enregistré avec cette adresse email.";
+	        } else {
+	        	$current_user->user_email = $_POST['mail'];
+	            $args = array(
+	                'ID'         => $current_user->ID,
+	                'user_email' => esc_attr( $current_user->user_email )
+	            );
+	        	wp_update_user( $args );
+	       }
 		}
-		if (isset($_FILES) && isset($_FILES['cv']) && $_FILES['cv']['size'] != 0 ){
-		    update_field('cv', $value, $user_id);
+		if (isset($_FILES) && isset($_FILES['cv']) && $_FILES['cv']['size'] != 0 && $_FILES['cv']['error'] == 0 ){
+		    $cv = $_FILES['cv'];
+		    $oldAttachment = $userfields['cv']['value']['ID'];
+			$newupload = insert_attachment('cv',null);
+			if(is_int($newupload)){
+				wp_delete_attachment( $oldAttachment, true); 
+				update_field('cv', $newupload, $user_id);
+			}
 		}
 		if($_POST['linkedin'] != $userfields['url-linkedin']['value']){
-			update_field('url-linkedin', $value, $user_id);
+			update_field('url-linkedin', $_POST['linkedin'], $user_id);
 		}
 	}
 }
+
+function  insert_attachment($file_handler,$post_id,$setthumb='false') {
+	// check to make sure its a successful upload
+	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
+
+	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+	$attach_id = media_handle_upload( $file_handler, $post_id );
+
+	if ($setthumb) update_post_meta($post_id,'_thumbnail_id',$attach_id);
+	return $attach_id;
+} 
 /**********************************************************************************************************************/
 //Modal Login
 add_action('template_redirect', 'my_check_login');
 
 function my_check_login(){
     global $loginRes;
-    $loginRes = null;
 	if(isset($_POST) && isset($_POST['signup'])){
 		$loginRes = modalSignUp();
 	}

@@ -83,6 +83,7 @@ h5,.h5{font-weight:700;}
 }
 .save-profil-btn:after{
 	content:url(../img/save-icon.png);
+	cursor:pointer;
 }
 #cv-label:after{
 	content:url(../img/cv-icon.png);
@@ -555,6 +556,8 @@ h5,.h5{font-weight:700;}
 	    }
 	}
 	.offre-card{
+		transition:.3s;
+		filter: grayscale(0) contrast(1);
 		min-height: 350px;
 		&> a{
 			height:100%;
@@ -674,6 +677,8 @@ h5,.h5{font-weight:700;}
 	    border: solid #333 20px;
 	}
 	.offre-card{
+		transition:.3s;
+		filter: grayscale(0) contrast(1);
 		min-height: 400px;
 		&> a{
 			height:100%;
@@ -806,6 +811,8 @@ h5,.h5{font-weight:700;}
 	    border: solid 15px $light-gray;
 	}
 	.offre-card{
+		transition:.3s;
+		filter: grayscale(0) contrast(1);
 		min-height: 350px;
 		&> a{
 			height:100%;
@@ -1005,6 +1012,8 @@ h5,.h5{font-weight:700;}
 	    }
 	}
 	.offre-card{
+		transition:.3s;
+		filter: grayscale(0) contrast(1);
 		min-height: 350px;
 		&> a{
 			height:100%;
@@ -1155,6 +1164,8 @@ h5,.h5{font-weight:700;}
 	    }
 	}
 	.offre-card{
+		transition:.3s;
+		filter: grayscale(0) contrast(1);
 		min-height: 350px;
 		&> a{
 			height:100%;
@@ -1201,8 +1212,11 @@ h5,.h5{font-weight:700;}
 			&#cv-label{cursor: pointer;max-width: 300px;font-size: 15px;line-height: 15px;}
 		}
 	}
-	.save-profil-container{width:100%; cursor:pointer;}
-	.save-profil-btn{font-size: 15px; line-height:15px;margin-right: 43px;}
+	.save-profil-container{width:100%;}
+	.save-profil-btn{
+		font-size: 15px; line-height:15px;margin-right: 43px; cursor:pointer;
+		input{cursor: pointer;}
+	}
 	#save-profil{border:none;}
 	.offre-title{
 		position:relative;
@@ -1249,6 +1263,8 @@ h5,.h5{font-weight:700;}
 	    }
 	}
 	.offre-card{
+		transition:.3s;
+		filter: grayscale(0) contrast(1);
 		min-height: 350px;
 		&> .row{
 			height:100%;
