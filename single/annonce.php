@@ -3,7 +3,93 @@
 		var zipcode = '<?php echo get_field('zip'); ?>';
 	</script>
 <?php } ?>
+<input type="hidden" id="id-offre" name="id-offre" value="<?php echo get_the_ID(); ?>">
 <div class="main single-offre">
+	<div class="modal text-center" id="modal-candidature" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-content bg-light-gray d-inline-block px-5 py-2">
+			<div class="modal-arrow-top bg-white">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/btn-arrow-black-small-down.png" class="img-fluid">
+			</div>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span class="text-black" aria-hidden="true">&times;</span>
+	        </button>
+	        <?php if(is_user_logged_in()){ ?>
+	        	<div id="candidature-form">
+					<div class="row">
+						<div class="col-12">
+							<div class="text-center">
+								<?php
+								$current_user = wp_get_current_user();
+								$user_id = "user_".$current_user->ID;
+								$userfields = get_field_objects($user_id);
+								if(isset($userfields['url-linkedin']['value'])){
+									echo (do_shortcode('[gravityform id=10 title=false description=false ajax=false field_values="candidature-url='.$userfields['url-linkedin']['value'].'"]'));
+								}
+								else{
+									echo (do_shortcode('[gravityform id=10 title=false description=false ajax=false]'));	
+								}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+	        <?php }
+	        else{ ?>
+				<div id="candidature-form">
+					<div class="row">
+						<div class="col-12">
+							<div class="text-center">
+								<?php echo do_shortcode("[gravityform id=7 title=false description=false ajax=false]"); ?>
+								<div id="candidature-go-to-login" class="btn-change-form">
+									Connectez-vous pour simplifier votre candidature
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="candidature-login" style="display:none;">
+					<div class="row">
+						<div class="col-12 text-black text-uppercase py-2 text-center font-weight-bold titre-social-connect">
+							<?php echo get_field('titre-rs', 'option'); ?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 text-center social-connect">
+							<?php do_action('oa_social_login'); ?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12">
+							<div class="text-center">
+								<form method="POST" id="candidature-login-form">
+									<label class="text-left text-black text-uppercase">adresse mail</label>
+									<input type="text" name="loginmail" placeholder="...">
+									<label class="text-left text-black text-uppercase">mot de passe</label>
+									<input type="password" name="loginmdp" placeholder="...">
+									<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green">
+										<input type="submit" form="candidature-login-form" name="login" class="text-uppercase bg-green text-white font-weight-bold" value="<?php echo get_field('txt-btn-connect', 'option'); ?>">
+									</div>
+								</form>
+								<form method="POST" id="candidature-pwd-forgot-form" style="display:none;">
+									<label class="text-left text-black text-uppercase">adresse mail</label>
+									<input type="text" name="mail-pwd-forgot" placeholder="...">
+									<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green">
+										<input type="submit" form="candidature-pwd-forgot-form" name="pwd-forgot" class="text-uppercase bg-green text-white font-weight-bold" value="Envoyer">
+									</div>
+								</form>
+								<div id="candidature-go-to-form" class="btn-change-form">
+									Revenir à la candidature
+								</div>
+								<div id="candidature-pwd-forgot" class="btn-change-form">
+									<?php echo get_field('txt-btn-pwd-forgot', 'option'); ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?php }?>
+		</div>
+	</div>
 	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
 		<div class="container-fluid">
 			<div class="row">
@@ -20,7 +106,7 @@
 					<div class="d-inline text-black"><a href="<?php echo get_permalink(4735); ?>">offres d'emploi</a> / </div><div class="d-inline text-green font-weight-bold"><?php echo get_the_title(); ?></div>
 				</div>
 				<div class="col-12 col-md-3 text-left text-md-right">
-					<div class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
+					<div data-toggle="modal" data-target="#modal-candidature" class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
 						postulez !
 					</div>
 				</div>
@@ -116,7 +202,7 @@
 			<?php } ?>
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 py-4 offre-apply text-center">
-					<div class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
+					<div data-toggle="modal" data-target="#modal-candidature" class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
 						postulez !
 					</div>
 				</div>

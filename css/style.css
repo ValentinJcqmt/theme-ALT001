@@ -9314,11 +9314,13 @@ h5, .h5 {
 /***********************************************************************************************************/
 /*Boutons*/
 .gray-btn-arrow, .green-btn-arrow, .white-btn-arrow, .facebook-btn-arrow, .twitter-btn-arrow, .google-btn-arrow,
-.linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow, .btn-login-green, #disconnect, #cv-label, .save-profil-btn {
+.linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow, .btn-login-green, #disconnect, #cv-label, .save-profil-btn,
+#modal-candidature .gform_footer.top_label {
   display: inline-block;
   position: relative; }
   .gray-btn-arrow:after, .green-btn-arrow:after, .white-btn-arrow:after, .facebook-btn-arrow:after, .twitter-btn-arrow:after, .google-btn-arrow:after,
-  .linkedin-btn-arrow:after, .postulat-btn-arrow:after, .alert-btn-arrow:after, .btn-login-green:after, #disconnect:after, #cv-label:after, .save-profil-btn:after {
+  .linkedin-btn-arrow:after, .postulat-btn-arrow:after, .alert-btn-arrow:after, .btn-login-green:after, #disconnect:after, #cv-label:after, .save-profil-btn:after,
+  #modal-candidature .gform_footer.top_label:after {
     background-color: #fff;
     position: absolute;
     right: -33px;
@@ -9345,7 +9347,7 @@ h5, .h5 {
 .green-btn-arrow:after {
   content: url(../img/btn-arrow-green.png); }
 
-.postulat-btn-arrow:after, .btn-login-green:after {
+.postulat-btn-arrow:after, .btn-login-green:after, #modal-candidature .gform_footer.top_label:after {
   content: url(../img/green-apply.png);
   background-color: #cff2e4; }
 
@@ -10771,10 +10773,10 @@ h5, .h5 {
   .main.profil .apercu-profil-title:after {
     content: url(../img/profil-icon-green.png);
     margin-left: 5px; }
-.main.profil #profil-edit-form label, .main.profil #profil-edit-form input[type=text] {
+.main.profil #profil-edit-form label, .main.profil #profil-edit-form input[type=text], .main.profil #profil-edit-form input[type=password] {
   width: 100%;
   font-size: 15px; }
-.main.profil #profil-edit-form input[type=text] {
+.main.profil #profil-edit-form input[type=text], .main.profil #profil-edit-form input[type=password] {
   padding: 10px 20px;
   border: solid 1px #333;
   color: #333; }
@@ -10930,27 +10932,36 @@ h5, .h5 {
   .hp-3bloc-container img {
     width: 100%; } }
 /**********************************************************************************************************/
-.modal#modal-connect button.close {
+.modal#modal-connect button.close, .modal#modal-candidature button.close {
   position: absolute;
   top: 0px;
   right: 5px;
   font-size: 30px; }
-  .modal#modal-connect button.close span {
+  .modal#modal-connect button.close span, .modal#modal-candidature button.close span {
     text-shadow: none; }
-.modal#modal-connect .modal-content {
+.modal#modal-connect .modal-content, .modal#modal-candidature .modal-content {
   position: relative;
   margin-top: 10px;
-  width: 700px;
+  max-width: 700px;
   border: solid 20px #333;
   border-radius: 0;
   letter-spacing: 1px; }
-  .modal#modal-connect .modal-content .titre-fenetre {
+  .modal#modal-connect .modal-content .titre-fenetre, .modal#modal-candidature .modal-content .titre-fenetre {
     font-size: 12px; }
-  .modal#modal-connect .modal-content .titre-social-connect, .modal#modal-connect .modal-content .titre-wp-connect {
+  .modal#modal-connect .modal-content .titre-social-connect, .modal#modal-connect .modal-content .titre-wp-connect, .modal#modal-candidature .modal-content .titre-social-connect, .modal#modal-candidature .modal-content .titre-wp-connect {
     font-size: 25px; }
-  .modal#modal-connect .modal-content form {
+  .modal#modal-connect .modal-content #go-to-login, .modal#modal-connect .modal-content #go-to-signup, .modal#modal-connect .modal-content #pwd-forgot, .modal#modal-connect .modal-content #candidature-go-to-login, .modal#modal-connect .modal-content #candidature-go-to-form, .modal#modal-connect .modal-content #candidature-pwd-forgot, .modal#modal-candidature .modal-content #go-to-login, .modal#modal-candidature .modal-content #go-to-signup, .modal#modal-candidature .modal-content #pwd-forgot, .modal#modal-candidature .modal-content #candidature-go-to-login, .modal#modal-candidature .modal-content #candidature-go-to-form, .modal#modal-candidature .modal-content #candidature-pwd-forgot {
     font-size: 12px; }
-  .modal#modal-connect .modal-content .modal-arrow-top.bg-white {
+  @media (max-width: 700px) {
+    .modal#modal-connect .modal-content .titre-social-connect, .modal#modal-connect .modal-content .titre-wp-connect, .modal#modal-candidature .modal-content .titre-social-connect, .modal#modal-candidature .modal-content .titre-wp-connect {
+      font-size: 13px; }
+    .modal#modal-connect .modal-content .titre-fenetre, .modal#modal-candidature .modal-content .titre-fenetre {
+      font-size: 10px; }
+    .modal#modal-connect .modal-content #go-to-login, .modal#modal-connect .modal-content #go-to-signup, .modal#modal-connect .modal-content #pwd-forgot, .modal#modal-connect .modal-content #candidature-go-to-login, .modal#modal-connect .modal-content #candidature-go-to-form, .modal#modal-connect .modal-content #candidature-pwd-forgot, .modal#modal-candidature .modal-content #go-to-login, .modal#modal-candidature .modal-content #go-to-signup, .modal#modal-candidature .modal-content #pwd-forgot, .modal#modal-candidature .modal-content #candidature-go-to-login, .modal#modal-candidature .modal-content #candidature-go-to-form, .modal#modal-candidature .modal-content #candidature-pwd-forgot {
+      font-size: 10px; } }
+  .modal#modal-connect .modal-content form, .modal#modal-candidature .modal-content form {
+    font-size: 12px; }
+  .modal#modal-connect .modal-content .modal-arrow-top.bg-white, .modal#modal-candidature .modal-content .modal-arrow-top.bg-white {
     position: absolute;
     width: 30px;
     height: 30px;
@@ -10959,30 +10970,41 @@ h5, .h5 {
     border-radius: 50%;
     line-height: 18px;
     border: solid 5px #e7e7e7; }
-.modal#modal-connect label {
+.modal#modal-connect label, .modal#modal-candidature label {
   margin-bottom: 5px; }
-.modal#modal-connect input {
+.modal#modal-connect input, .modal#modal-candidature input {
   margin-bottom: 15px;
   padding: 5px; }
-.modal#modal-connect input[type=text], .modal#modal-connect input[type="password"] {
+.modal#modal-connect input[type=text], .modal#modal-connect input[type="password"], .modal#modal-candidature input[type=text], .modal#modal-candidature input[type="password"] {
   background: #e7e7e7;
   border: solid 1px #333; }
-.modal#modal-connect label, .modal#modal-connect input {
+.modal#modal-connect label, .modal#modal-connect input, .modal#modal-candidature label, .modal#modal-candidature input {
   display: block;
   width: 100%; }
-.modal#modal-connect .btn-login-green {
+.modal#modal-connect .gform_fields input[type=checkbox], .modal#modal-candidature .gform_fields input[type=checkbox] {
+  display: inline; }
+  .modal#modal-connect .gform_fields input[type=checkbox] + label, .modal#modal-candidature .gform_fields input[type=checkbox] + label {
+    display: inline; }
+.modal#modal-connect .gform_footer.top_label, .modal#modal-candidature .gform_footer.top_label {
+  padding: 0 !important; }
+  .modal#modal-connect .gform_footer.top_label input[type=submit], .modal#modal-candidature .gform_footer.top_label input[type=submit] {
+    background: #3FBF74;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase; }
+.modal#modal-connect .btn-login-green, .modal#modal-connect .gform_footer.top_label, .modal#modal-candidature .btn-login-green, .modal#modal-candidature .gform_footer.top_label {
   cursor: pointer; }
-  .modal#modal-connect .btn-login-green:after {
+  .modal#modal-connect .btn-login-green:after, .modal#modal-connect .gform_footer.top_label:after, .modal#modal-candidature .btn-login-green:after, .modal#modal-candidature .gform_footer.top_label:after {
     line-height: 45px; }
-  .modal#modal-connect .btn-login-green input[type=submit] {
+  .modal#modal-connect .btn-login-green input[type=submit], .modal#modal-connect .gform_footer.top_label input[type=submit], .modal#modal-candidature .btn-login-green input[type=submit], .modal#modal-candidature .gform_footer.top_label input[type=submit] {
     border: none;
     margin-bottom: 0;
     font-size: 15px;
     padding: 10px;
     cursor: pointer; }
-.modal#modal-connect input[type=search] {
+.modal#modal-connect input[type=search], .modal#modal-candidature input[type=search] {
   width: auto; }
-.modal#modal-connect .btn-change-form {
+.modal#modal-connect .btn-change-form, .modal#modal-candidature .btn-change-form {
   margin-top: 15px;
   cursor: pointer;
   text-decoration: underline; }

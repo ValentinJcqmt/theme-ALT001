@@ -122,8 +122,18 @@
 									<input type="submit" form="form-login" name="login" class="text-uppercase bg-green text-white font-weight-bold" value="<?php echo get_field('txt-btn-connect', 'option'); ?>">
 								</div>
 							</form>
+							<form method="POST" id="form-pwd-forgot" style="display:none;">
+								<label class="text-left text-black text-uppercase">adresse mail</label>
+								<input type="text" name="mail-pwd-forgot" placeholder="...">
+								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green">
+									<input type="submit" form="form-pwd-forgot" name="pwd-forgot" class="text-uppercase bg-green text-white font-weight-bold" value="Envoyer">
+								</div>
+							</form>
 							<div id="go-to-signup" class="btn-change-form">
 								<?php echo get_field('txt-btn-go-to-signup', 'option'); ?>
+							</div>
+							<div id="pwd-forgot" class="btn-change-form">
+								<?php echo get_field('txt-btn-pwd-forgot', 'option'); ?>
 							</div>
 						</div>
 					</div>

@@ -46,10 +46,54 @@ $(window).on('load', function (){
             var cutAt = this.value.lastIndexOf('\\')+1;
             var fileName = this.value.substring(cutAt);
             $('#cv-filename').text(fileName);
-        })
+        });
     }
 /******************************************************************/
 
+    $('#candidature-go-to-login').on('click', function(){
+        $('#candidature-form').hide();
+        $('#candidature-login').show();
+    });
+
+    $('#candidature-go-to-form').on('click', function(){
+        $('#candidature-form').show();
+        $('#candidature-login').hide();
+        $('#candidature-login-form').show();
+        $('#candidature-pwd-forgot-form').hide();
+    });
+
+    $('#candidature-pwd-forgot').on('click', function(){
+        $('#candidature-login-form').hide();
+        $('#candidature-pwd-forgot-form').show();
+    });
+
+    $('.postulat-btn-arrow').on('click', function(){
+        var id = parseInt( $('#id-offre').id );
+        // $.ajax({
+        //     type: "POST",
+        //     url: ajax_params.ajax_url,
+        //     data: {
+        //         'action' : 'deleteCandidature',
+        //         'offerId': offerId,
+        //         'userId': userId
+        //     },
+        //     async: true,
+        //     dataType: "json",
+        //     error: function (err) {
+        //         console.error(err);
+        //         $("#offre-"+offerId).css('filter', 'none');
+        //     },
+        //     success: function (response) {
+        //         var data = response;
+        //         console.log(data);
+        //         if(data){
+        //             $("#offre-"+offerId).fadeOut();
+        //         }
+        //     }
+        // });
+    })
+
+/******************************************************************/
     if($('.profil .offre-card')){
         $('.offre-card .delete').on('click', function(){
             var ajaxUrl = window.location.protocol + "//" + window.location.host + "/wp-admin/admin-ajax.php";
@@ -85,14 +129,25 @@ $(window).on('load', function (){
     }
 
 /******************************************************************/
+
+    $('#pwd-forgot').on('click', function(){
+        $('#form-login').hide();
+        $('#form-pwd-forgot').show();
+    });
+
+/******************************************************************/
     $('#go-to-signup').on('click', function(){
         $('#wp-login').hide();
         $('#wp-signup').show();
+        $('#form-login').show();
+        $('#form-pwd-forgot').hide();
     });
 
     $('#go-to-login').on('click', function(){
         $('#wp-signup').hide();
         $('#wp-login').show();
+        $('#form-login').show();
+        $('#form-pwd-forgot').hide();
     });
 
 /******************************************************************/

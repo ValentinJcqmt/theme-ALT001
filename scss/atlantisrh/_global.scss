@@ -66,7 +66,8 @@ h5,.h5{font-weight:700;}
 /***********************************************************************************************************/
 /*Boutons*/
 .gray-btn-arrow, .green-btn-arrow, .white-btn-arrow, .facebook-btn-arrow, .twitter-btn-arrow, .google-btn-arrow,
-.linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow, .btn-login-green, #disconnect, #cv-label, .save-profil-btn{
+.linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow, .btn-login-green, #disconnect, #cv-label, .save-profil-btn,
+#modal-candidature .gform_footer.top_label{
 	display: inline-block;
 	position: relative;
 	&:after{
@@ -97,7 +98,7 @@ h5,.h5{font-weight:700;}
 .green-btn-arrow:after{
 	content: url(../img/btn-arrow-green.png);
 }
-.postulat-btn-arrow:after, .btn-login-green:after{
+.postulat-btn-arrow:after, .btn-login-green:after, #modal-candidature .gform_footer.top_label:after{
 	content: url(../img/green-apply.png);
 	background-color:#cff2e4;
 }
@@ -1204,8 +1205,8 @@ h5,.h5{font-weight:700;}
 		&:after{content:url(../img/profil-icon-green.png); margin-left: 5px;}
 	}
 	#profil-edit-form{
-		label, input[type=text]{width:100%;font-size: 15px;}
-		input[type=text]{padding: 10px 20px; border:solid 1px $black; color:$black;}
+		label, input[type=text], input[type=password]{width:100%;font-size: 15px;}
+		input[type=text], input[type=password]{padding: 10px 20px; border:solid 1px $black; color:$black;}
 		label, #cv-span{
 			font-weight: bold; letter-spacing: 1px;
 			&:not(#cv-label){margin-bottom: 5px; color:$black;}

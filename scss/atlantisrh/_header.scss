@@ -1,6 +1,6 @@
 /**********************************************************************************************************/
 // HEADER
-.modal#modal-connect{
+.modal#modal-connect, .modal#modal-candidature{
 	button.close{
 		position :absolute;top: 0px;right: 5px;font-size: 30px;
 		span{text-shadow:none;}
@@ -8,12 +8,18 @@
 	.modal-content{
 		position:relative;
 		margin-top: 10px;
-		width: 700px;
+		max-width: 700px;
 		border:solid 20px $black;
 		border-radius: 0;
 		letter-spacing: 1px;
 		.titre-fenetre{font-size:12px;}
 		.titre-social-connect,.titre-wp-connect{font-size: 25px;}
+		#go-to-login, #go-to-signup, #pwd-forgot, #candidature-go-to-login, #candidature-go-to-form, #candidature-pwd-forgot{font-size: 12px;}
+		@media(max-width: 700px){
+			.titre-social-connect,.titre-wp-connect{font-size: 13px;}
+			.titre-fenetre{font-size:10px;}
+			#go-to-login, #go-to-signup, #pwd-forgot, #candidature-go-to-login, #candidature-go-to-form, #candidature-pwd-forgot{font-size: 10px;}
+		}
 		form{font-size: 12px;}
 		.modal-arrow-top.bg-white {
 		    position: absolute;
@@ -33,7 +39,17 @@
 	    display: block;
 	    width: 100%;
 	}
-	.btn-login-green{
+	.gform_fields{
+		input[type=checkbox]{
+			display: inline;
+			&+ label{display: inline;}
+		}	
+	}
+	.gform_footer.top_label{
+		padding: 0 !important;
+		input[type=submit]{background:$green; color:$white; font-weight:bold; text-transform: uppercase;}
+	}
+	.btn-login-green, .gform_footer.top_label{
 		cursor:pointer;
 		&:after{line-height: 45px;}
 		input[type=submit]{border: none;margin-bottom: 0;font-size: 15px;padding: 10px;cursor:pointer;}

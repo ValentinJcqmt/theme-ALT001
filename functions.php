@@ -11,6 +11,11 @@ register_nav_menus(array('primary' => 'Menu'));
 
 show_admin_bar( false );
 
+function wpdocs_set_html_mail_content_type() {
+    return 'text/html';
+}
+add_filter( 'wp_mail_content_type', 'wpdocs_set_html_mail_content_type' );
+
 /**
  * Register our sidebars and widgetized areas.
  *
@@ -27,6 +32,7 @@ function my_enqueue() {
 add_action( 'wp_enqueue_scripts', 'my_enqueue' );
 /**********************************************************************************************************************/
 
+//Called in ajax from profil page
 function deleteCandidature() {
     if( isset($_POST['offerId']) && isset($_POST['userId']) ){
         $offerId = $_POST['offerId'];
@@ -43,7 +49,6 @@ function deleteCandidature() {
         echo false;
         wp_die();
     }
-    wp_die();
 }
 add_action('wp_ajax_deleteCandidature', 'deleteCandidature');
 add_action('wp_ajax_nopriv_deleteCandidature', 'deleteCandidature');
@@ -94,6 +99,24 @@ function check_profile_edit(){
 	        	wp_update_user( $args );
 	       }
 		}
+		if(isset($_POST['newpwd']) && isset($_POST['newpwd-confirm']) && $_POST['newpwd'] != ""){
+			if ($_POST['newpwd'] == $_POST['newpwd']){
+				wp_set_password( $_POST['newpwd'], $current_user->ID);
+				$user_email = $current_user->user_email;
+				$message = "Votre nouveau mot de passe de connexion a été modifié. <br><br>";
+			    $message .= "Si vous n'êtes pas à l'origine de ce changement, veuillez nous contacter. <br>";
+
+			    $title = "Atlantis RH - Mot de passe changé";
+
+			    if ( $message && !wp_mail($user_email, $title, $message) ){
+			        wp_die( __('The e-mail could not be sent.') );
+			        return "L'email n'a pas pu être envoyé.";
+			    }
+	        } else {
+				global $loginRes;
+				$loginRes .= "Les mots de passe ne correspondent pas.";
+	       }
+		}
 		if (isset($_FILES) && isset($_FILES['cv']) && $_FILES['cv']['size'] != 0 && $_FILES['cv']['error'] == 0 ){
 		    $cv = $_FILES['cv'];
 		    $oldAttachment = $userfields['cv']['value']['ID'];
@@ -133,7 +156,37 @@ function my_check_login(){
 	if(isset($_POST) && isset($_POST['login'])){
 		$loginRes = modalLogIn();
 	}
+	if(isset($_POST) && isset($_POST['pwd-forgot'])){
+		$loginRes = passwordForgot();
+	}
 }
+
+function passwordForgot(){
+	if( isset($_POST['mail-pwd-forgot']) ){
+		if( email_exists( $_POST['mail-pwd-forgot'] ) ){
+			$user_email = $_POST['mail-pwd-forgot'];
+			$user = get_user_by( 'email', $_POST['mail-pwd-forgot'] );
+			$newpwd = wp_generate_password(8);
+			wp_set_password( $newpwd, $user->ID);
+			$home_url = get_home_url();
+
+		    $message = "Votre nouveau mot de passe de connexion est le suivant: <br><br>";
+		    $message .= $newpwd."<br><br>";
+		    $message .= "<a href='".$home_url.";'>Connectez-vous maintenant</a>, et pensez à modifier votre mot de passe dans votre espace personnel. <br>";
+
+		    $title = "Atlantis RH - Mot de passe réinitialisé";
+
+		    if ( $message && !wp_mail($user_email, $title, $message) ){
+		        wp_die( __('The e-mail could not be sent.') );
+		        return "L'email n'a pas pu être envoyé.";
+		    }
+		}
+		else{
+			return "Aucun utilisateur n'est enregistré avec cette addresse e-mail (".$_POST['mail-pwd-forgot'].")";
+		}
+	}
+}
+
 function modalSignUp(){
 	if(isset($_POST['signupmail']) && isset($_POST['signupmdp']) && isset($_POST['signupmdpconfirm'])){
 		if($_POST['signupmdp'] == $_POST['signupmdpconfirm'] && !email_exists($_POST['signupmail'])){

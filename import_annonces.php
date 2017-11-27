@@ -50,26 +50,6 @@ function csv2xml($file, $container = 'data', $rows = 'row') {
 	}
 	return $r;
 }
-/*
-header("content-type: application/xml");
-echo '<?xml version="1.0" encoding="ISO-8859-1"?>';
-<rss version="2.0">
-  <channel> 
-    <title>Atlantis RH - Annonces Ad-Men</title>
-    <link>http://www.atlantis-rh.fr</link>
-    <description>Annonces Atlantis RH from Ad-Men</description>
-    <language>fr</language>
-    <copyright>Atlantis RH</copyright>
-    <generator>Atlantis RH CSV2XML</generator>
-    <version>1</version>
-    <?php
-    $xml = str_replace('&', '&amp;', $xml);
-    //$xml = str_replace( '####', '', $xml );
-    echo $xml;
-    ?>
-  </channel>
-</rss>
-*/
 
 $xml_annonce =  "";
 $xml = str_replace('&', '&amp;', $xml);

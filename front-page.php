@@ -285,70 +285,72 @@ get_header(); ?>
 						foreach($offers as $id => $urgent){ ?>
 						<div class="row">
 							<div class="<?php if($urgent == 'urgent') echo'offre-urgente'; ?> <?php if($n%2 == 0) echo'offre-left col-12 col-lg-6'; else echo'offre-right col-12 col-lg-6 offset-lg-6'; ?> my-2 my-lg-1">
-								<div class="row bg-white">
-									<?php if($n%2 == 0){
-										if($urgent == 'urgent'){ ?>
-											<div class="col-3 offre-title text-white px-2 py-4 bg-red">
-												<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
-												<?php if(get_field('ref', $id)){?>
-													<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
-												<?php } ?>
-											</div>
-										<?php }
-										else{ ?>
-											<div class="col-3 offre-title text-white px-2 py-4 bg-black">
-												<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
-												<?php if(get_field('ref', $id)){?>
-													<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
-												<?php } ?>
-											</div>
-										<?php }
-									} ?>
-									<div class="col-9 bg-white text-black px-3 py-2 offre-infos align-self-center">
-										<?php if(get_field('contrat', $id)){ ?>
-											<p class="info-offre">Contrat : <em><?php echo get_field('contrat', $id); ?></em></p>
-										<?php }
-										if(get_field('fonction', $id)){ ?>
-											<p class="info-offre">Fonction : <em><?php echo get_field('fonction', $id); ?></em></p>
-										<?php }
-										if(get_field('secteur', $id)){ ?>
-											<p class="info-offre">Secteur : <em><?php echo get_field('secteur', $id); ?></em></p>
-										<?php }
-										if(get_field('salary-min', $id) && get_field('salary-max', $id)){ ?>
-											<p class="info-offre">Salaire (€/an) : <em><?php echo get_field('salary-min', $id); ?> à <?php echo get_field('salary-max', $id); ?></em></p>
-										<?php }
-										if(get_field('city', $id) && get_field('pays', $id)){ ?>
-											<p class="info-offre">Localisation : <em><?php echo get_field('city', $id); ?> (<?php echo get_field('pays', $id); ?>)</em></p>
-										<?php }
-										if(get_field('descrassignement', $id)){
-											$descrSplit = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement', $id));
-											if(count($descrSplit)==2){ ?>
-												<div class="offre-update my-1"><?php echo $descrSplit[0]; ?></div>
+								<a class="d-block" href="<?php echo get_permalink($id); ?>">
+									<div class="row bg-white">
+										<?php if($n%2 == 0){
+											if($urgent == 'urgent'){ ?>
+												<div class="col-3 offre-title text-white px-2 py-4 bg-red">
+													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+													<?php if(get_field('ref', $id)){?>
+														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+													<?php } ?>
+												</div>
 											<?php }
 											else{ ?>
-												<div class="offre-update my-1"><?php echo substr(get_field('descrassignement', $id), 0, 140)."[...]"; ?></div>
+												<div class="col-3 offre-title text-white px-2 py-4 bg-black">
+													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+													<?php if(get_field('ref', $id)){?>
+														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+													<?php } ?>
+												</div>
+											<?php }
+										} ?>
+										<div class="col-9 bg-white text-black px-3 py-2 offre-infos align-self-center">
+											<?php if(get_field('contrat', $id)){ ?>
+												<p class="info-offre">Contrat : <em><?php echo get_field('contrat', $id); ?></em></p>
+											<?php }
+											if(get_field('fonction', $id)){ ?>
+												<p class="info-offre">Fonction : <em><?php echo get_field('fonction', $id); ?></em></p>
+											<?php }
+											if(get_field('secteur', $id)){ ?>
+												<p class="info-offre">Secteur : <em><?php echo get_field('secteur', $id); ?></em></p>
+											<?php }
+											if(get_field('salary-min', $id) && get_field('salary-max', $id)){ ?>
+												<p class="info-offre">Salaire (€/an) : <em><?php echo get_field('salary-min', $id); ?> à <?php echo get_field('salary-max', $id); ?></em></p>
+											<?php }
+											if(get_field('city', $id) && get_field('pays', $id)){ ?>
+												<p class="info-offre">Localisation : <em><?php echo get_field('city', $id); ?> (<?php echo get_field('pays', $id); ?>)</em></p>
+											<?php }
+											if(get_field('descrassignement', $id)){
+												$descrSplit = preg_split("/[M, m]ission[s]?[ ]?:[ ]?/", get_field('descrassignement', $id));
+												if(count($descrSplit)==2){ ?>
+													<div class="offre-update my-1"><?php echo $descrSplit[0]; ?></div>
+												<?php }
+												else{ ?>
+													<div class="offre-update my-1"><?php echo substr(get_field('descrassignement', $id), 0, 140)."[...]"; ?></div>
+												<?php }
+											} ?>
+										</div>
+										<?php if($n%2 != 0){
+											if($urgent == 'urgent'){ ?>
+												<div class="col-3 offre-title text-white px-2 py-4 bg-red">
+													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+													<?php if(get_field('ref', $id)){?>
+														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+													<?php } ?>
+												</div>
+											<?php }
+											else{ ?>
+												<div class="col-3 offre-title text-white px-2 py-4 bg-black">
+													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+													<?php if(get_field('ref', $id)){?>
+														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+													<?php } ?>
+												</div>
 											<?php }
 										} ?>
 									</div>
-									<?php if($n%2 != 0){
-										if($urgent == 'urgent'){ ?>
-											<div class="col-3 offre-title text-white px-2 py-4 bg-red">
-												<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
-												<?php if(get_field('ref', $id)){?>
-													<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
-												<?php } ?>
-											</div>
-										<?php }
-										else{ ?>
-											<div class="col-3 offre-title text-white px-2 py-4 bg-black">
-												<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
-												<?php if(get_field('ref', $id)){?>
-													<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
-												<?php } ?>
-											</div>
-										<?php }
-									} ?>
-								</div>
+								</a>
 							</div>
 						</div>
 						<? $n++;

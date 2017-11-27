@@ -21,7 +21,7 @@
 				<h1 class="text-uppercase"><?php echo $current_user->user_firstname.' '.$current_user->user_lastname ?></h1>
 			</div>
 			<div class="col-12 col-md-8 offset-md-2 col-lg-3 offset-lg-0 col-xl-4 text-right d-flex align-items-center">
-				<a href="<?php echo wp_logout_url(); ?>" id="disconnect" class="ml-0 ml-lg-auto mr-4 px-3 my-1 d-inline-block text-center py-1 bg-red text-uppercase text-white disconnect-btn-cross">
+				<a href="<?php echo wp_logout_url(get_home_url()); ?>" id="disconnect" class="ml-0 ml-lg-auto mr-4 px-3 my-1 d-inline-block text-center py-1 bg-red text-uppercase text-white disconnect-btn-cross">
 					Se déconnecter
 				</a>
 			</div>
@@ -41,6 +41,10 @@
 						<input type="text" name="lastname" class="mb-2" value="<?php echo $current_user->user_lastname; ?>">
 						<label>ADRESSE</label>
 						<input type="text" name="mail" class="mb-2" value="<?php echo $current_user->user_email; ?>">
+						<label>NOUVEAU MOT DE PASSE (Laisser vide si aucun changement)</label>
+						<input type="password" name="newpwd" class="mb-2">
+						<label>CONFIRMATION DU MOT DE PASSE</label>
+						<input type="password" name="newpwd-confirm" class="mb-2">
 						<span id="cv-span">CV</span>
 						<label for="cv-input" class="mr-4 d-block bg-black text-white text-uppercase text-center font-weight-bold p-1" id="cv-label">Ajouter un document</label>
 						<input id="cv-input" type="file" name="cv" accept=".pdf" >
