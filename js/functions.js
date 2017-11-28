@@ -67,31 +67,17 @@ $(window).on('load', function (){
         $('#candidature-pwd-forgot-form').show();
     });
 
-    $('.postulat-btn-arrow').on('click', function(){
-        var id = parseInt( $('#id-offre').id );
-        // $.ajax({
-        //     type: "POST",
-        //     url: ajax_params.ajax_url,
-        //     data: {
-        //         'action' : 'deleteCandidature',
-        //         'offerId': offerId,
-        //         'userId': userId
-        //     },
-        //     async: true,
-        //     dataType: "json",
-        //     error: function (err) {
-        //         console.error(err);
-        //         $("#offre-"+offerId).css('filter', 'none');
-        //     },
-        //     success: function (response) {
-        //         var data = response;
-        //         console.log(data);
-        //         if(data){
-        //             $("#offre-"+offerId).fadeOut();
-        //         }
-        //     }
-        // });
-    })
+/******************************************************************/
+
+    $('#input_10_10').on('change', function(){
+        var oldCvUrl;
+        if(this.value != ""){
+            $('#warning-cv-used').hide();
+        }
+        else{
+            $('#warning-cv-used').show();
+        }
+    });
 
 /******************************************************************/
     if($('.profil .offre-card')){

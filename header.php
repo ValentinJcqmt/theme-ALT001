@@ -18,7 +18,7 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/tether.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
-	<script src="<?php echo get_template_directory_uri(); ?>/js/functions.js"></script>
+	<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/functions.js"></script> -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/owl.carousel.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/odometer.min.js"></script>
 	<?php if(is_singular('annonce')){ ?>
@@ -39,14 +39,14 @@
 <body <?php body_class(); ?>>
 	<?php
 	global $loginRes;
-	if($loginRes != NULL && (is_wp_error($loginRes) || !is_a($loginRes, 'WP_User'))){
+	if($loginRes != NULL && ( is_wp_error($loginRes) || !is_a($loginRes, 'WP_User') ) ){
 		if(is_wp_error($loginRes)){
 			if(array_shift($loginRes->errors)[0]){
 				echo'<div class="error-login">';
 				echo(array_shift($loginRes->errors)[0]);
 				echo'</div>';
 			}
-		}else{
+		}elseif($loginRes != ""){
 			echo'<div class="error-login">';
 			echo($loginRes);
 			echo'</div>';
@@ -208,7 +208,7 @@
 					</a>
 				<?php }else{ ?>
 					<div data-toggle="modal" data-target="#modal-connect" class="account text-center">
-						<span class="text-uppercase d-inline-block">votre profil</span>
+						<span class="text-uppercase d-inline-block">Connexion</span>
 						<div class="account-img d-inline-block">
 							<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
 						</div>

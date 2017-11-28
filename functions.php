@@ -24,6 +24,151 @@ if ( function_exists('register_sidebar') )
 register_sidebar(array('id' => 'sidebar-1'));
 /**********************************************************************************************************************/
 
+//After form submission "Candidature - Utilisateur connecté"
+add_action( 'gform_after_submission_10', 'after_submission_10', 10, 2 );
+function after_submission_10( $entry, $form ) {
+	if(is_user_logged_in()){
+		$user = wp_get_current_user();
+		$user_id = "user_".$user->ID;
+	    $userfields = get_field_objects($user_id);
+	    $oldAttachment = $userfields['cv']['value']['ID'];
+	    global $loginRes;
+		if(isset($entry[10]) && $entry[10] != ""){
+			$url = $entry[10];
+			$filetype = wp_check_filetype( basename( $url ), null );
+			$wp_upload_dir = wp_upload_dir();
+			$attachment = array(
+				'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
+				'post_mime_type' => $filetype['type'],
+				'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
+				'post_content'   => '',
+				'post_status'    => 'inherit'
+			);
+			$id = wp_insert_attachment($attachment, $url, null );
+			if(is_int($id)){
+				wp_delete_attachment( $oldAttachment, true); 
+				update_field('cv', $id, $user_id);
+			}
+			elseif(is_wp_error($id)){
+				$loginRes = $id;
+			}
+		}
+		if($entry[4] != $userfields['url-linkedin']['value']){
+			update_field('url-linkedin', $entry[4], $user_id);
+		}
+		if(isset($entry[12])){
+			$candidatures = $userfields['offres-postulees']['value'];
+			array_push($candidatures, $entry[12]);
+			update_field('offres-postulees', $candidatures, $user_id);
+		}
+	}
+}
+//Before form submission "Candidature - Utilisateur connecté"
+add_action( 'gform_pre_submission_10', 'pre_submission_10', 10, 2 );
+function pre_submission_10( $form ){
+	if(isset($_FILES["input_10"]) && $_FILES['input_10']['size'] != 0 && $_FILES['input_10']['error'] == 0){
+		$_POST["input_9"] = "";
+	}
+}
+/**********************************************************************************************************************/
+
+//After form submission "Candidature - Utilisateur non connecté"
+add_action( 'gform_after_submission_7', 'after_submission_7', 10, 2 );
+function after_submission_7( $entry, $form ) {
+	if($entry["6.1"] != ""){
+		global $loginRes;
+		$mail_exists = email_exists( $entry[3] );
+		$same_pwd = ( $entry[9] == $entry[10] );
+		if($same_pwd && !$mail_exists){
+			$userlog = wp_create_user( $entry[3], $entry[9], $entry[3] );
+			if(!is_wp_error($userlog)){
+			    $userlog = wp_signon( array(
+			        'user_login'    => $entry[3],
+			        'user_password' => $entry[9],
+			        'remember'      => true
+			    ), false );
+			}
+			$loginRes = $userlog;
+			if(is_a($userlog, 'WP_User')){
+				$current_user = $userlog;
+				$user_id = "user_".$current_user->ID;
+			    $userfields = get_field_objects($user_id);
+				if(isset($entry[2])){
+					$args = array(
+					    'ID'         => $current_user->ID,
+					    'first_name' => esc_attr( $entry[2] )
+					);
+					wp_update_user( $args );
+				}
+				if(isset($entry[1])){
+					$args = array(
+					    'ID'         => $current_user->ID,
+					    'last_name' => esc_attr( $entry[1] )
+					);
+					wp_update_user( $args );
+				}
+				if(isset($entry[4])){
+					update_field('url-linkedin', $entry[4], $user_id);
+				}
+				if(isset($entry[5]) && $entry[5] != ""){
+					$url = $entry[5];
+					$filetype = wp_check_filetype( basename( $url ), null );
+					$wp_upload_dir = wp_upload_dir();
+					$attachment = array(
+						'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
+						'post_mime_type' => $filetype['type'],
+						'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
+						'post_content'   => '',
+						'post_status'    => 'inherit'
+					);
+					$id = wp_insert_attachment($attachment, $url, null );
+					if(is_int($id)){
+						update_field('cv', $id, $user_id);
+					}
+					elseif(is_wp_error($id)){
+						$loginRes = $id;
+					}
+				}
+				if(isset($entry[14])){
+					$candidatures = array($entry[14]);
+					update_field('offres-postulees', $candidatures, $user_id);
+				}
+			}
+		}
+	}
+}
+add_filter( 'gform_validation_7', 'custom_validation' );
+function custom_validation( $validation_result ) {
+    $form = $validation_result['form'];
+ 
+    if ( email_exists( rgpost('input_3') ) ) {
+        $validation_result['is_valid'] = false;
+        foreach( $form['fields'] as &$field ) {
+            if ( $field->id == '3' ) {
+                $field->failed_validation = true;
+                $field->validation_message = 'Cette adresse email est déjà associée à un compte Atlantis RH.';
+                break;
+            }
+        }
+    }
+
+    if ( rgpost('input_9') != rgpost('input_10') ) {
+        $validation_result['is_valid'] = false;
+        foreach( $form['fields'] as &$field ) {
+            if ( $field->id == '10' ) {
+                $field->failed_validation = true;
+                $field->validation_message = 'Les mots de passe doivent être identiques.';
+                break;
+            }
+        }
+    } 
+    $validation_result['form'] = $form;
+    return $validation_result;
+ 
+}
+
+/**********************************************************************************************************************/
+
 function my_enqueue() {
     wp_enqueue_script( 'ajax-script', get_template_directory_uri() . '/js/functions.js', array('jquery') );
 
@@ -54,15 +199,22 @@ add_action('wp_ajax_deleteCandidature', 'deleteCandidature');
 add_action('wp_ajax_nopriv_deleteCandidature', 'deleteCandidature');
 
 /**********************************************************************************************************************/
-! defined( 'ABSPATH' ) AND exit;
+// ! defined( 'ABSPATH' ) AND exit;
 
-function wpse66093_no_admin_access()
-{
-    $redirect = get_home_url();
-    if ( is_user_logged_in() && !current_user_can( 'administrator' ) )
-        exit( wp_redirect( $redirect ) );
+// function wpse66093_no_admin_access()
+// {
+//     $redirect = get_home_url();
+//     if ( is_user_logged_in() && !current_user_can( 'administrator' ) )
+//         exit( wp_redirect( $redirect ) );
+// }
+// add_action( 'admin_init', 'wpse66093_no_admin_access', 100 );
+function my_admin_init(){
+    if( !defined('DOING_AJAX') && !current_user_can('administrator') ){
+        wp_redirect( home_url() );
+        exit();
+    }
 }
-add_action( 'admin_init', 'wpse66093_no_admin_access', 100 );
+add_action('admin_init','my_admin_init');
 /**********************************************************************************************************************/
 //Profile edit
 add_action('template_redirect', 'check_profile_edit');
@@ -210,6 +362,9 @@ function modalSignUp(){
 }
 
 function modalLogIn(){
+	if(isset($_POST['loginmail']) && !email_exists( $_POST['loginmail'] )){
+		return "Cette adresse email n'est associée à aucun compte Atlantis RH.";
+	}
 	if(isset($_POST['loginmail']) && isset($_POST['loginmdp'])){
 		    $user = wp_signon( array(
 		        'user_login'    => $_POST['loginmail'],
