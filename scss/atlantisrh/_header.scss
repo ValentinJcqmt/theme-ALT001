@@ -81,6 +81,7 @@ header{
 	&.sticky{
 		color:$black;
 		background-color: $white;
+		z-index: 1000000;
 		.header-title a .h1{color:$black;}
 		.header-nav ul#menu-menu-header li a{
 			color: $black;

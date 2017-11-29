@@ -30,6 +30,9 @@ p img.alignright {
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+.suggestion-link{background-color: $white;color:$black;transition:.2s;}
+.suggestion-link:hover{background-color:$black; color:$white;}
+
 .oneall_social_login_providers{min-height: auto !important;}
 .oneall_social_login_providers iframe{height:60px !important; width: 165px !important; min-height: auto !important}
 

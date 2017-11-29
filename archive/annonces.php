@@ -51,7 +51,9 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 py-3">
-					<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
+					<a href="<?php echo get_home_url(); ?>" class="d-block">
+						<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
+					</a>
 				</div>
 			</div>
 		</div>
@@ -149,7 +151,7 @@
 			</div>
 			<div class="col-12 col-md-5 col-lg-2">
 				<div class="search-box">
-					<input id="search-offres" type="search" placeholder="<?php echo get_field('txt-keywords'); ?>">
+					<input id="search-offres" name="s" class="aa-input" type="search" placeholder="<?php echo get_field('txt-keywords'); ?>" autocomplete="on" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-owns="algolia-autocomplete-listbox-0" dir="auto">
 					<img class="search-icon" src="<?php echo get_template_directory_uri(); ?>/img/search.png">
 				</div>
 			</div>

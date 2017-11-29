@@ -8,7 +8,9 @@ get_header(); ?>
 				<div class="col-12 col-lg-4 carousel-urgentes">
 					<div class="row mt-2 mb-5">
 						<div class="col-12">
-							<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
+							<a href="<?php echo get_home_url(); ?>" class="d-block">
+								<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
+							</a>
 						</div>
 					</div>
 					<div class="row mt-5 mb-2">
@@ -104,11 +106,7 @@ get_header(); ?>
 								</div>
 							</div>
 							<form class="hp-top-card-form">
-								<input type="search" class="my-1 p-1 search-field-white text-uppercase text-white" placeholder="<?php echo get_field('hp-top-droite-metier'); ?>" name="metier">
-								<input type="search" class="my-1 p-1 search-field-white text-uppercase text-white" placeholder="<?php echo get_field('hp-top-droite-lieu'); ?>" name="lieu">
-								<div class="submit-input">
-									<input type="submit" class="p-1 btn-search-blue bg-blue text-uppercase text-white" name="recherche" value="<?php echo get_field('hp-top-droite-search'); ?>">
-								</div>
+								<input type="search" class="aa-input my-1 p-1 search-field-white text-uppercase text-white" placeholder="<?php echo get_field('hp-top-droite-search'); ?>" name="s" id="s" autocomplete="on" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-owns="algolia-autocomplete-listbox-0" dir="auto">
 							</form>
 						</div>
 					</div>

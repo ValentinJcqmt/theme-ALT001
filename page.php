@@ -27,7 +27,9 @@ the_post(); ?>
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 py-3">
-					<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
+					<a href="<?php echo get_home_url(); ?>" class="d-block">
+						<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
+					</a>
 				</div>
 			</div>
 		</div>

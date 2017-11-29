@@ -24,6 +24,30 @@ if ( function_exists('register_sidebar') )
 register_sidebar(array('id' => 'sidebar-1'));
 /**********************************************************************************************************************/
 
+add_filter( 'algolia_post_annonce_shared_attributes', 'my_post_attributes', 10, 2 );
+add_filter( 'algolia_searchable_post_annonce_shared_attributes', 'my_post_attributes', 10, 2 );
+function my_post_attributes( array $attributes, WP_Post $post ) {
+	// $attributes["loc"] = get_field('city', $post->ID).' '.get_field('pays', $post->ID).' '.get_field('zip', $post->ID);
+    $attributes["fields"] = get_field('city', $post->ID).' '.get_field('pays', $post->ID);
+    $attributes["loc"] = get_field('city', $post->ID).', '.get_field('pays', $post->ID);
+    // Always return the value we are filtering.
+    return $attributes;
+}
+
+add_filter( 'algolia_posts_annonce_index_settings', 'my_posts_index_settings' );
+
+function my_posts_index_settings( array $settings ) {
+    // $settings['attributesToIndex'] = array('unordered(loc)');
+    // $settings['attributesToSnippet'] = array('loc:50');
+    $settings['attributesToIndex'][] = 'unordered(fields)';
+    $settings['attributesToSnippet'][] = 'fields:50';
+    // Always return the value we are filtering.
+    return $settings;
+}
+
+
+/**********************************************************************************************************************/
+
 //After form submission "Candidature - Utilisateur connecté"
 add_action( 'gform_after_submission_10', 'after_submission_10', 10, 2 );
 function after_submission_10( $entry, $form ) {
@@ -199,17 +223,8 @@ add_action('wp_ajax_deleteCandidature', 'deleteCandidature');
 add_action('wp_ajax_nopriv_deleteCandidature', 'deleteCandidature');
 
 /**********************************************************************************************************************/
-// ! defined( 'ABSPATH' ) AND exit;
-
-// function wpse66093_no_admin_access()
-// {
-//     $redirect = get_home_url();
-//     if ( is_user_logged_in() && !current_user_can( 'administrator' ) )
-//         exit( wp_redirect( $redirect ) );
-// }
-// add_action( 'admin_init', 'wpse66093_no_admin_access', 100 );
 function my_admin_init(){
-    if( !defined('DOING_AJAX') && !current_user_can('administrator') ){
+    if( !defined('DOING_AJAX') && !current_user_can('editor') ){
         wp_redirect( home_url() );
         exit();
     }

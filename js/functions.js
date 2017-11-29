@@ -40,6 +40,18 @@ $(window).on('load', function (){
             $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
         }, 0);
     });
+
+/******************************************************************/
+
+    $("[name='s']").on('focusout', function(){
+        var dataDom = $('.algolia-autocomplete .aa-dataset-1');
+        $('.algolia-autocomplete .aa-dataset-1').empty();
+    });
+    $("[name='s']").on('focuson', function(){
+        // var dataDom = $('.algolia-autocomplete .aa-dataset-1');
+        $('.algolia-autocomplete .aa-dataset-1').append(dataDom);
+    });
+
 /******************************************************************/
     if($('#cv-input')){
         $('#cv-input').on('change', function(){
