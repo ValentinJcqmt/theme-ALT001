@@ -15,7 +15,11 @@
 	<meta name="theme-color" content="#008ec7">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/odometer-theme-default.css">
-	<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script>
+	<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script> -->
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/tether.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
 	<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/functions.js"></script> -->
@@ -282,7 +286,7 @@
 				<?php }else{ ?>
 					<div data-toggle="modal" data-target="#modal-connect" class="text-center">
 						<div class="text-right account-link text-uppercase py-1">
-							votre profil
+							connexion
 						</div>
 					</div>
 				<?php } ?>

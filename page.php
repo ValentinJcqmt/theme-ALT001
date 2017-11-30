@@ -59,6 +59,9 @@ the_post(); ?>
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 page-content-txt py-4">
 					<?php echo get_the_content(); ?>
+					<?php if(get_field('shortcode-form')){
+						echo do_shortcode(get_field('shortcode-form'));
+					} ?>
 				</div>
 			</div>
 		</div>

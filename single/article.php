@@ -54,6 +54,8 @@
 	</div>
 	<?php if(has_post_thumbnail( )) {?>
 		<div class="page-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>');"></div>
+	<?php }else{?>
+		<div class="page-thumbnail" style="background-image:url('<?php echo get_template_directory_uri(); ?>/img/actu-thumb.png');"></div>
 	<?php } ?>
 	<div class="bg-white article-content">
 		<div class="container-fluid">
@@ -81,7 +83,7 @@
 							</a>
 						</div>
 						<div class="col-12 col-lg-4 text-center">
-							<a href="<?php echo '#'; ?>" class="d-inline-block my-1 py-1 px-3 bg-white text-uppercase text-black article-back-btn">
+							<a href="<?php echo get_permalink('5101'); ?>" class="d-inline-block my-1 py-1 px-3 bg-white text-uppercase text-black article-back-btn">
 								Retour au blog
 							</a>
 						</div>
