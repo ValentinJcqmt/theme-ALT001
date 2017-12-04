@@ -1,6 +1,6 @@
 <?php the_post(); ?>
 <div class="main single-article">
-	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
+	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['sizes']['top-logo-bg']; ?>);">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 py-3">
@@ -53,7 +53,7 @@
 		</div>
 	</div>
 	<?php if(has_post_thumbnail( )) {?>
-		<div class="page-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>');"></div>
+		<div class="page-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url('', 'article-thumbnail'); ?>');"></div>
 	<?php }else{?>
 		<div class="page-thumbnail" style="background-image:url('<?php echo get_template_directory_uri(); ?>/img/actu-thumb.png');"></div>
 	<?php } ?>
@@ -124,7 +124,7 @@
 								<div class="row bg-white">
 									<?php if(has_post_thumbnail($article['ID'])) {?>
 										<div class="col-12 post-thumbnail-container">
-											<div class="post-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url($article['ID']); ?>');">
+											<div class="post-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url($article['ID'], 'article-card'); ?>');">
 											</div>
 										</div>
 									<?php } else{ ?>

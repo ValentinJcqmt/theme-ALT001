@@ -47,7 +47,7 @@
 	}
 ?>
 <div class="main nos-offres">
-	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
+	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['sizes']['top-logo-bg']; ?>);">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 py-3">
@@ -70,7 +70,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="px-4 bg-light-gray filters">
+	<div class="px-1 px-md-2 bg-light-gray filters">
 		<div class="row py-5 text-uppercase">
 			<div class="col-12 col-lg-3 py-2 py-lg-0 align-self-center font-weight-bold">
 				<img src="<?php echo get_field('picto-filtre')['url']; ?>" class="img-fluid pr-1"><?php echo get_field('titre-filtre'); ?>
@@ -81,7 +81,7 @@
 						<?php
 						$categories = get_terms('offer-category', array('hide_empty' => false));
 						?>
-						<select id="check-cat">
+						<select class="custom-select" id="check-cat">
 							<option value="null"><?php echo get_field('txt-metier'); ?></option>
 							<?php
 							$currentCat = false;
@@ -98,14 +98,14 @@
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 monde">
-						<select id="check-pays">
+						<select class="custom-select" id="check-pays">
 							<?php foreach ($mondeList as $pays) { ?>
 								<option value="<?php echo $pays; ?>"><?php echo $pays; ?></option>
 							<?php } ?>
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-min">
-						<select id="check-sal-min">
+						<select class="custom-select" id="check-sal-min">
 							<option value="null"><?php echo get_field('txt-salary-min'); ?></option>
 							<?php for($i=$salaryMin; $i<$salaryMax; $i+=10000){ ?>
 								<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -117,7 +117,7 @@
 						<label for="is-urgent" class="d-inline-block text-uppercase"><?php echo get_field('txt-urgent'); ?></label>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 contrat">
-						<select id="check-contrat">
+						<select class="custom-select" id="check-contrat">
 							<option value="null"><?php echo get_field('txt-contrat'); ?></option>
 							<?php foreach ($contratList as $contrat){ ?>
 								<option value="<?php echo $contrat; ?>"><?php echo $contrat; ?></option>
@@ -125,7 +125,7 @@
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 localite">
-						<select id="check-local">
+						<select class="custom-select" id="check-local">
 							<option value="null"><?php echo get_field('txt-localite'); ?></option>
 							<?php foreach ($localiteList as $localite){ ?>
 								<option value="<?php echo $localite; ?>"><?php echo $localite; ?></option>
@@ -133,7 +133,7 @@
 						</select>
 					</div>
 					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-max">
-						<select id="check-sal-max">
+						<select class="custom-select" id="check-sal-max">
 							<option value="null"><?php echo get_field('txt-salary-max'); ?></option>
 							<?php for($i=$salaryMax; $i>$salaryMin; $i-=10000){ ?>
 								<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -144,7 +144,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="px-4 bg-light-gray search">
+	<div class="px-1 px-md-2 px-lg-4 bg-light-gray search">
 		<div class="row py-5 text-uppercase">
 			<div class="col-12 col-md-7 col-lg-3 font-weight-bold search-txt">
 				<img src="<?php echo get_field('picto-search')['url']; ?>" class="img-fluid pr-1"><?php echo get_field('titre-search'); ?>
@@ -168,7 +168,7 @@
 			}
 		} ?>
 	</style>
-	<div class="px-4 bg-light-gray offers-list">
+	<div class="px-1 px-md-2 px-lg-4 bg-light-gray offers-list">
 		<div class="row">
 			<div class="col-12 nb-offers my-5">
 				<?php echo get_field('txt-nb-offres-1'); ?> <b id="nb-offres"><?php echo $nb_offres; ?> offres d'emploi</b> <?php echo get_field('txt-nb-offres-2'); ?>
@@ -203,7 +203,7 @@
  				<div id="<?php echo $id; ?>" class="offre-card filtered col-12 col-md-6 col-lg-4 col-xl-3 my-2 my-lg-1 px-1">
 					<a href="<?php echo get_permalink($id); ?>" class="d-block">
 						<div class="row">
-							<div class="col-12 offre-title text-white px-4 py-auto text-center bg-red urgente">
+							<div class="col-12 offre-title text-white px-2 px-md-3 px-lg-4 py-auto text-center bg-red urgente">
 								<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
 								<?php if(get_field('ref', $id)){?>
 									<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
@@ -217,7 +217,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-12 bg-white text-black px-4 py-2 offre-infos">
+							<div class="col-12 bg-white text-black px-2 px-md-3 px-lg-4 py-2 offre-infos">
 								<?php if(get_field('contrat', $id)){ ?>
 									<p class="info-offre">Contrat : <em><?php echo get_field('contrat', $id); ?></em></p>
 								<?php }
@@ -277,7 +277,7 @@
  				<div id="<?php echo $offre->ID; ?>" class="offre-card filtered col-12 col-md-6 col-lg-4 col-xl-3 my-2 my-lg-1 px-1">
 					<a href="<?php echo get_permalink($offre->ID); ?>" class="d-block">
 						<div class="row">
-							<div class="col-12 offre-title text-white px-4 py-auto text-center bg-black">
+							<div class="col-12 offre-title text-white px-2 px-md-3 px-lg-4 py-auto text-center bg-black">
 								<p class="name-offre text-uppercase"><?php echo get_the_title($offre->ID); ?></p>
 								<?php if(get_field('ref', $offre->ID)){?>
 									<p class="ref-offre">Référence : <em><?php echo get_field('ref', $offre->ID); ?></em></p>
@@ -291,7 +291,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-12 bg-white text-black px-4 py-2 offre-infos">
+							<div class="col-12 bg-white text-black px-2 px-md-3 px-lg-4 py-2 offre-infos">
 								<?php if(get_field('contrat', $offre->ID)){ ?>
 									<p class="info-offre">Contrat : <em><?php echo get_field('contrat', $offre->ID); ?></em></p>
 								<?php }

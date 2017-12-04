@@ -57,6 +57,14 @@ function amp_set_review_template( $file, $type, $post ) {
 }
 /**********************************************************************************************************************/
 
+add_image_size( 'hp-intro', 340, 450, true );
+add_image_size( 'hp-3bloc-img', 650, 650, true );
+add_image_size( 'top-logo-bg', 2000, 150, true );
+add_image_size( 'article-card', 700, 200, true );
+add_image_size( 'article-thumbnail', 2000, 350, true );
+
+/**********************************************************************************************************************/
+
 add_filter( 'algolia_post_annonce_shared_attributes', 'my_post_attributes', 10, 2 );
 add_filter( 'algolia_searchable_post_annonce_shared_attributes', 'my_post_attributes', 10, 2 );
 function my_post_attributes( array $attributes, WP_Post $post ) {

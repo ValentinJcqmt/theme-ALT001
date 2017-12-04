@@ -9,7 +9,7 @@
 	$nb_pages = ceil($nb_articles/9);
 ?>
 <div class="main nos-articles">
-	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
+	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['sizes']['top-logo-bg']; ?>);">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 py-3">
@@ -43,7 +43,7 @@
 						<?php
 						$categories = get_terms('category', array('hide_empty' => false));
 						?>
-						<select id="check-cat">
+						<select class="custom-select" id="check-cat">
 							<option value="null"><?php echo get_field('txt-no-category'); ?></option>
 							<?php foreach ($categories as $cat) { ?>
 								<option value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
@@ -66,11 +66,6 @@
 		} ?>
 	</style>
 	<div class="px-4 bg-light-gray articles-list">
-		<div class="row">
-			<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 py-2 nb-articles">
-				<?php echo get_field('txt-nb-post-1'); ?> <b id="nb-articles"><?php echo $nb_articles; ?> actualités</b> <?php echo get_field('txt-nb-post-2'); ?>
-			</div>
-		</div>
 		<div class="row page-1" id="list-article-cards">
 			<div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 py-2">
 				<div class="row">
@@ -86,7 +81,7 @@
 								<div class="row bg-white">
 									<?php if(has_post_thumbnail($article->ID)) {?>
 										<div class="col-12 post-thumbnail-container">
-											<div class="post-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url($article->ID); ?>');">
+											<div class="post-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url($article->ID, 'article-card'); ?>');">
 											</div>
 										</div>
 									<?php } else{ ?>

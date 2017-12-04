@@ -37,6 +37,8 @@ p img.alignright {
 .oneall_social_login_providers iframe{height:75px !important; width: 165px !important; min-height: auto !important}
 
 #extensions_message_10_10, #extensions_message_10_10 {display: none;}
+select.custom-select{padding-right: 40px;}
+
 /**********************************************************************************************************/
 
 //balise
@@ -126,6 +128,7 @@ h5,.h5{font-weight:700;}
 
 /**********************************************************************************************************/
 /*HOME*/
+select#hp-choix-profil{max-width: 100%;}
 .hp-top-row{min-height: calc(50vh - 28px);}
 .hp-top-cards{min-height: 100%;}
 .hp-bg{
@@ -437,16 +440,18 @@ h5,.h5{font-weight:700;}
 		font-family: 'Montserrat';
 		text-transform: uppercase;
 		font-weight: 700;
-		background:$white;
 		border:none;
 		color:$black;
-		padding: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 10px;
 	    margin-bottom: 10px;
 	    width: calc(100% - 30px);
 	}
-	.search-txt{line-height: 40px;}
-	label[for="is-urgent"]{
-	    line-height: 40px;
+	input[type=search]{padding-right: 10px;}
+	.search-txt{line-height: 20px; font-size: 11px;}
+	div.checkbox-urgent input[type="checkbox"]#is-urgent + label[for="is-urgent"]{
+	    line-height: 20px;
 	}
 	/* Base for label styling */
 	[type="checkbox"]:not(:checked),
@@ -467,7 +472,8 @@ h5,.h5{font-weight:700;}
 	[type="checkbox"]:checked + label:before {
 	  content: '';
 	  position: absolute;
-	  left: 0; top: 10px;
+	  left: 0;
+	  top: calc(50% - 1.25em + 8px);
 	  width: 1.25em; height: 1.25em;
 	  border: 2px solid #ccc;
 	  background: #fff;
@@ -698,7 +704,7 @@ h5,.h5{font-weight:700;}
 	}
 	.postulat-btn-arrow{font-size:12px; margin-right:40px; cursor:pointer;}
 	.offre-next-prev{background-image: url('../img/offre-back-bg.png'); background-position: center center; background-size: cover; background-repeat: no-repeat;}
-	.breadcrumb-offre{line-height: 55px;}
+	.breadcrumb-offre{line-height: 25px;}
 	h1{font-size:35px;}
 	h2{font-size:15px;}
 	h2:before {
@@ -971,7 +977,6 @@ h5,.h5{font-weight:700;}
 	.sous-titre {font-size: 15px;font-weight: 700;}
 	select#check-cat{
 	    text-transform: uppercase;
-	    background: #fff;
 	    border: none;
 	    color: #333;
 	    padding: 10px;
@@ -1308,6 +1313,12 @@ h5,.h5{font-weight:700;}
 		.white-btn-arrow{font-size: 10px;}
 	}
 }
+@media (max-width: 1242px){
+	#hp-odometer div.odometer-inside {
+	    font-size: 150px;
+	    line-height: 150px;
+	}
+}
 @media(max-width:1070px){
 	.hp-offers-number-title{font-size: 20px;}
 	.hp-odometer{font-size:150px;}
@@ -1325,10 +1336,37 @@ h5,.h5{font-weight:700;}
 		.hp-linkedin-title{font-size:14px;}
 	}
 }
+@media (max-width: 1024px) and (min-width: 992px){
+	.home .offre-title .name-offre {
+	    font-size: 11px;
+	}
+}
 @media(max-width:992px){
 	.offre-right:after, .offre-left:after{
 		display: none;
 	}
 	.hp-3bloc-align{width:100%;}
 	.hp-3bloc-container img{width: 100%;}
+}
+
+@media (max-width: 787px){
+	.nos-offres .page-number{padding: 13px 15px 12px;}
+}
+
+@media (max-width: 768px){
+	div.social-connect-title {
+	    font-size: 20px;
+	}
+}
+@media (max-width: 415px){
+	#hp-odometer div.odometer-inside {
+	    font-size: 130px;
+	    line-height: 130px;
+	}
+	#cta-footer .cta-footer-title {
+	    font-size: 20px;
+	}
+}
+@media (max-width: 343px){
+	.nos-offres .page-number{padding: 8px 10px 7px;}
 }

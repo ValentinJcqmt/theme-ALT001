@@ -40,11 +40,11 @@
 </div>
 <footer class="px-1 bg-black">
 	<div class="container-fluid">
-		<div class="row pt-1 pb-3">
+		<div class="row pt-1">
 			<div class="d-flex mr-auto my-auto">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-big.png" class="img-fluid">
 			</div>
-			<div class="d-flex ml-auto my-auto">
+			<div class="d-flex mr-auto ml-0 mr-sm-0 ml-sm-auto py-2 py-sm-0">
 				<div class="footer-social">
 					<?php
 					$twitter_url = get_field('lien_twitter', 'option');
@@ -56,7 +56,7 @@
 					$rss_picto = get_field('picto_rss', 'option');
 					$scoopit_picto = get_field('picto_scoopit', 'option');
 					if($twitter_url){ ?>
-						<a class="pl-1" href="<?php echo $twitter_url; ?>" target="_blank">
+						<a href="<?php echo $twitter_url; ?>" target="_blank">
 							<img src="<?php echo $twitter_picto; ?>" class="img-fluid">
 						</a>
 					<?php }
@@ -105,7 +105,7 @@
 	            	echo substr($menu, 0, strripos($menu, $after)).'</li></ul></div>';
 				?>
 			</div>
-			<div class="d-flex my-2 ml-auto text-uppercase text-white copyright">
+			<div class="d-flex my-2 mr-auto ml-0 mr-sm-0 ml-sm-auto text-uppercase text-white copyright">
 				<?php echo get_field('txt-copyright-footer', 'option'); ?>
 			</div>
 		</div>

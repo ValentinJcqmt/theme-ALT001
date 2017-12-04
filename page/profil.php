@@ -5,7 +5,7 @@
 	 the_post();
  ?>
 <div class="main profil">
-	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
+	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['sizes']['top-logo-bg']; ?>);">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 py-3">
@@ -170,7 +170,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-lg-4 hp-3bloc-container">
-			<img src="<?php echo get_field('bloc-centre-img')['url']; ?>" class="img-fluid">
+			<img src="<?php echo get_field('bloc-centre-img')['sizes']['hp-3bloc-img']; ?>" class="img-fluid">
 		</div>
 		<div class="col-12 col-lg-4 bg-twitter-picto hp-3bloc-container text-center py-3 py-lg-0">
 			<div class="row px-5 hp-3bloc-align">

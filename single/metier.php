@@ -1,6 +1,6 @@
 <?php the_post(); ?>
 <div class="main single-metier">
-	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
+	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['sizes']['top-logo-bg']; ?>);">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 py-3">

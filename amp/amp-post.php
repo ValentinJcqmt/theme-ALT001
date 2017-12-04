@@ -952,7 +952,7 @@ amp-sidebar a{color:#FFF;}
 					</div>
 				</div>
 				<?php if(has_post_thumbnail( )) {?>
-					<amp-img layout="responsive" width="1903" height="320" src="<?php echo get_the_post_thumbnail_url(); ?>"></amp-img>	
+					<amp-img layout="responsive" width="1903" height="320" src="<?php echo get_the_post_thumbnail_url('', 'article-thumbnail'); ?>"></amp-img>	
 				<?php }else{?>
 					<amp-img layout="responsive" width="1903" height="320" src="<?php echo get_template_directory_uri(); ?>/img/actu-thumb.png"></amp-img>
 				<?php } ?>
@@ -1023,7 +1023,7 @@ amp-sidebar a{color:#FFF;}
 											<div class="row bg-white">
 												<?php if(has_post_thumbnail($article['ID'])) {?>
 													<div class="col-12 post-thumbnail-container">
-														<amp-img layout="responsive" width="700" height="200" src="<?php echo get_the_post_thumbnail_url($article['ID']); ?>"></amp-img>
+														<amp-img layout="responsive" width="700" height="200" src="<?php echo get_the_post_thumbnail_url($article['ID'], 'article-card'); ?>"></amp-img>
 														</div>
 													</div>
 												<?php } else{ ?>

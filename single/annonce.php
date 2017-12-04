@@ -103,7 +103,7 @@
 			} ?>
 		</div>
 	</div>
-	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);">
+	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['sizes']['top-logo-bg']; ?>);">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 py-3">
@@ -117,7 +117,7 @@
 	<div class="bg-white">
 		<div class="container-fluid">
 			<div class="row bc-offre">
-				<div class="col-12 col-md-9 breadcrumb-offre text-left">
+				<div class="col-12 col-md-9 breadcrumb-offre text-left pt-2 pb-1">
 					<div class="d-inline text-black"><a href="<?php echo get_permalink(4735); ?>">offres d'emploi</a> / </div><div class="d-inline text-green font-weight-bold"><?php echo get_the_title(); ?></div>
 				</div>
 				<div class="col-12 col-md-3 text-left text-md-right">

@@ -72,15 +72,15 @@ get_header(); ?>
 			<div class="row hp-top-row">
 				<div class="col-12 col-lg-8 offset-lg-4">
 					<div class="row hp-top-cards">
-						<div class="col-4">
+						<div class="col-12 col-sm-4">
 							<div class="img-container">
-								<img src="<?php echo get_field('hp-top-gauche-img')['url']; ?>">
+								<img src="<?php echo get_field('hp-top-gauche-img')['sizes']['hp-intro']; ?>">
 								<div class="img-caption text-uppercase text-white p-1 p-md-2 p-lg-3">
 									<?php echo get_field('hp-top-gauche-txt'); ?>
 								</div>
 							</div>
 						</div>
-						<div class="col-4 bg-white px-1 px-md-2 px-lg-4 py-5">
+						<div class="col-12 col-sm-4 bg-white px-1 px-md-2 px-lg-4 py-5">
 							<div class="hp-top-card-top">
 								<p class="text-black text-uppercase hp-top-card-title">
 									<?php echo get_field('hp-top-centre-titre'); ?>	
@@ -96,7 +96,7 @@ get_header(); ?>
 								<?php echo get_field('hp-top-centre-offres'); ?>
 							</a>
 						</div>
-						<div class="col-4 bg-blue-transparent px-1 px-md-2 px-lg-4 py-5">
+						<div class="col-12 col-sm-4 bg-blue-transparent px-1 px-md-2 px-lg-4 py-5">
 							<div class="hp-top-card-top">
 								<p class="text-white text-uppercase hp-top-card-title">
 									<?php echo get_field('hp-top-droite-titre'); ?>
@@ -150,7 +150,7 @@ get_header(); ?>
 			</div>
 		</div>
 		<div class="col-12 col-lg-4 hp-3bloc-container">
-			<img src="<?php echo get_field('hp-3bloc-i-droite-img')['url']; ?>" class="img-fluid">
+			<img src="<?php echo get_field('hp-3bloc-i-droite-img')['sizes']['hp-3bloc-img']; ?>" class="img-fluid">
 		</div>
 	</div><!--End .row-->
 	<div class="bg-light-gray">
@@ -173,7 +173,7 @@ get_header(); ?>
 								<?php
 								$categories = get_terms('offer-category', array('hide_empty' => false));
 								?>
-								<select id="hp-choix-profil" class="p-1 bg-white text-uppercase text-black">
+								<select id="hp-choix-profil" class="custom-select p-1 bg-white text-uppercase text-black">
 									<option value="null"><?php echo get_field('hp-profils-list-txt'); ?></option>
 									<?php foreach ($categories as $cat) { ?>
 										<option value="<?php echo get_permalink(4735).'?cat='.urlencode($cat->name); ?>"><?php echo $cat->name; ?></option>
@@ -200,7 +200,7 @@ get_header(); ?>
 			</div>
 		</div>
 		<div class="col-12 col-lg-4 hp-3bloc-container">
-			<img src="<?php echo get_field('hp-3bloc-s-centre-img')['url']; ?>" class="img-fluid">
+			<img src="<?php echo get_field('hp-3bloc-s-centre-img')['sizes']['hp-3bloc-img']; ?>" class="img-fluid">
 		</div>
 		<div class="col-12 col-lg-4 bg-twitter-picto hp-3bloc-container text-center py-3 py-lg-0">
 			<div class="row px-5 hp-3bloc-align">
@@ -282,12 +282,12 @@ get_header(); ?>
 						$n = 0;
 						foreach($offers as $id => $urgent){ ?>
 						<div class="row">
-							<div class="<?php if($urgent == 'urgent') echo'offre-urgente'; ?> <?php if($n%2 == 0) echo'offre-left col-12 col-lg-6'; else echo'offre-right col-12 col-lg-6 offset-lg-6'; ?> my-2 my-lg-1">
+							<div class="<?php if($urgent == 'urgent') echo'offre-urgente'; ?> <?php if($n%2 == 0) echo'offre-left col-12 col-lg-6'; else echo'offre-right col-12 col-lg-6 offset-lg-6'; ?> my-1 my-lg-0">
 								<a class="d-block" href="<?php echo get_permalink($id); ?>">
 									<div class="row bg-white">
 										<?php if($n%2 == 0){
 											if($urgent == 'urgent'){ ?>
-												<div class="col-3 offre-title text-white px-2 py-4 bg-red">
+												<div class="col-12 col-sm-3 offre-title text-white px-1 px-xl-2 py-4 bg-red">
 													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
 													<?php if(get_field('ref', $id)){?>
 														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
@@ -295,7 +295,25 @@ get_header(); ?>
 												</div>
 											<?php }
 											else{ ?>
-												<div class="col-3 offre-title text-white px-2 py-4 bg-black">
+												<div class="col-12 col-sm-3 offre-title text-white px-1 px-xl-2 py-4 bg-black">
+													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+													<?php if(get_field('ref', $id)){?>
+														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+													<?php } ?>
+												</div>
+											<?php }
+										}
+										elseif($n%2 != 0){
+											if($urgent == 'urgent'){ ?>
+												<div class="col-12 push-0 col-sm-3 push-sm-9 offre-title text-white px-1 px-xl-2 py-4 bg-red">
+													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
+													<?php if(get_field('ref', $id)){?>
+														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
+													<?php } ?>
+												</div>
+											<?php }
+											else{ ?>
+												<div class="col-12 push-0 col-sm-3 push-sm-9 offre-title text-white px-1 px-xl-2 py-4 bg-black">
 													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
 													<?php if(get_field('ref', $id)){?>
 														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
@@ -303,7 +321,7 @@ get_header(); ?>
 												</div>
 											<?php }
 										} ?>
-										<div class="col-9 bg-white text-black px-3 py-2 offre-infos align-self-center">
+										<div class="col-12 col-sm-9 <?php if($n%2 != 0){echo 'pull-0 pull-sm-3';} ?> bg-white text-black px-3 py-2 offre-infos align-self-center">
 											<?php if(get_field('contrat', $id)){ ?>
 												<p class="info-offre">Contrat : <em><?php echo get_field('contrat', $id); ?></em></p>
 											<?php }
@@ -329,24 +347,6 @@ get_header(); ?>
 												<?php }
 											} ?>
 										</div>
-										<?php if($n%2 != 0){
-											if($urgent == 'urgent'){ ?>
-												<div class="col-3 offre-title text-white px-2 py-4 bg-red">
-													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
-													<?php if(get_field('ref', $id)){?>
-														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
-													<?php } ?>
-												</div>
-											<?php }
-											else{ ?>
-												<div class="col-3 offre-title text-white px-2 py-4 bg-black">
-													<p class="name-offre text-uppercase"><?php echo get_the_title($id); ?></p>
-													<?php if(get_field('ref', $id)){?>
-														<p class="ref-offre">Référence : <em><?php echo get_field('ref', $id); ?></em></p>
-													<?php } ?>
-												</div>
-											<?php }
-										} ?>
 									</div>
 								</a>
 							</div>

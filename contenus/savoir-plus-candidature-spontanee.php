@@ -2,7 +2,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 col-lg-6 savoir-plus text-black text-uppercase">
-				<div class="row py-5 px-5 px-lg-0">
+				<div class="row py-5 px-1 px-sm-2 px-md-5 px-lg-0">
 					<div class="col-12 know-more-title mb-2">
 						<?php echo $contenu['sous-titre-col']; ?>
 					</div>
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<div class="col-12 col-lg-6 candidature-spont text-white">
-				<div class="row py-5 pl-5 pr-5 pr-lg-0">
+				<div class="row py-5 pl-1 pl-sm-2 pl-md-5 pr-1 pr-sm-2 pr-md-5 pr-lg-1">
 					<div class="col-12 cand-spont-title text-uppercase">
 						<?php echo $contenu['txt-principal']; ?>
 					</div>
