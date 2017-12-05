@@ -791,6 +791,7 @@ footer ul.menu li a { color: #fff; }
     background-color: #fff;
     transition: .3s;
 }
+.btn-bar:first-child{margin-top: 2px;}
 amp-sidebar{position:relative; background-color: #3665a4; color:#FFF;}
 amp-sidebar ul{list-style: none; padding-left: 10px; padding-right: 10px; margin-bottom:10px;}
 amp-sidebar ul li{ margin-top: 15px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; font-size: 15px;}
@@ -903,9 +904,9 @@ amp-sidebar a{color:#FFF;}
 						<div class="d-inline text-black"><a href="<?php echo get_permalink(4735); ?>">offres d'emploi</a> / </div><div class="d-inline text-green font-weight-bold"><?php echo get_the_title(); ?></div>
 					</div>
 					<div class="col-12 col-md-3 text-left text-md-right">
-						<div data-toggle="modal" data-target="#modal-candidature" class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
+						<a href="<?php echo get_the_permalink() ?>?modal=open" class="d-block px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
 							postulez !
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -923,10 +924,10 @@ amp-sidebar a{color:#FFF;}
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center offre-share my-2">
-						<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-1 d-inline-block"><amp-img layout="fixed" height="20" width="20" src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></amp-img></a>
-						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-1 d-inline-block"><amp-img layout="fixed" height="20" width="20" src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></amp-img></a>
-						<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-1 d-inline-block"><amp-img layout="fixed" height="20" width="20" src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></amp-img></a>
-						<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-1 d-inline-block"><amp-img layout="fixed" height="20" width="20" src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></amp-img></a>
+						<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" height="20" width="20" src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></amp-img></a>
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" height="20" width="20" src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></amp-img></a>
+						<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" height="20" width="20" src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></amp-img></a>
+						<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" height="20" width="20" src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></amp-img></a>
 					</div>
 				</div>
 				<div class="row">
@@ -991,9 +992,9 @@ amp-sidebar a{color:#FFF;}
 				</div>
 				<div class="row">
 					<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 py-4 offre-apply text-center">
-						<div data-toggle="modal" data-target="#modal-candidature" class="px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
+						<a href="<?php echo get_the_permalink() ?>?modal=open" class="d-block px-5 my-1 d-inline-block text-center py-1 bg-green text-uppercase text-white postulat-btn-arrow">
 							postulez !
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>

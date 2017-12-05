@@ -802,6 +802,7 @@ footer ul.menu li a { color: #fff; }
     background-color: #fff;
     transition: .3s;
 }
+.btn-bar:first-child{margin-top: 2px;}
 amp-sidebar{position:relative; background-color: #3665a4; color:#FFF;}
 amp-sidebar ul{list-style: none; padding-left: 10px; padding-right: 10px; margin-bottom:10px;}
 amp-sidebar ul li{ margin-top: 15px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px; font-size: 15px;}
@@ -943,10 +944,10 @@ amp-sidebar a{color:#FFF;}
 						</div>
 						<div class="row">
 							<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center page-share mt-1 mb-2">
-								<a class="d-inline-block mx-1" href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></amp-img></a>
-								<a class="d-inline-block mx-1" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" ><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></amp-img></a>
-								<a class="d-inline-block mx-1" href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></amp-img></a>
-								<a class="d-inline-block mx-1" href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" ><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></amp-img></a>
+								<a class="d-inline-block mx-2" href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></amp-img></a>
+								<a class="d-inline-block mx-2" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" ><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></amp-img></a>
+								<a class="d-inline-block mx-2" href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></amp-img></a>
+								<a class="d-inline-block mx-2" href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" ><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></amp-img></a>
 							</div>
 						</div>
 					</div>
@@ -963,10 +964,10 @@ amp-sidebar a{color:#FFF;}
 								<?php echo the_content(); ?>
 							</div>
 							<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center article-share mb-2">
-								<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></amp-img></a>
-								<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></amp-img></a>
-								<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></amp-img></a>
-								<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></amp-img></a>
+								<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></amp-img></a>
+								<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></amp-img></a>
+								<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></amp-img></a>
+								<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></amp-img></a>
 							</div>
 						</div>
 					</div>

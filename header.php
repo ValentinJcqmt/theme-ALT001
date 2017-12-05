@@ -59,7 +59,7 @@
 	?>
 	<!-- Modal -->
 	<div class="modal text-center" id="modal-connect" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-content bg-light-gray d-inline-block px-5 py-2">
+		<div class="modal-content bg-light-gray d-inline-block px-1 px-sm-2 px-md-3 px-lg-5 py-2">
 			<div class="modal-arrow-top bg-white">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/btn-arrow-black-small-down.png" class="img-fluid">
 			</div>
@@ -97,7 +97,7 @@
 								<input type="password" name="signupmdp" placeholder="...">
 								<label class="text-left text-black text-uppercase">confirmation de mot de passe</label>
 								<input type="password" name="signupmdpconfirm" placeholder="...">
-								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green">
+								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green mr-3">
 									<input type="submit" form="form-signup" name="signup" class="bg-green text-white font-weight-bold " value="<?php echo get_field('txt-btn-signup', 'option'); ?>">
 								</div>
 							</form>
@@ -122,14 +122,14 @@
 								<input type="text" name="loginmail" placeholder="...">
 								<label class="text-left text-black text-uppercase">mot de passe</label>
 								<input type="password" name="loginmdp" placeholder="...">
-								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green">
+								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green mr-3">
 									<input type="submit" form="form-login" name="login" class="text-uppercase bg-green text-white font-weight-bold" value="<?php echo get_field('txt-btn-connect', 'option'); ?>">
 								</div>
 							</form>
 							<form method="POST" id="form-pwd-forgot" style="display:none;">
 								<label class="text-left text-black text-uppercase">adresse mail</label>
 								<input type="text" name="mail-pwd-forgot" placeholder="...">
-								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green">
+								<div class="text-uppercase bg-green text-white font-weight-bold btn-login-green mr-3">
 									<input type="submit" form="form-pwd-forgot" name="pwd-forgot" class="text-uppercase bg-green text-white font-weight-bold" value="Envoyer">
 								</div>
 							</form>
@@ -277,7 +277,7 @@
 						<?php } ?>
 					</div>
 				</div>
-				<?php if(is_user_logged_in()){ ?>
+				<?php if((is_user_logged_in() || is_a($loginRes, 'WP_User'))){ ?>
 					<a href="<?php echo get_permalink(5335); ?>">
 						<div class="text-right account-link text-uppercase py-1">
 							votre profil

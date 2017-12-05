@@ -2,7 +2,7 @@
 get_header(); ?>
 
 <div class="main">
-	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);" class="hp-bg">
+	<div style="background-image:linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(<?php echo get_field('img-bg-header', 'option')['url']; ?>);" class="hp-bg">
 		<div class="container-fluid">
 			<div class="row hp-top-row">
 				<div class="col-12 col-lg-4 carousel-urgentes">
@@ -173,7 +173,7 @@ get_header(); ?>
 								<?php
 								$categories = get_terms('offer-category', array('hide_empty' => false));
 								?>
-								<select id="hp-choix-profil" class="custom-select p-1 bg-white text-uppercase text-black">
+								<select id="hp-choix-profil" class="custom-select pt-1 pb-1 pl-1 bg-white text-uppercase text-black">
 									<option value="null"><?php echo get_field('hp-profils-list-txt'); ?></option>
 									<?php foreach ($categories as $cat) { ?>
 										<option value="<?php echo get_permalink(4735).'?cat='.urlencode($cat->name); ?>"><?php echo $cat->name; ?></option>
@@ -188,7 +188,7 @@ get_header(); ?>
 	</div><!--End .bg-light-gray-->
 	<div class="row">
 		<div class="col-12 col-lg-4 bg-linkedin-picto hp-3bloc-container text-center py-3 py-lg-0">
-			<div class="row px-4 hp-3bloc-align">
+			<div class="row px-1 px-sm-2 px-md-4 hp-3bloc-align">
 				<div class="col-12 py-3">
 					<p class="text-white text-uppercase hp-linkedin-title">
 						<?php echo get_field('hp-3bloc-s-linkedin-titre'); ?>
@@ -253,7 +253,7 @@ get_header(); ?>
 					</div>
 					<div class="row">
 						<div class="col-12 text-center px-5">
-							<div class="d-inline-block caption-urgent text-left mx-5 px-5">
+							<div class="d-inline-block caption-urgent text-left mx-1 mx-sm-2 mx-md-3 mx-lg-5 pr-0 pr-sm-1 pr-md-3 pr-lg-5 pl-5">
 								<?php echo get_field('last-offers-details'); ?>
 							</div>
 						</div>

@@ -39,6 +39,8 @@ p img.alignright {
 #extensions_message_10_10, #extensions_message_10_10 {display: none;}
 select.custom-select{padding-right: 40px;}
 
+.valid-form{background: #c4f7c7;color: #48844a;}
+
 /**********************************************************************************************************/
 
 //balise
@@ -128,7 +130,15 @@ h5,.h5{font-weight:700;}
 
 /**********************************************************************************************************/
 /*HOME*/
-select#hp-choix-profil{max-width: 100%;}
+select#hp-choix-profil{
+	max-width: 100%;
+	font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    color: #333;
+    font-size: 15px;
+}
 .hp-top-row{min-height: calc(50vh - 28px);}
 .hp-top-cards{min-height: 100%;}
 .hp-bg{
@@ -774,6 +784,9 @@ select#hp-choix-profil{max-width: 100%;}
 	    text-align: center;
 	    left: calc((100% - 30px)/2);
 	}
+	.page-title.no-thumbnail:after {
+	    bottom: -30px;
+	}
 	.page-title{position:relative;}
 	h1{font-size: 30px;}
 	.page-content-txt{
@@ -946,6 +959,12 @@ select#hp-choix-profil{max-width: 100%;}
 		}
 	}
 	.article-card{
+		.bg-white{transition:.3s;}
+		.color-blue{transition:.3s;}
+		&:hover{
+			.bg-white{background:$black; color:$white;}
+			.color-blue{color:$white;}
+		}
 		a{height:100%;}
 		a>.row{height:100%;}
 		.article-cat{font-size:10px;}
@@ -979,7 +998,9 @@ select#hp-choix-profil{max-width: 100%;}
 	    text-transform: uppercase;
 	    border: none;
 	    color: #333;
-	    padding: 10px;
+	    padding-left: 10px;
+	    padding-top: 10px;
+	    padding-bottom: 10px;
 	    margin-bottom: 10px;
 	    width: calc(100% - 30px);
 	}
@@ -1358,13 +1379,24 @@ select#hp-choix-profil{max-width: 100%;}
 	    font-size: 20px;
 	}
 }
+@media(max-width: 576px){
+	.savoir-plus, .candidature-spont{
+		.cand-spont-txt, .know-more-txt{font-size: 12px;}
+		.know-more-subtitle{font-size: 15px;}
+		.know-more-btn a, .cand-spont-btn a{font-size: 10px;}
+		.cand-spont-contact{font-size: 11px;}
+	}
+	.main.profil{
+		.apercu-profil-title{letter-spacing: 0px;}
+		h1{font-size: 20px;}
+		#disconnect{font-size: 10px;}
+		.apercu-profil-title:before{display: none;}
+	} 
+}
 @media (max-width: 415px){
 	#hp-odometer div.odometer-inside {
 	    font-size: 130px;
 	    line-height: 130px;
-	}
-	#cta-footer .cta-footer-title {
-	    font-size: 20px;
 	}
 }
 @media (max-width: 343px){

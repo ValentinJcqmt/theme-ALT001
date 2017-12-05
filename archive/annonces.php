@@ -174,6 +174,9 @@
 				<?php echo get_field('txt-nb-offres-1'); ?> <b id="nb-offres"><?php echo $nb_offres; ?> offres d'emploi</b> <?php echo get_field('txt-nb-offres-2'); ?>
 			</div>
 		</div>
+		<div class="row" id="empty-msg" style="display:none;">
+			Nous n'avons aucunes offres correspondant à votre sélection.
+		</div>
 		<div class="row page-1" id="list-offer-cards">
 			<?php foreach ($offres_urgentes as $id) { ?>
 				<script type="text/javascript">

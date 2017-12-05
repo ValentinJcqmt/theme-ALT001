@@ -44,10 +44,10 @@
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center page-share mt-1 mb-2">
-					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
-					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
-					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
 				</div>
 			</div>
 		</div>
@@ -64,10 +64,10 @@
 					<?php echo get_the_content(); ?>
 				</div>
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center article-share mb-2">
-					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
-					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
-					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
 				</div>
 			</div>
 		</div>
@@ -231,7 +231,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 col-lg-6 savoir-plus text-black text-uppercase">
-					<div class="row py-5 px-5 px-lg-0">
+					<div class="row py-5 px-1 px-sm-2 px-md-5 px-lg-0">
 						<div class="col-12 know-more-title mb-2">
 							<?php echo get_field('post-sous-titre-know-more', 'option'); ?>
 						</div>
@@ -242,7 +242,7 @@
 							<?php echo get_field('pst-txt-entreprise', 'option'); ?>
 						</div>
 						<div class="col-12 know-more-btn py-1">
-							<a href="<?php echo get_field('post-url-btn-entreprise', 'option'); ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+							<a href="<?php echo get_field('post-url-btn-entreprise', 'option'); ?>" class="my-1 py-1 px-1 px-sm-2 px-md-3 px-lg-5 bg-black text-uppercase text-white gray-btn-arrow">
 								<?php echo get_field('post-txt-btn-entreprise', 'option'); ?>
 							</a>
 						</div>
@@ -253,14 +253,14 @@
 							<?php echo get_field('post-txt-candidat','option'); ?>
 						</div>
 						<div class="col-12 know-more-btn py-1">
-							<a href="<?php echo get_field('post-url-btn-candidat', 'option'); ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+							<a href="<?php echo get_field('post-url-btn-candidat', 'option'); ?>" class="my-1 py-1 px-1 px-sm-2 px-md-3 px-lg-5 bg-black text-uppercase text-white gray-btn-arrow">
 								<?php echo get_field('post-txt-btn-candidat', 'option'); ?>
 							</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-12 col-lg-6 candidature-spont text-white">
-					<div class="row py-5 pl-5 pr-5 pr-lg-0">
+					<div class="row py-5 pl-1 pl-sm-2 pl-md-5 pr-1 pr-sm-2 pr-md-5 pr-lg-1">
 						<div class="col-12 cand-spont-title text-uppercase">
 							<?php echo get_field('post-contact-titre','option'); ?>
 						</div>
@@ -276,7 +276,7 @@
 							<?php }
 							if(get_field('post-url-btn','option') && get_field('post-txt-btn','option')){ ?>
 								<div class="col-12 cand-spont-btn btn-1 my-1 text-uppercase">
-									<a href="<?php echo get_field('post-url-btn','option'); ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
+									<a href="<?php echo get_field('post-url-btn','option'); ?>" class="d-inline-block my-1 py-1 px-1 px-sm-2 px-md-3 px-lg-5 bg-white text-uppercase text-black white-btn-arrow">
 										<?php echo get_field('post-txt-btn','option'); ?>
 									</a>
 								</div>
@@ -290,7 +290,7 @@
 							<?php }
 							if(get_field('post-url-btn-2','option') && get_field('post-txt-btn-2','option')){ ?>
 								<div class="col-12 cand-spont-btn btn-2 my-1 text-uppercase">
-									<a href="<?php echo get_field('post-url-btn-2','option'); ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
+									<a href="<?php echo get_field('post-url-btn-2','option'); ?>" class="d-inline-block my-1 py-1 px-1 px-sm-2 px-md-3 px-lg-5 bg-white text-uppercase text-black white-btn-arrow">
 										<?php echo get_field('post-txt-btn-2','option'); ?>
 									</a>
 								</div>

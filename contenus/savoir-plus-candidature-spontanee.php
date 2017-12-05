@@ -13,7 +13,7 @@
 						<?php echo $contenu['txt-entreprise']; ?>
 					</div>
 					<div class="col-12 know-more-btn py-1">
-						<a href="<?php echo $contenu['url-btn-entreprise']; ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+						<a href="<?php echo $contenu['url-btn-entreprise']; ?>" class="my-1 py-1 px-1 px-sm-2 px-md-3 px-lg-5 bg-black text-uppercase text-white gray-btn-arrow">
 							<?php echo $contenu['txt-btn-entreprise']; ?>
 						</a>
 					</div>
@@ -24,7 +24,7 @@
 						<?php echo $contenu['txt-candidat']; ?>
 					</div>
 					<div class="col-12 know-more-btn py-1">
-						<a href="<?php echo $contenu['url-btn-candidat']; ?>" class="my-1 py-1 px-5 bg-black text-uppercase text-white gray-btn-arrow">
+						<a href="<?php echo $contenu['url-btn-candidat']; ?>" class="my-1 py-1 px-1 px-sm-2 px-md-3 px-lg-5 bg-black text-uppercase text-white gray-btn-arrow">
 							<?php echo $contenu['txt-btn-candidat']; ?>
 						</a>
 					</div>
@@ -47,7 +47,7 @@
 						<?php }
 						if($contenu['url-btn'] && $contenu['txt-btn']){ ?>
 							<div class="col-12 cand-spont-btn btn-1 my-1 text-uppercase">
-								<a href="<?php echo $contenu['url-btn']; ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
+								<a href="<?php echo $contenu['url-btn']; ?>" class="d-inline-block my-1 py-1 px-1 px-sm-2 px-md-3 px-lg-5 bg-white text-uppercase text-black white-btn-arrow">
 									<?php echo $contenu['txt-btn']; ?>
 								</a>
 							</div>
@@ -61,7 +61,7 @@
 						<?php }
 						if($contenu['url-btn-2'] && $contenu['txt-btn-2']){ ?>
 							<div class="col-12 cand-spont-btn btn-2 my-1 text-uppercase">
-								<a href="<?php echo $contenu['url-btn-2']; ?>" class="d-inline-block my-1 py-1 px-5 bg-white text-uppercase text-black white-btn-arrow">
+								<a href="<?php echo $contenu['url-btn-2']; ?>" class="d-inline-block my-1 py-1 px-1 px-sm-2 px-md-3 px-lg-5 bg-white text-uppercase text-black white-btn-arrow">
 									<?php echo $contenu['txt-btn-2']; ?>
 								</a>
 							</div>

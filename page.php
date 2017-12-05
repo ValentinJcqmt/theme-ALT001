@@ -21,7 +21,6 @@ elseif(is_page('profil')){
 }
 else{
 the_post(); ?>
-
 <div class="main page">
 	<div style="background-image: url(<?php echo get_field('img-bg-header', 'option')['sizes']['top-logo-bg']; ?>);">
 		<div class="container-fluid">
@@ -34,7 +33,7 @@ the_post(); ?>
 			</div>
 		</div>
 	</div>
-	<div class="bg-light-gray page-title">
+	<div class="bg-light-gray page-title <?php if(!has_post_thumbnail()){echo'no-thumbnail';} ?>">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
@@ -43,15 +42,15 @@ the_post(); ?>
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center page-share mb-2">
-					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
-					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
-					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<?php if(has_post_thumbnail( )) {?>
+	<?php if(has_post_thumbnail()) {?>
 		<div class="page-thumbnail" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>');"></div>
 	<?php } ?>
 	<div class="bg-white page-content">
@@ -63,6 +62,16 @@ the_post(); ?>
 						echo do_shortcode(get_field('shortcode-form'));
 					} ?>
 				</div>
+				<script type="text/javascript">
+				jQuery(document).bind('gform_confirmation_loaded', function(event, formId){
+					$('html, body').animate({
+			        	scrollTop: 0
+				    }, 700);
+				    window.setTimeout(function(){
+				        window.location.href = "<?php echo get_home_url(); ?>";
+				    }, 5000);
+				});
+				</script>
 			</div>
 		</div>
 	</div>

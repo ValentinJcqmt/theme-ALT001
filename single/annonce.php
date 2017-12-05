@@ -2,6 +2,18 @@
 	<script type="text/javascript">
 		var zipcode = '<?php echo get_field('zip'); ?>';
 	</script>
+<?php }
+if(isset($_GET['modal']) && $_GET['modal'] == "open"){ ?>
+	<script type="text/javascript">
+		$(window).on('load', function (){
+			$('#modal-candidature').modal('show');
+		});
+	</script>
+<?php }
+if( ( isset($_POST['is_submit_7']) && $_POST['is_submit_7'] ) || (isset($_POST['is_submit_10']) && $_POST['is_submit_10']) ){?>
+	<div class="valid-form p-1 font-weight-bold">
+		Votre candidature a bien été pris en compte.
+	</div>
 <?php } ?>
 <div class="main single-offre">
 	<div class="modal text-center" id="modal-candidature" tabindex="-1" role="dialog" aria-hidden="true">
@@ -141,10 +153,10 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center offre-share my-2">
-					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
-					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
-					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
 				</div>
 			</div>
 			<div class="row">
