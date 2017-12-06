@@ -15,12 +15,12 @@ foreach ($currentoffers as $offer) {
 	$ref[$offer->ID] = get_field('ref', $offer->ID);
 }
 
-$xml = csv2xml('/home/atlantis/preprod/import/annonces.csv', 'channel', 'item');
+$xml = csv2xml($_SERVER['DOCUMENT_ROOT'].'/import/annonces.csv', 'channel', 'item');
 
 function csv2xml($file, $container = 'data', $rows = 'row') {
 	require_once('parsecsv.lib.php');
 	$csv = new parseCSV();
-	$csv->auto('/home/atlantis/preprod/import/annonces.csv');
+	$csv->auto($_SERVER['DOCUMENT_ROOT'].'/import/annonces.csv');
 	$r = "";
 	$i = 0;
 	foreach ($csv->data as $data){

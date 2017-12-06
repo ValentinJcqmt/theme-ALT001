@@ -1380,6 +1380,9 @@ select#hp-choix-profil{
 	}
 }
 @media(max-width: 576px){
+	.single.single-annonce h1 {
+	    font-size: 20px;
+	}
 	.savoir-plus, .candidature-spont{
 		.cand-spont-txt, .know-more-txt{font-size: 12px;}
 		.know-more-subtitle{font-size: 15px;}
