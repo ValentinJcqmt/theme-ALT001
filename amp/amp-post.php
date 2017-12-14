@@ -963,6 +963,59 @@ amp-sidebar a{color:#FFF;}
 							<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 article-content-txt py-4">
 								<?php echo the_content(); ?>
 							</div>
+              <?php if(get_field('contenus_txt_img_btn')){
+                echo'<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 page-content-txt py-1">';
+                  echo'<div class="row">';
+                    $contenus = get_field('contenus_txt_img_btn');
+                    if($contenus){
+                      foreach ($contenus as $contenu) {
+                        if($contenu['acf_fc_layout'] == "titre"){ ?>
+                          <div class="col-12 pt-2">
+                            <h4><?php echo $contenu['titre_txt']; ?></h4>
+                          </div>
+                        <?php }
+                        elseif($contenu['acf_fc_layout'] == "texte"){ ?>
+                          <div class="col-12 pt-2">
+                            <?php echo $contenu['texte']; ?>
+                          </div>
+                        <?php }
+                        elseif($contenu['acf_fc_layout'] == "image"){ ?>
+                          <div class="col-12 pt-2">
+                            <amp-img layout="responsive" width="<?php echo $contenu['image']['width']; ?>" height="<?php echo $contenu['image']['height']; ?>" src="<?php echo $contenu['image']['url']; ?>" class="img-fluid">
+                          </div>
+                        <?php }
+                        elseif($contenu['acf_fc_layout'] == "texte_image"){ ?>
+                          <div class="col-12 col-md-6 pt-2">
+                            <div class="pr-0 pr-md-1">
+                              <?php echo $contenu['texte']; ?>
+                            </div>
+                          </div>
+                          <div class="col-12 col-md-6 pt-2">
+                            <amp-img layout="responsive" width="<?php echo $contenu['image']['width']; ?>" height="<?php echo $contenu['image']['height']; ?>" src="<?php echo $contenu['image']['url']; ?>" class="img-fluid">
+                          </div>
+                        <?php }
+                        elseif($contenu['acf_fc_layout'] == "image_texte"){ ?>
+                          <div class="col-12 col-md-6 pt-2">
+                            <amp-img layout="responsive" width="<?php echo $contenu['image']['width']; ?>" height="<?php echo $contenu['image']['height']; ?>" src="<?php echo $contenu['image']['url']; ?>" class="img-fluid">
+                          </div>
+                          <div class="col-12 col-md-6 pt-2">
+                            <div class="pl-0 pl-md-1">
+                              <?php echo $contenu['texte']; ?>
+                            </div>
+                          </div>
+                        <?php }
+                        elseif($contenu['acf_fc_layout'] == "bouton"){ ?>
+                          <div class="col-12 pt-2">
+                            <a href="<?php echo $contenu['lien']; ?>" <?php if(isset($contenu['target'][0]) && $contenu['target'][0] == "blank" ){echo'target="_blank"';}?> class="my-1 py-1 px-5 bg-<?php echo $contenu['couleur']; ?> text-uppercase text-white <?php echo $contenu['couleur']; ?>-btn-arrow">
+                              <?php echo $contenu['texte']; ?>
+                            </a>
+                          </div>
+                        <?php }
+                      }
+                    }
+                  echo'</div>';
+                echo'</div>';
+              } ?>
 							<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center article-share mb-2">
 								<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></amp-img></a>
 								<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><amp-img layout="fixed" width="20" height="20" src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></amp-img></a>

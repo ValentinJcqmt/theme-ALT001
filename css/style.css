@@ -9332,12 +9332,12 @@ h5, .h5 {
 
 /***********************************************************************************************************/
 /*Boutons*/
-.gray-btn-arrow, .green-btn-arrow, .white-btn-arrow, .facebook-btn-arrow, .twitter-btn-arrow, .google-btn-arrow,
+.gray-btn-arrow, .black-btn-arrow, .green-btn-arrow, .white-btn-arrow, .facebook-btn-arrow, .twitter-btn-arrow, .google-btn-arrow,
 .linkedin-btn-arrow, .postulat-btn-arrow, .alert-btn-arrow, .btn-login-green, #disconnect, #cv-label, .save-profil-btn,
 #modal-candidature .gform_footer.top_label {
   display: inline-block;
   position: relative; }
-  .gray-btn-arrow:after, .green-btn-arrow:after, .white-btn-arrow:after, .facebook-btn-arrow:after, .twitter-btn-arrow:after, .google-btn-arrow:after,
+  .gray-btn-arrow:after, .black-btn-arrow:after, .green-btn-arrow:after, .white-btn-arrow:after, .facebook-btn-arrow:after, .twitter-btn-arrow:after, .google-btn-arrow:after,
   .linkedin-btn-arrow:after, .postulat-btn-arrow:after, .alert-btn-arrow:after, .btn-login-green:after, #disconnect:after, #cv-label:after, .save-profil-btn:after,
   #modal-candidature .gform_footer.top_label:after {
     background-color: #fff;
@@ -9360,7 +9360,7 @@ h5, .h5 {
 #disconnect:after {
   content: url(../img/close-red.png); }
 
-.gray-btn-arrow:after {
+.gray-btn-arrow:after, .black-btn-arrow:after {
   content: url(../img/btn-arrow-black.png); }
 
 .green-btn-arrow:after {

@@ -56,12 +56,19 @@ the_post(); ?>
 	<div class="bg-white page-content">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 page-content-txt py-4">
+				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 page-content-txt pt-4 pb-1">
 					<?php echo get_the_content(); ?>
 					<?php if(get_field('shortcode-form')){
 						echo do_shortcode(get_field('shortcode-form'));
 					} ?>
 				</div>
+				<?php if(get_field('contenus_txt_img_btn')){
+					echo'<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 page-content-txt py-1">';
+						echo'<div class="row">';
+							include TEMPLATEPATH . '/contenus/contenu-btn-txt-img.php';
+						echo'</div>';
+					echo'</div>';
+				} ?>
 				<script type="text/javascript">
 				jQuery(document).bind('gform_confirmation_loaded', function(event, formId){
 					$('html, body').animate({

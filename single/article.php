@@ -60,9 +60,16 @@
 	<div class="bg-white article-content">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 article-content-txt py-4">
+				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 article-content-txt py-1">
 					<?php echo get_the_content(); ?>
 				</div>
+				<?php if(get_field('contenus_txt_img_btn')){
+					echo'<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 article-content-txt py-1">';
+						echo'<div class="row">';
+							include TEMPLATEPATH . '/contenus/contenu-btn-txt-img.php';
+						echo'</div>';
+					echo'</div>';
+				} ?>
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center article-share mb-2">
 					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
 					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
