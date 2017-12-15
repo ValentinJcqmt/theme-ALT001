@@ -42,10 +42,10 @@ the_post(); ?>
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center page-share mb-2">
-					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
-					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
-					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.svg"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.svg"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.svg"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.svg"></a>
 				</div>
 			</div>
 		</div>

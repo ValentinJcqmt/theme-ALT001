@@ -57,6 +57,15 @@ function amp_set_review_template( $file, $type, $post ) {
 }
 /**********************************************************************************************************************/
 
+/* Autoriser les fichiers SVG */
+function wpc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'wpc_mime_types');
+
+/**********************************************************************************************************************/
+
 add_image_size( 'hp-intro', 340, 450, true );
 add_image_size( 'hp-3bloc-img', 650, 650, true );
 add_image_size( 'top-logo-bg', 2000, 150, true );

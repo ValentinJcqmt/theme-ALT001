@@ -9694,7 +9694,7 @@ select#hp-choix-profil {
     font-style: normal;
     color: #d7373a; }
   .caption-urgent:after {
-    content: url("../img/red-bell.png");
+    content: url("../img/red-bell.svg");
     display: inline-block;
     position: absolute;
     left: 0;
@@ -9747,7 +9747,7 @@ select#hp-choix-profil {
 .offre-right, .offre-left {
   position: relative; }
   .offre-right.offre-urgente:after, .offre-left.offre-urgente:after {
-    content: url("../img/red-bell-small.png");
+    content: url("../img/red-bell-small.svg");
     line-height: 22px; }
   .offre-right:not(.offre-urgente):after, .offre-left:not(.offre-urgente):after {
     line-height: 17px; }
@@ -9930,7 +9930,7 @@ select#hp-choix-profil {
     .nos-offres .offre-title p.ref-offre {
       margin-bottom: auto; }
     .nos-offres .offre-title.urgente:after {
-      content: url("../img/red-bell-small.png"); }
+      content: url("../img/red-bell-small.svg"); }
     .nos-offres .offre-title:not(.urgente):after {
       content: url("../img/btn-arrow-black-small-down.svg"); }
     .nos-offres .offre-title.urgente:after, .nos-offres .offre-title:not(.urgente):after {
@@ -9963,7 +9963,7 @@ select#hp-choix-profil {
           padding-left: 17px;
           position: relative; }
         .nos-offres .offre-card > a > .row p.time:before {
-          content: url("../img/time.png");
+          content: url("../img/time.svg");
           position: absolute;
           left: 0; }
   @media (max-width: 768px) {
@@ -10066,7 +10066,7 @@ select#hp-choix-profil {
   .single.single-annonce .offre-title p.ref-offre {
     margin-bottom: auto; }
   .single.single-annonce .offre-title.urgente:after {
-    content: url("../img/red-bell-small.png"); }
+    content: url("../img/red-bell-small.svg"); }
   .single.single-annonce .offre-title:not(.urgente):after {
     content: url("../img/btn-arrow-black-small-down.svg"); }
   .single.single-annonce .offre-title.urgente:after, .single.single-annonce .offre-title:not(.urgente):after {
@@ -10116,7 +10116,7 @@ select#hp-choix-profil {
         padding-left: 17px;
         position: relative; }
       .single.single-annonce .offre-card > a > .row p.time:before {
-        content: url("../img/time.png");
+        content: url("../img/time.svg");
         position: absolute;
         left: 0; }
 .single.single-annonce .postulat-btn-arrow {
@@ -10184,7 +10184,7 @@ select#hp-choix-profil {
   width: 40px;
   text-align: center;
   vertical-align: middle;
-  line-height: 45px; }
+  line-height: 40px; }
 .single.single-annonce .next-offre-btn:after {
   content: url("../img/btn-arrow-black-small.svg");
   background-color: #fff;
@@ -10195,7 +10195,7 @@ select#hp-choix-profil {
   width: 40px;
   text-align: center;
   vertical-align: middle;
-  line-height: 45px; }
+  line-height: 40px; }
 
 /**************************************************************************************************************/
 /*PAGE*/
@@ -10306,7 +10306,7 @@ select#hp-choix-profil {
         padding-left: 17px;
         position: relative; }
       .single-article .offre-card > a > .row p.time:before {
-        content: url("../img/time.png");
+        content: url("../img/time.svg");
         position: absolute;
         left: 0; }
   .single-article .offre-card .offre-update {
@@ -10352,7 +10352,7 @@ select#hp-choix-profil {
   width: 40px;
   text-align: center;
   vertical-align: middle;
-  line-height: 45px; }
+  line-height: 40px; }
 .single-article .next-article-btn:after {
   content: url("../img/btn-arrow-black-small.svg");
   background-color: #fff;
@@ -10363,7 +10363,7 @@ select#hp-choix-profil {
   width: 40px;
   text-align: center;
   vertical-align: middle;
-  line-height: 45px; }
+  line-height: 40px; }
 .single-article .page-title {
   position: relative; }
 .single-article .page-title:after {
@@ -10406,7 +10406,7 @@ select#hp-choix-profil {
   .single-article .offre-title p.ref-offre {
     margin-bottom: auto; }
   .single-article .offre-title.urgente:after {
-    content: url("../img/red-bell-small.png"); }
+    content: url("../img/red-bell-small.svg"); }
   .single-article .offre-title.urgente:after {
     background: #fff;
     border: solid 4px #e7e7e7;
@@ -10464,7 +10464,7 @@ select#hp-choix-profil {
   padding-top: 20px;
   margin-bottom: 0; }
 .single-article .article-card p.time:before {
-  content: url("../img/time.png");
+  content: url("../img/time.svg");
   position: absolute;
   left: 0; }
 .single-article .article-card .post-thumbnail-container {
@@ -10526,7 +10526,7 @@ select#hp-choix-profil {
   .nos-articles .offre-title p.ref-offre {
     margin-bottom: auto; }
   .nos-articles .offre-title:after {
-    content: url("../img/red-bell-small.png");
+    content: url("../img/red-bell-small.svg");
     background: #fff;
     border: solid 4px #e7e7e7;
     position: absolute;
@@ -10556,7 +10556,7 @@ select#hp-choix-profil {
         padding-left: 17px;
         position: relative; }
       .nos-articles .offre-card > a > .row p.time:before {
-        content: url("../img/time.png");
+        content: url("../img/time.svg");
         position: absolute;
         left: 0; }
 .nos-articles .article-card:hover .bg-white {
@@ -10587,7 +10587,7 @@ select#hp-choix-profil {
   padding-top: 20px;
   margin-bottom: 0; }
 .nos-articles .article-card p.time:before {
-  content: url("../img/time.png");
+  content: url("../img/time.svg");
   position: absolute;
   left: 0; }
 .nos-articles .article-card .post-thumbnail-container {
@@ -10727,7 +10727,7 @@ select#hp-choix-profil {
   .single-metier .offre-title p.ref-offre {
     margin-bottom: auto; }
   .single-metier .offre-title:after {
-    content: url("../img/red-bell-small.png");
+    content: url("../img/red-bell-small.svg");
     background: #fff;
     border: solid 4px #e7e7e7;
     position: absolute;
@@ -10757,7 +10757,7 @@ select#hp-choix-profil {
         padding-left: 17px;
         position: relative; }
       .single-metier .offre-card > a > .row p.time:before {
-        content: url("../img/time.png");
+        content: url("../img/time.svg");
         position: absolute;
         left: 0; }
 .single-metier .metier-subtitle {
@@ -10815,7 +10815,7 @@ select#hp-choix-profil {
     margin-right: 5px;
     background: #333; }
   .main.profil .apercu-profil-title:after {
-    content: url(../img/profil-icon-green.png);
+    content: url(../img/profil-icon-green.svg);
     margin-left: 5px; }
 .main.profil #profil-edit-form label, .main.profil #profil-edit-form input[type=text], .main.profil #profil-edit-form input[type=password] {
   width: 100%;
@@ -10874,7 +10874,7 @@ select#hp-choix-profil {
   .main.profil .offre-title p.ref-offre {
     margin-bottom: auto; }
   .main.profil .offre-title.urgente:after {
-    content: url("../img/red-bell-small.png"); }
+    content: url("../img/red-bell-small.svg"); }
   .main.profil .offre-title:not(.urgente):after {
     content: url("../img/btn-arrow-black-small-down.svg"); }
   .main.profil .offre-title:after {
@@ -10907,7 +10907,7 @@ select#hp-choix-profil {
         padding-left: 17px;
         position: relative; }
       .main.profil .offre-card > .row > a p.time:before {
-        content: url("../img/time.png");
+        content: url("../img/time.svg");
         position: absolute;
         left: 0; }
   .main.profil .offre-card .delete {

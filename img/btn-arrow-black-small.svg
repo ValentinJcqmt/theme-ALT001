@@ -1,3 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="-1 3 28 20" width="24" height="16"><defs><path d="M16 7.33L16 4L24 12L16 20L16 16.67L0 12L16 7.33Z" id="bVkPAG1LV"></path></defs><g><g><use xlink:href="#bVkPAG1LV" opacity="1" fill="#333333" fill-opacity="1"></use></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="master-artboard" viewBox="0 0 12 8" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" style="enable-background:new 0 0 1400 980;" width="12px" height="8px" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M16 7.33L16 4L24 12L16 20L16 16.67L0 12L16 7.33Z" id="bVkPAG1LV"/></defs><rect id="ee-background" x="0" y="0" width="12" height="8" style="fill: white; fill-opacity: 0; pointer-events: none;"/>
+
+
+<g transform="matrix(0.4937499737367032, 0, 0, 0.4937499737367032, 0.05000024884939647, -1.9083319008350335)"><g><g><use opacity="1" fill="#333333" fill-opacity="1" xlink:href="#bVkPAG1LV"/></g></g></g></svg>

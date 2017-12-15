@@ -16,7 +16,7 @@ get_header(); ?>
 					<div class="row mt-5 mb-2">
 						<div class="col-12 titre-carousel-urgentes text-red text-uppercase">
 							<div class="d-inline">
-								<img src="<?php echo get_template_directory_uri(); ?>/img/red-bell-white-bg.png">
+								<img src="<?php echo get_template_directory_uri(); ?>/img/red-bell-white-bg.svg">
 							</div>
 							<div class="d-inline ml-1">
 								<?php echo get_field('hp-top-titre-o-u'); ?>

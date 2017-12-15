@@ -36,18 +36,18 @@
 				<div class="col-12 text-center">
 					<?php $daysago = round((date('U') - get_the_time('U', $post)) / (60*60*24));
 					if($daysago == 0){?>
-						<img src="<?php echo get_template_directory_uri().'/img/time.png'; ?>" class="d-inline"><p class="d-inline pl-1 time text-uppercase text-light-gray">Aujoud'hui</p>
+						<img src="<?php echo get_template_directory_uri().'/img/time.svg'; ?>" class="d-inline"><p class="d-inline pl-1 time text-uppercase text-light-gray">Aujoud'hui</p>
 					<?php } else{ ?>
-						<img src="<?php echo get_template_directory_uri().'/img/time.png'; ?>" class="d-inline"><p class="d-inline pl-1 time text-uppercase text-light-gray">Il y a <?php echo $daysago; ?> jour<?php if($daysago>1) echo's'; ?></p>
+						<img src="<?php echo get_template_directory_uri().'/img/time.svg'; ?>" class="d-inline"><p class="d-inline pl-1 time text-uppercase text-light-gray">Il y a <?php echo $daysago; ?> jour<?php if($daysago>1) echo's'; ?></p>
 					<?php }?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center page-share mt-1 mb-2">
-					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
-					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
-					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.svg"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.svg"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.svg"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.svg"></a>
 				</div>
 			</div>
 		</div>
@@ -71,10 +71,10 @@
 					echo'</div>';
 				} ?>
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center article-share mb-2">
-					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
-					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
-					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.svg"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.svg"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.svg"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.svg"></a>
 				</div>
 			</div>
 		</div>
@@ -192,7 +192,7 @@
 										<?php } ?>
 										<div class="date-box bg-red">
 											<div class="d-inline-block clock bg-white">
-												<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.png">
+												<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.svg">
 											</div>
 											<div class="d-inline-block date px-1 text-white bg-red text-uppercase font-weight-bold">
 												<?php echo get_the_date('d M Y', $offer); ?>

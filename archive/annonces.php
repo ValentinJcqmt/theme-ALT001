@@ -213,7 +213,7 @@
 								<?php } ?>
 								<div class="date-box bg-red">
 									<div class="d-inline-block clock bg-white">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.png">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.svg">
 									</div>
 									<div class="d-inline-block date px-1 text-white bg-red text-uppercase font-weight-bold">
 										<?php echo get_the_date('d M Y', $id); ?>
@@ -287,7 +287,7 @@
 								<?php } ?>
 								<div class="date-box bg-black">
 									<div class="d-inline-block clock bg-white">
-										<img src="<?php echo get_template_directory_uri(); ?>/img/clock-black.png">
+										<img src="<?php echo get_template_directory_uri(); ?>/img/clock-black.svg">
 									</div>
 									<div class="d-inline-block date px-1 text-white bg-black text-uppercase font-weight-bold">
 										<?php echo get_the_date('d M Y', $offre->id); ?>

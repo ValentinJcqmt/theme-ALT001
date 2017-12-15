@@ -153,10 +153,10 @@ if( ( isset($_POST['is_submit_7']) && $_POST['is_submit_7'] ) || (isset($_POST['
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center offre-share my-2">
-					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.png"></a>
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.png"></a>
-					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.png"></a>
-					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.png"></a>
+					<a href="https://plus.google.com/share?url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-google.svg"></a>
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-facebook.svg"></a>
+					<a href="https://twitter.com/intent/tweet?text=%20&url=<?php echo get_permalink();?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-twitter.svg"></a>
+					<a href="https://www.linkedin.com/shareArticle?url=<?php echo get_template_directory_uri(); ?>" target="_blank" class="mx-2 d-inline-block"><img src="<?php echo get_template_directory_uri(); ?>/img/share-linkedin.svg"></a>
 				</div>
 			</div>
 			<div class="row">
@@ -304,7 +304,7 @@ if( ( isset($_POST['is_submit_7']) && $_POST['is_submit_7'] ) || (isset($_POST['
 										<?php } ?>
 										<div class="date-box bg-red">
 											<div class="d-inline-block clock bg-white">
-												<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.png">
+												<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.svg">
 											</div>
 											<div class="d-inline-block date px-1 text-white bg-red text-uppercase font-weight-bold">
 												<?php echo get_the_date('d M Y', $urgent_post); ?>
@@ -353,7 +353,7 @@ if( ( isset($_POST['is_submit_7']) && $_POST['is_submit_7'] ) || (isset($_POST['
 											<?php } ?>
 											<div class="date-box bg-black">
 												<div class="d-inline-block clock bg-white">
-													<img src="<?php echo get_template_directory_uri(); ?>/img/clock-black.png">
+													<img src="<?php echo get_template_directory_uri(); ?>/img/clock-black.svg">
 												</div>
 												<div class="d-inline-block date px-1 text-white bg-black text-uppercase font-weight-bold">
 													<?php echo get_the_date('d M Y', $annonce['ID']); ?>

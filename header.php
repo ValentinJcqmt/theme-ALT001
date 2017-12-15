@@ -173,10 +173,10 @@
 						$linkedin_url = get_field('lien_linkedin', 'option');
 						$rss_url = get_home_url()."/feed";
 						$scoopit_url = get_field('lien_scoopit', 'option');
-						$twitter_picto = get_field('picto_twitter', 'option');
-						$linkedin_picto = get_field('picto_linkedin', 'option');
-						$rss_picto = get_field('picto_rss', 'option');
-						$scoopit_picto = get_field('picto_scoopit', 'option');
+						$twitter_picto = get_field('picto_twitter', 'option')['url'];
+						$linkedin_picto = get_field('picto_linkedin', 'option')['url'];
+						$rss_picto = get_field('picto_rss', 'option')['url'];
+						$scoopit_picto = get_field('picto_scoopit', 'option')['url'];
 						if($twitter_url){ ?>
 							<a class="pl-1" href="<?php echo $twitter_url; ?>" target="_blank">
 								<img src="<?php echo $twitter_picto; ?>" class="img-fluid">
@@ -206,7 +206,7 @@
 						<div class="account text-center">
 							<span class="text-uppercase d-inline-block">votre profil</span>
 							<div class="account-img d-inline-block">
-								<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
+								<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.svg">
 							</div>
 						</div>
 					</a>
@@ -214,7 +214,7 @@
 					<div data-toggle="modal" data-target="#modal-connect" class="account text-center">
 						<span class="text-uppercase d-inline-block">Connexion</span>
 						<div class="account-img d-inline-block">
-							<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.png">
+							<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/espace-perso.svg">
 						</div>
 					</div>
 				<?php } ?>

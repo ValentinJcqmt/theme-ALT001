@@ -51,10 +51,10 @@
 					$linkedin_url = get_field('lien_linkedin', 'option');
 					$rss_url = get_home_url()."/feed";
 					$scoopit_url = get_field('lien_scoopit', 'option');
-					$twitter_picto = get_field('picto_twitter', 'option');
-					$linkedin_picto = get_field('picto_linkedin', 'option');
-					$rss_picto = get_field('picto_rss', 'option');
-					$scoopit_picto = get_field('picto_scoopit', 'option');
+					$twitter_picto = get_field('picto_twitter', 'option')['url'];
+					$linkedin_picto = get_field('picto_linkedin', 'option')['url'];
+					$rss_picto = get_field('picto_rss', 'option')['url'];
+					$scoopit_picto = get_field('picto_scoopit', 'option')['url'];
 					if($twitter_url){ ?>
 						<a href="<?php echo $twitter_url; ?>" target="_blank">
 							<img src="<?php echo $twitter_picto; ?>" class="img-fluid">

@@ -91,7 +91,7 @@
 												<?php } ?>
 												<div class="date-box bg-red">
 													<div class="d-inline-block clock bg-white">
-														<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.png">
+														<img src="<?php echo get_template_directory_uri(); ?>/img/clock-red.svg">
 													</div>
 													<div class="d-inline-block date px-1 text-white bg-red text-uppercase font-weight-bold">
 														<?php echo get_the_date('d M Y', $id); ?>
@@ -106,7 +106,7 @@
 												<?php } ?>
 												<div class="date-box bg-black">
 													<div class="d-inline-block clock bg-white">
-														<img src="<?php echo get_template_directory_uri(); ?>/img/clock-black.png">
+														<img src="<?php echo get_template_directory_uri(); ?>/img/clock-black.svg">
 													</div>
 													<div class="d-inline-block date px-1 text-white bg-black text-uppercase font-weight-bold">
 														<?php echo get_the_date('d M Y', $id); ?>
@@ -144,7 +144,7 @@
 									<div id="delete-<?php echo $id; ?>-<?php echo $current_user->ID; ?>" class="col-12 delete bg-white py-1 text-center text-light-gray">
 										<div class="d-inline">
 											<div class="text-uppercase d-inline">supprimer</div>
-											<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/trash-icon.png">
+											<img class="img-fluid" src="<?php echo get_template_directory_uri(); ?>/img/trash-icon.svg">
 										</div>
 									</div>
 								</div>

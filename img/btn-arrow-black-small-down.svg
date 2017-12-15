@@ -1,3 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="61.44287158746208 82.19514661274013 20 28" width="16" height="24"><defs><path d="M75.11 99.2L78.44 99.2L70.44 107.2L62.44 99.2L65.77 99.2L70.44 83.2L75.11 99.2Z" id="e11NShyNKL"></path></defs><g><g><use xlink:href="#e11NShyNKL" opacity="1" fill="#333333" fill-opacity="1"></use></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="master-artboard" viewBox="0 0 8 12" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" style="enable-background:new 0 0 1400 980;" width="8px" height="12px" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M16 7.33L16 4L24 12L16 20L16 16.67L0 12L16 7.33Z" id="bVkPAG1LV"/><path d="M8 7.33L8 4L0 12L8 20L8 16.67L24 12L8 7.33Z" id="ah5HNVQJq"/><path d="M75.11 99.2L78.44 99.2L70.44 107.2L62.44 99.2L65.77 99.2L70.44 83.2L75.11 99.2Z" id="e11NShyNKL"/></defs><rect id="ee-background" x="0" y="0" width="8" height="12" style="fill: white; fill-opacity: 0; pointer-events: none;"/>
+
+
+<g transform="matrix(0.4833333405355612, 0, 0, 0.4833333405355612, -30.11381570304433, -40.07805898189544)"><g><g><use opacity="1" fill="#333333" fill-opacity="1" xlink:href="#e11NShyNKL"/></g></g></g></svg>
