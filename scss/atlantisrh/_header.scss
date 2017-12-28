@@ -48,7 +48,7 @@
 	}
 	.gform_footer.top_label{
 		padding: 0 !important;
-		input[type=submit]{background:$green; color:$white; font-weight:bold; text-transform: uppercase;}
+		input[type=submit]{background:$green; color:$white; font-weight:600; text-transform: uppercase;}
 	}
 	.btn-login-green, .gform_footer.top_label{
 		cursor:pointer;
@@ -79,6 +79,11 @@ header{
 		.desktop-header{
 			.header-social{display: none !important;}
 		}
+	}
+	.current-menu-item, .current-menu-ancestor, .current-menu-parent, .current_page_parent, .current_page_ancestor{
+		&>a{
+	    	font-weight: 800 !important;
+	    }
 	}
 	&.sticky{
 		color:$black;
@@ -183,7 +188,7 @@ header{
 			transition:.3s;
 			color: $white;
 			font-size: 12px;
-			font-weight: 700;
+			font-weight: 600;
 			text-transform: uppercase;
 			padding: 0 7px;
 			letter-spacing: 1px;
@@ -197,7 +202,7 @@ header{
 					transition:.3s;
 					color: $white;
 					font-size: 12px;
-					font-weight: 700;
+					font-weight: 600;
 					text-transform: uppercase;
 					padding: 0 7px;
 					letter-spacing: 1px;
@@ -253,7 +258,7 @@ header{
 					transition:.3s;
 					color: $white;
 					font-size: 12px;
-					font-weight: 700;
+					font-weight: 600;
 					text-transform: uppercase;
 					padding: 0 7px;
 					letter-spacing: 1px;
@@ -273,7 +278,7 @@ header{
 		span{
 			width: 100%;
 			font-size: 10px;
-			font-weight: 700;
+			font-weight: 600;
 			letter-spacing: 1px;
 		}
 		.account-img{

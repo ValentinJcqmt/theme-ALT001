@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800');
 
 //base
 html{background:none;}
 body{padding-top:56px;position:relative;font-family:'Montserrat', sans-serif; background:$white;color:$black;font-size:18px;}
 .container-fluid{width:100%;max-width:1500px;margin-right:auto;margin-left:auto; padding-right:10px; padding-left: 10px;}
-.error-login{background: #ffcccc;color: #af0202;font-weight: bold;padding: 5px;font-size: 15px;}
+.error-login{background: #ffcccc;color: #af0202;font-weight: 600;padding: 5px;font-size: 15px;}
 body.modal-open{
 	padding-right: 0 !important; overflow:auto;
 	div.modal .modal-content{opacity:1;}
@@ -47,14 +47,14 @@ select.custom-select{padding-right: 40px;}
 code{padding:2px 0;font-size:11px;color:#777;font-style:italic;}
 p{margin-bottom:0.625rem}
 
-b{font-weight: 700;}
+b{font-weight: 600;}
 
 
-h1,.h1{font-weight:900;text-transform:uppercase;}
-h2,.h2{font-weight:900;}
-h3,.h3{font-weight:700;}
-h4,.h4{font-weight:700;}
-h5,.h5{font-weight:700;}
+h1,.h1{font-weight:600;text-transform:uppercase;}
+h2,.h2{font-weight:600;}
+h3,.h3{font-weight:600;}
+h4,.h4{font-weight:600;}
+h5,.h5{font-weight:600;}
 
 
 @include media-breakpoint-down(sm){
@@ -67,7 +67,7 @@ h5,.h5{font-weight:700;}
 
 //font
 .font-weight-normal{font-weight:500;}
-.font-weight-medium{font-weight:600;}
+.font-weight-medium, .font-weight-bold{font-weight:600;}
 .font-weight-bolder{font-weight:900;}
 .font-weight-lighter{font-weight:300;}
 
@@ -134,7 +134,7 @@ select#hp-choix-profil{
 	max-width: 100%;
 	font-family: 'Montserrat';
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 600;
     border: none;
     color: #333;
     font-size: 15px;
@@ -152,7 +152,7 @@ select#hp-choix-profil{
 		position:relative;
 		img{min-height: 100%;}
 		.img-caption{
-			position:absolute;top: 0;left: 0;width: 100%;font-size: 29px;font-weight: 700;letter-spacing: 3px;line-height: 35px;
+			position:absolute;top: 0;left: 0;width: 100%;font-size: 29px;font-weight: 600;letter-spacing: 3px;line-height: 35px;
 		}
 	}
 }
@@ -184,14 +184,14 @@ select#hp-choix-profil{
 	margin-right:10px;
 	margin-left: 10px;
 }
-.titre-carousel-urgentes{font-size: 14px; line-height: 14px; font-weight: 700; letter-spacing: 1px;}
+.titre-carousel-urgentes{font-size: 14px; line-height: 14px; font-weight: 600; letter-spacing: 1px;}
 .carousel-offre{
 	letter-spacing: 1px;
-	.offre-titre{font-size: 15px; font-weight: 700;}
+	.offre-titre{font-size: 15px; font-weight: 600;}
 	.offre-ref{font-size: 12px; font-style: italic;}
 	.offre-info{font-size: 14px; font-weight: 400; margin-top:2px;}
 	.offre-update{font-size: 10px; font-style: italic;}
-	.gray-btn-arrow{font-size: 10px; font-weight: 700;}
+	.gray-btn-arrow{font-size: 10px; font-weight: 600;}
 }
 .offre-update{font-size: 10px; font-style: italic;}
 .hp-top-card-title{font-size: 8px;font-weight: 400;letter-spacing: 1px;}
@@ -202,7 +202,7 @@ select#hp-choix-profil{
 		background-color: transparent;
 		border: solid $white 2px;
 		font-size: 10px;
-		font-weight: 700;
+		font-weight: 600;
 		width: 100%;
 		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */ color: $white;}
 		&::-moz-placeholder { /* Firefox 19+ */ color: $white;}
@@ -229,7 +229,7 @@ select#hp-choix-profil{
 		input[type=submit]{
 			border:none;
 			font-size: 10px;
-			font-weight: 700;
+			font-weight: 600;
 			width: 100%;
 		}
 	}
@@ -237,7 +237,7 @@ select#hp-choix-profil{
 .hp-top-card-top{min-height: 55%;}
 .hp-who{
 	letter-spacing: 1px;
-	font-weight: 700;
+	font-weight: 600;
 	.hp-who-title{font-size: 30px; letter-spacing: 3px;}
 	.hp-who-txt{font-size: 15px;}
 	.white-btn-arrow{font-size:10px;}
@@ -248,15 +248,15 @@ select#hp-choix-profil{
 	position: relative;
 	img{height: 100%; width:100%;}
 }
-.hp-offers-number-title{font-size: 30px; font-weight: 700;}
+.hp-offers-number-title{font-size: 30px; font-weight: 600;}
 #hp-odometer{
 	.odometer-inside {
 	    font-size: 200px;
 	    line-height: 200px;
-		font-weight: 700;
+		font-weight: 600;
 	}
 }
-.hp-offers-number-txt{font-size: 15px; font-weight: 700;}
+.hp-offers-number-txt{font-size: 15px; font-weight: 600;}
 .hp-offers-number:after {
     content: '';
     display: block;
@@ -271,7 +271,7 @@ select#hp-choix-profil{
     left:0;
 }
 .choix-profil{
-	font-weight: 700;
+	font-weight: 600;
 	.choix-profil-title{font-size: 30px;}
 	.choix-profil-txt{
 		font-size: 15px;
@@ -280,21 +280,21 @@ select#hp-choix-profil{
 	.choix-profil-form form select{
 		border:solid 1px $black;
 		font-size: 12px;
-		font-weight: 700;
+		font-weight: 600;
 	}
 }
 .bg-linkedin-picto{
 	letter-spacing: 1px;
-	.hp-linkedin-title{font-size:30px; font-weight:700; letter-spacing: 3px;}
+	.hp-linkedin-title{font-size:30px; font-weight:600; letter-spacing: 3px;}
 	.white-btn-arrow{
 		font-size: 15px;
-		width:calc(60% - 33px); font-weight: 700;
+		width:calc(60% - 33px); font-weight: 600;
 		&:after{background-color: $light-blue; width:39px;}
 	}
 }
-.hp-twitter-title{font-size: 30px; font-weight: 700; letter-spacing: 3px;}
+.hp-twitter-title{font-size: 30px; font-weight: 600; letter-spacing: 3px;}
 .hp-twitter-text{
-	font-size: 15px; font-weight: 700; letter-spacing: 1px;
+	font-size: 15px; font-weight: 600; letter-spacing: 1px;
 	em{color:$blue; font-style: normal;}
 }
 .hp-twitter-list{
@@ -304,7 +304,7 @@ select#hp-choix-profil{
 		width:50%;
 		position: relative;
 		a{
-			font-weight: 900;
+			font-weight: 600;
 			font-size: 15px;
 			letter-spacing: 1px;
 			&:after{
@@ -317,25 +317,25 @@ select#hp-choix-profil{
 		}
 	}
 }
-.social-connect-subtitle{font-size:15px;font-weight:700;letter-spacing: 1px;}
-.social-connect-title{font-size:40px; font-weight:700;letter-spacing: 3px;}
+.social-connect-subtitle{font-size:15px;font-weight:600;letter-spacing: 1px;}
+.social-connect-title{font-size:40px; font-weight:600;letter-spacing: 3px;}
 .social-login-btn{
 	a{
 		font-size:10px;
 		width:256px;
-		font-weight: 700;
+		font-weight: 600;
 		letter-spacing: 1px;
 	}
 }
 .social-login-bloc{background-repeat: no-repeat; background-position: center center; background-size: cover;}
-.last-offers-title{font-size: 30px; font-weight: 700; letter-spacing: 3px;}
+.last-offers-title{font-size: 30px; font-weight: 600; letter-spacing: 3px;}
 .last-offers-desc{
-	font-size:15px;font-weight:700;letter-spacing: 1px;
+	font-size:15px;font-weight:600;letter-spacing: 1px;
 	em{font-style: normal; color: $red;}
 }
 .caption-urgent{
 	font-size:10px;
-	font-weight: 700;
+	font-weight: 600;
 	position: relative;
 	em{font-style: normal; color: $red;}
 	&:after{
@@ -350,10 +350,10 @@ select#hp-choix-profil{
 }
 .offre-title{
 	position:relative;
-	.name-offre{font-size:15px; font-weight: 700; letter-spacing: 1px;}
+	.name-offre{font-size:15px; font-weight: 600; letter-spacing: 1px;}
 	.ref-offre{
 		font-style: italic; font-size: 12px; letter-spacing: 1px;
-		em{font-weight: 700;}
+		em{font-weight: 600;}
 	}
 	.date-box{
 	    	position: absolute;
@@ -377,7 +377,7 @@ select#hp-choix-profil{
 .info-offre{
 	font-size: 14px;
 	letter-spacing: 1px;
-	em{font-weight: 700;font-style: normal;}
+	em{font-weight: 600;font-style: normal;}
 }
 .update-offre{font-size: 10px;font-style: italic;letter-spacing: 1px;}
 .offre-right, .offre-left{
@@ -403,7 +403,7 @@ select#hp-choix-profil{
 //NOS OFFRES
 .nos-offres{
 	h1{font-size: 30px;}
-	.sous-titre{font-size: 15px; font-weight: 700;}
+	.sous-titre{font-size: 15px; font-weight: 600;}
 	.page-1 .offre-card.filtered:nth-of-type(n+13){
 		display: none;
 	}
@@ -426,30 +426,30 @@ select#hp-choix-profil{
 	}
 	input[type=search]::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     	color:    $black;
-    	font-weight: 700;
+    	font-weight: 600;
 	}
 	input[type=search]:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
 	   color:    $black;
-	   font-weight: 700;
+	   font-weight: 600;
 	   opacity:  1;
 	}
 	input[type=search]::-moz-placeholder { /* Mozilla Firefox 19+ */
 	   color:    $black;
-	   font-weight: 700;
+	   font-weight: 600;
 	   opacity:  1;
 	}
 	input[type=search]:-ms-input-placeholder { /* Internet Explorer 10-11 */
 	   color:    $black;
-	   font-weight: 700;
+	   font-weight: 600;
 	}
 	input[type=search]::-ms-input-placeholder { /* Microsoft Edge */
 	   color:    $black;
-	   font-weight: 700;
+	   font-weight: 600;
 	}
 	select, input[type=search]{
 		font-family: 'Montserrat';
 		text-transform: uppercase;
-		font-weight: 700;
+		font-weight: 600;
 		border:none;
 		color:$black;
 		padding-top: 10px;
@@ -586,7 +586,7 @@ select#hp-choix-profil{
 			&>.row{
 				height:100%;
 				& > .offre-infos{height:calc(100% - 150px);display: flex;flex-direction: column;}
-				p.time{margin-top: auto;font-size: 11px;font-weight: 700;letter-spacing: 1px;padding-left: 17px;position: relative;}
+				p.time{margin-top: auto;font-size: 11px;font-weight: 600;letter-spacing: 1px;padding-left: 17px;position: relative;}
 				p.time:before{content:url('../img/time.svg');position: absolute;left:0;}
 			}
 		}
@@ -611,7 +611,7 @@ select#hp-choix-profil{
 			.candidature-spont{padding-right: 10px; padding-left: 10px; background:$black;}
 		}
 	}
-	.page-number{display: inline-block;margin-right: 1px; background:$white; text-transform: uppercase; font-weight: 700; text-align: center; padding:18px 25px 17px; cursor:pointer; color:$black;}
+	.page-number{display: inline-block;margin-right: 1px; background:$white; text-transform: uppercase; font-weight: 600; text-align: center; padding:18px 25px 17px; cursor:pointer; color:$black;}
 	.page-1 #go-to-page-1 {
 	    color: #FFF;
 	    background: #333;
@@ -707,7 +707,7 @@ select#hp-choix-profil{
 			&>.row{
 				height:100%;
 				& > .offre-infos{height:calc(100% - 150px);display: flex;flex-direction: column;}
-				p.time{margin-top: auto;font-size: 11px;font-weight: 700;letter-spacing: 1px;padding-left: 17px;position: relative;}
+				p.time{margin-top: auto;font-size: 11px;font-weight: 600;letter-spacing: 1px;padding-left: 17px;position: relative;}
 				p.time:before{content:url('../img/time.svg');position: absolute;left:0;}
 			}
 		}
@@ -728,9 +728,9 @@ select#hp-choix-profil{
 	}
 	.profil-offre{font-size:15px;}
 	.offre-share img{margin-right:3px; margin-left:3px; filter:brightness(0);}
-	.prev-offre-btn{position:relative; font-size:15px; margin-left:40px;font-weight:700;}
-	.next-offre-btn{position:relative; font-size:15px; margin-right:40px;font-weight:700;}
-	.offre-back-btn{position: relative; font-size: 15px; margin-left:40px;font-weight:700;}
+	.prev-offre-btn{position:relative; font-size:15px; margin-left:40px;font-weight:600;}
+	.next-offre-btn{position:relative; font-size:15px; margin-right:40px;font-weight:600;}
+	.offre-back-btn{position: relative; font-size: 15px; margin-left:40px;font-weight:600;}
 	.offre-back-btn:before{
 		content:url('../img/back-arrow-black.svg');
 		background-color: $gray;
@@ -790,7 +790,7 @@ select#hp-choix-profil{
 	.page-title{position:relative;}
 	h1{font-size: 30px;}
 	.page-content-txt{
-		h2, h3, h4, h5{font-size:16px;font-weight: bold; text-transform: uppercase; margin-top:20px; margin-bottom: 20px; letter-spacing: 1px;}
+		h2, h3, h4, h5{font-size:16px;font-weight: 600; text-transform: uppercase; margin-top:20px; margin-bottom: 20px; letter-spacing: 1px;}
 	}
 	.page-content{border:solid $light-gray 15px;}
 	.page-thumbnail{height:320px; background-position: center center; background-repeat: no-repeat; background-size:cover;}
@@ -844,16 +844,16 @@ select#hp-choix-profil{
 			&>.row{
 				height:100%;
 				& > .offre-infos{height:calc(100% - 150px);display: flex;flex-direction: column;}
-				p.time{margin-top: auto;font-size: 11px;font-weight: 700;letter-spacing: 1px;padding-left: 17px;position: relative;}
+				p.time{margin-top: auto;font-size: 11px;font-weight: 600;letter-spacing: 1px;padding-left: 17px;position: relative;}
 				p.time:before{content:url('../img/time.svg');position: absolute;left:0;}
 			}
 		}
 		.offre-update{font-size: 12px;}
 	}
 	.article-next-prev{background-image: url('../img/offre-back-bg.png'); background-position: center center; background-size: cover; background-repeat: no-repeat;}
-	.prev-article-btn{position:relative; font-size:15px; margin-left:40px;font-weight:700;}
-	.next-article-btn{position:relative; font-size:15px; margin-right:40px;font-weight:700;}
-	.article-back-btn{position: relative; font-size: 15px; margin-left:40px;font-weight:700;}
+	.prev-article-btn{position:relative; font-size:15px; margin-left:40px;font-weight:600;}
+	.next-article-btn{position:relative; font-size:15px; margin-right:40px;font-weight:600;}
+	.article-back-btn{position: relative; font-size: 15px; margin-left:40px;font-weight:600;}
 	.article-back-btn:before{
 		content:url('../img/back-arrow-black.svg');
 		background-color: $gray;
@@ -972,7 +972,7 @@ select#hp-choix-profil{
 		.time {
 		    margin-top: auto;
 		    font-size: 11px;
-		    font-weight: 700;
+		    font-weight: 600;
 		    letter-spacing: 1px;
 		    padding-left: 17px;
 		    position: relative;
@@ -993,7 +993,7 @@ select#hp-choix-profil{
 		display: none;
 	}
 	h1 {font-size: 30px;}
-	.sous-titre {font-size: 15px;font-weight: 700;}
+	.sous-titre {font-size: 15px;font-weight: 600;}
 	select#check-cat{
 	    text-transform: uppercase;
 	    border: none;
@@ -1052,7 +1052,7 @@ select#hp-choix-profil{
 			&>.row{
 				height:100%;
 				& > .offre-infos{height:calc(100% - 150px);display: flex;flex-direction: column;}
-				p.time{margin-top: auto;font-size: 11px;font-weight: 700;letter-spacing: 1px;padding-left: 17px;position: relative;}
+				p.time{margin-top: auto;font-size: 11px;font-weight: 600;letter-spacing: 1px;padding-left: 17px;position: relative;}
 				p.time:before{content:url('../img/time.svg');position: absolute;left:0;}
 			}
 		}
@@ -1071,7 +1071,7 @@ select#hp-choix-profil{
 		.time {
 		    margin-top: auto;
 		    font-size: 11px;
-		    font-weight: 700;
+		    font-weight: 600;
 		    letter-spacing: 1px;
 		    padding-left: 17px;
 		    position: relative;
@@ -1084,7 +1084,7 @@ select#hp-choix-profil{
 		.post-infos{flex-direction:column; height:100%;}
 		.post-thumbnail{height:150px;background-position: center;background-size: cover;background-repeat: no-repeat;}
 	}
-	.page-number{display: inline-block;margin-right: 1px; background:$white; text-transform: uppercase; font-weight: 700; text-align: center; padding:18px 25px 17px; cursor:pointer; color:$black;}
+	.page-number{display: inline-block;margin-right: 1px; background:$white; text-transform: uppercase; font-weight: 600; text-align: center; padding:18px 25px 17px; cursor:pointer; color:$black;}
 	.page-1 #go-to-page-1 {
 	    color: #FFF;
 	    background: #333;
@@ -1100,8 +1100,8 @@ select#hp-choix-profil{
 		display: none;
 	}
 	h1 {font-size: 30px;}
-	.sous-titre {font-size: 15px;font-weight: 700;}
-	.page-number{display: inline-block;margin-right: 1px; background:$white; text-transform: uppercase; font-weight: 700; text-align: center; padding:18px 25px 17px; cursor:pointer; color:$black;}
+	.sous-titre {font-size: 15px;font-weight: 600;}
+	.page-number{display: inline-block;margin-right: 1px; background:$white; text-transform: uppercase; font-weight: 600; text-align: center; padding:18px 25px 17px; cursor:pointer; color:$black;}
 	.page-1 #go-to-page-1 {
 	    color: #FFF;
 	    background: #333;
@@ -1204,7 +1204,7 @@ select#hp-choix-profil{
 			&>.row{
 				height:100%;
 				& > .offre-infos{height:calc(100% - 150px);display: flex;flex-direction: column;}
-				p.time{margin-top: auto;font-size: 11px;font-weight: 700;letter-spacing: 1px;padding-left: 17px;position: relative;}
+				p.time{margin-top: auto;font-size: 11px;font-weight: 600;letter-spacing: 1px;padding-left: 17px;position: relative;}
 				p.time:before{content:url('../img/time.svg');position: absolute;left:0;}
 			}
 		}
@@ -1228,7 +1228,7 @@ select#hp-choix-profil{
 	h1{font-size: 30px;}
 	#disconnect{font-size: 15px;line-height: 15px;}
 	#cv-input{display: none;}
-	.profil-offers-title{font-weight: bold; font-size: 18px; letter-spacing: 1px;margin-left: 75px;}
+	.profil-offers-title{font-weight: 600; font-size: 18px; letter-spacing: 1px;margin-left: 75px;}
 	.profil-offers-title:before{content:"";display:inline-block;width: 70px; height:1px; background:$black; margin-bottom: 6px; margin-left: -75px;}
 	.apercu-profil-title{
 		font-size: 18px; letter-spacing: 1px;
@@ -1239,7 +1239,7 @@ select#hp-choix-profil{
 		label, input[type=text], input[type=password]{width:100%;font-size: 15px;}
 		input[type=text], input[type=password]{padding: 10px 20px; border:solid 1px $black; color:$black;}
 		label, #cv-span{
-			font-weight: bold; letter-spacing: 1px;
+			font-weight: 600; letter-spacing: 1px;
 			&:not(#cv-label){margin-bottom: 5px; color:$black;}
 			&#cv-label{cursor: pointer;max-width: 300px;font-size: 15px;line-height: 15px;}
 		}
@@ -1303,7 +1303,7 @@ select#hp-choix-profil{
 			&>a{
 				height:calc(100% - 45px);
 				& > .offre-infos{height:calc(100% - 150px);display: flex;flex-direction: column;}
-				p.time{margin-top: auto;font-size: 11px;font-weight: 700;letter-spacing: 1px;padding-left: 17px;position: relative;}
+				p.time{margin-top: auto;font-size: 11px;font-weight: 600;letter-spacing: 1px;padding-left: 17px;position: relative;}
 				p.time:before{content:url('../img/time.svg');position: absolute;left:0;}
 			}
 		}

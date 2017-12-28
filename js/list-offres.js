@@ -83,11 +83,15 @@ $(window).on('load', function (){
 		$("#list-offer-cards").addClass('page-1');
 		$(".offre-card").animate({opacity:"0"},275).animate({opacity:"1"}, 275);
 		var nbPages = Math.ceil($('.filtered').length/12);
-		if($('.filtered').length != 0)
+		if($('.filtered').length != 0){
+			$('#count-disp').delay(300).fadeIn(300);
 			$('#empty-msg').fadeOut(300);
-		else
-			$('#empty-msg').delay(275).fadeIn(300);
-		//$('#nb-offres')[0].textContent = $('.filtered').length+" offres d'emploi";
+		}
+		else{
+			$('#empty-msg').delay(300).fadeIn(300);
+			$('#count-disp').fadeOut(300);
+		}
+		$('#nb-offres')[0].textContent = $('.filtered').length+" offres d'emploi";
 		$('#pages').empty();
 		if(nbPages > 1){
 			for(var i=1; i<=nbPages; i++){

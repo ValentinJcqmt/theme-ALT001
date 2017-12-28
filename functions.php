@@ -132,7 +132,8 @@ function after_submission_10( $entry, $form ) {
 		}
 		if(isset($entry[12])){
 			$candidatures = $userfields['offres-postulees']['value'];
-			array_push($candidatures, $entry[12]);
+			if(!in_array($entry[12], $candidatures))
+				array_push($candidatures, $entry[12]);
 			update_field('offres-postulees', $candidatures, $user_id);
 		}
 	}
@@ -141,7 +142,7 @@ function after_submission_10( $entry, $form ) {
 add_action( 'gform_pre_submission_10', 'pre_submission_10', 10, 2 );
 function pre_submission_10( $form ){
 	if(isset($_FILES["input_10"]) && $_FILES['input_10']['size'] != 0 && $_FILES['input_10']['error'] == 0){
-		$_POST["input_9"] = "";
+		$_POST["input_17"] = "";
 	}
 }
 /**********************************************************************************************************************/

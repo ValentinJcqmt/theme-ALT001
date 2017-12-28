@@ -169,13 +169,15 @@
 		} ?>
 	</style>
 	<div class="px-1 px-md-2 px-lg-4 bg-light-gray offers-list">
-		<div class="row">
+		<div class="row" id="count-disp">
 			<div class="col-12 nb-offers my-5">
 				<?php echo get_field('txt-nb-offres-1'); ?> <b id="nb-offres"><?php echo $nb_offres; ?> offres d'emploi</b> <?php echo get_field('txt-nb-offres-2'); ?>
 			</div>
 		</div>
 		<div class="row" id="empty-msg" style="display:none;">
-			Nous n'avons aucunes offres correspondant à votre sélection.
+			<div class="col-12 my-5">
+				Nous n'avons aucunes offres correspondant à votre sélection.
+			</div>
 		</div>
 		<div class="row page-1" id="list-offer-cards">
 			<?php foreach ($offres_urgentes as $id) { ?>
