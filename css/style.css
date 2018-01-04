@@ -4078,6 +4078,9 @@ select#hp-choix-profil { max-width: 100%; font-family: 'Montserrat'; text-transf
 
 .titre-carousel-urgentes { font-size: 14px; line-height: 14px; font-weight: 600; letter-spacing: 1px; }
 
+.carousel-urgentes .logo { margin-bottom: 50px; }
+
+@media (max-height: 1000px) { .carousel-urgentes .logo { margin-bottom: 20px; } }
 .carousel-offre { letter-spacing: 1px; }
 .carousel-offre .offre-titre { font-size: 15px; font-weight: 600; }
 .carousel-offre .offre-ref { font-size: 12px; font-style: italic; }
@@ -4211,7 +4214,7 @@ select#hp-choix-profil { max-width: 100%; font-family: 'Montserrat'; text-transf
 .nos-offres [type="checkbox"]:not(:checked), .nos-offres [type="checkbox"]:checked { position: absolute; left: -9999px; }
 .nos-offres [type="checkbox"]:not(:checked) + label, .nos-offres [type="checkbox"]:checked + label { position: relative; padding-left: 1.95em; line-height: initial; cursor: pointer; }
 .nos-offres [type="checkbox"]:not(:checked) + label:before, .nos-offres [type="checkbox"]:checked + label:before { content: ''; position: absolute; left: 0; top: calc(50% - 1.25em + 8px); width: 1.25em; height: 1.25em; border: 2px solid #ccc; background: #fff; border-radius: 4px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); }
-.nos-offres [type="checkbox"]:not(:checked) + label:after, .nos-offres [type="checkbox"]:checked + label:after { content: '✔'; position: absolute; top: 12px; left: 2px; font-size: 1.3em; line-height: 0.8; color: #333; transition: all .2s; }
+.nos-offres [type="checkbox"]:not(:checked) + label:after, .nos-offres [type="checkbox"]:checked + label:after { content: '✔'; position: absolute; top: calc(50% - 8px); left: 2px; font-size: 1.3em; line-height: 0.8; color: #333; transition: all .2s; }
 .nos-offres [type="checkbox"]:not(:checked) + label:after { opacity: 0; transform: scale(0); }
 .nos-offres [type="checkbox"]:checked + label:after { opacity: 1; transform: scale(1); }
 .nos-offres [type="checkbox"]:disabled:not(:checked) + label:before, .nos-offres [type="checkbox"]:disabled:checked + label:before { box-shadow: none; border-color: #bbb; background-color: #ddd; }

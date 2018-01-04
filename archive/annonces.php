@@ -77,68 +77,76 @@
 			</div>
 			<div class="col-12 col-lg-9">
 				<div class=row>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3 metier">
-						<?php
-						$categories = get_terms('offer-category', array('hide_empty' => false));
-						?>
-						<select class="custom-select" id="check-cat">
-							<option value="null"><?php echo get_field('txt-metier'); ?></option>
-							<?php
-							$currentCat = false;
-							var_dump(urldecode($_GET['cat']));
-							foreach ($categories as $cat) {
-								var_dump($cat->name);
-								if(isset($_GET['cat']) && stripslashes(urldecode($_GET['cat'])) == $cat->name)
-									$currentCat = true;
-								else
-									$currentCat = false;
-								?>
-								<option <?php if($currentCat){echo'selected';} ?> value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
-							<?php } ?>
-						</select>
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="row metier">
+							<?php $categories = get_terms('offer-category', array('hide_empty' => false)); ?>
+							<select class="custom-select" id="check-cat">
+								<option value="null"><?php echo get_field('txt-metier'); ?></option>
+								<?php
+								$currentCat = false;
+								var_dump(urldecode($_GET['cat']));
+								foreach ($categories as $cat) {
+									var_dump($cat->name);
+									if(isset($_GET['cat']) && stripslashes(urldecode($_GET['cat'])) == $cat->name)
+										$currentCat = true;
+									else
+										$currentCat = false;
+									?>
+									<option <?php if($currentCat){echo'selected';} ?> value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="row contrat">
+							<select class="custom-select" id="check-contrat">
+								<option value="null"><?php echo get_field('txt-contrat'); ?></option>
+								<?php foreach ($contratList as $contrat){ ?>
+									<option value="<?php echo $contrat; ?>"><?php echo $contrat; ?></option>
+								<?php } ?>
+							</select>
+						</div>
 					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3 monde">
-						<select class="custom-select" id="check-pays">
-							<?php foreach ($mondeList as $pays) { ?>
-								<option value="<?php echo $pays; ?>"><?php echo $pays; ?></option>
-							<?php } ?>
-						</select>
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="row monde">
+							<select class="custom-select" id="check-pays">
+								<?php foreach ($mondeList as $pays) { ?>
+									<option value="<?php echo $pays; ?>"><?php echo $pays; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="row localite">
+							<select class="custom-select" id="check-local">
+								<option value="null"><?php echo get_field('txt-localite'); ?></option>
+								<?php foreach ($localiteList as $localite){ ?>
+									<option value="<?php echo $localite; ?>"><?php echo $localite; ?></option>
+								<?php } ?>
+							</select>
+						</div>
 					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-min">
-						<select class="custom-select" id="check-sal-min">
-							<option value="null"><?php echo get_field('txt-salary-min'); ?></option>
-							<?php for($i=$salaryMin; $i<$salaryMax; $i+=10000){ ?>
-								<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-							<?php } ?>
-						</select>
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="row salary-min">
+							<select class="custom-select" id="check-sal-min">
+								<option value="null"><?php echo get_field('txt-salary-min'); ?></option>
+								<?php for($i=$salaryMin; $i<$salaryMax; $i+=10000){ ?>
+									<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="row salary-max">
+							<select class="custom-select" id="check-sal-max">
+								<option value="null"><?php echo get_field('txt-salary-max'); ?></option>
+								<?php for($i=$salaryMax; $i>$salaryMin; $i-=10000){ ?>
+									<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+								<?php } ?>
+							</select>
+						</div>
 					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3 checkbox-urgent">
-						<input id="is-urgent" type="checkbox">
-						<label for="is-urgent" class="d-inline-block text-uppercase"><?php echo get_field('txt-urgent'); ?></label>
-					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3 contrat">
-						<select class="custom-select" id="check-contrat">
-							<option value="null"><?php echo get_field('txt-contrat'); ?></option>
-							<?php foreach ($contratList as $contrat){ ?>
-								<option value="<?php echo $contrat; ?>"><?php echo $contrat; ?></option>
-							<?php } ?>
-						</select>
-					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3 localite">
-						<select class="custom-select" id="check-local">
-							<option value="null"><?php echo get_field('txt-localite'); ?></option>
-							<?php foreach ($localiteList as $localite){ ?>
-								<option value="<?php echo $localite; ?>"><?php echo $localite; ?></option>
-							<?php } ?>
-						</select>
-					</div>
-					<div class="col-12 col-sm-6 col-md-4 col-lg-3 salary-max">
-						<select class="custom-select" id="check-sal-max">
-							<option value="null"><?php echo get_field('txt-salary-max'); ?></option>
-							<?php for($i=$salaryMax; $i>$salaryMin; $i-=10000){ ?>
-								<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-							<?php } ?>
-						</select>
+					<div class="col-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="row checkbox-urgent">
+							<input id="is-urgent" type="checkbox">
+							<label for="is-urgent" class="d-inline-block text-uppercase">
+								<?php echo get_field('txt-urgent'); ?>
+							</label>
+						</div>
 					</div>
 				</div>
 			</div>

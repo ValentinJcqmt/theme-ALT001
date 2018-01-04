@@ -185,6 +185,10 @@ select#hp-choix-profil{
 	margin-left: 10px;
 }
 .titre-carousel-urgentes{font-size: 14px; line-height: 14px; font-weight: 600; letter-spacing: 1px;}
+.carousel-urgentes .logo{margin-bottom: 50px;}
+@media(max-height: 1000px){
+	.carousel-urgentes .logo{margin-bottom: 20px;}
+}
 .carousel-offre{
 	letter-spacing: 1px;
 	.offre-titre{font-size: 15px; font-weight: 600;}
@@ -495,7 +499,8 @@ select#hp-choix-profil{
 	[type="checkbox"]:checked + label:after {
 	  content: '✔';
 	  position: absolute;
-	  top: 12px; left: 2px;
+	  top: calc(50% - 8px);
+	  left: 2px;
 	  font-size: 1.3em;
 	  line-height: 0.8;
 	  color: $black;

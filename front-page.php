@@ -6,14 +6,14 @@ get_header(); ?>
 		<div class="container-fluid">
 			<div class="row hp-top-row">
 				<div class="col-12 col-lg-4 carousel-urgentes">
-					<div class="row mt-2 mb-5">
+					<div class="row mt-2 logo">
 						<div class="col-12">
 							<a href="<?php echo get_home_url(); ?>" class="d-block">
 								<img class="logo-atlantis-rh img-fluid" src="<?php echo get_field('logo-header', 'option')['url']; ?>">
 							</a>
 						</div>
 					</div>
-					<div class="row mt-5 mb-2">
+					<div class="row bell-title mb-2">
 						<div class="col-12 titre-carousel-urgentes text-red text-uppercase">
 							<div class="d-inline">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/red-bell-white-bg.svg">
