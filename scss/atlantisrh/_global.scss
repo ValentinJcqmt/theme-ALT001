@@ -41,6 +41,7 @@ select.custom-select{padding-right: 40px;}
 
 .valid-form{background: #c4f7c7;color: #48844a;}
 
+.aos-slide{}
 /**********************************************************************************************************/
 
 //balise
@@ -238,6 +239,7 @@ select#hp-choix-profil{
 		}
 	}
 }
+.aosrelative{position: relative; z-index: 1;}
 .hp-top-card-top{min-height: 55%;}
 .hp-who{
 	letter-spacing: 1px;
@@ -249,7 +251,6 @@ select#hp-choix-profil{
 .hp-3bloc-container{
 	display: flex;
 	align-items:center;
-	position: relative;
 	img{height: 100%; width:100%;}
 }
 .hp-offers-number-title{font-size: 30px; font-weight: 600;}

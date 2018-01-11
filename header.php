@@ -15,6 +15,7 @@
 	<meta name="theme-color" content="#008ec7">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/odometer-theme-default.css">
+	<link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css">
 	<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.min.js"></script> -->
 	<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -25,6 +26,7 @@
 	<!-- <script src="<?php echo get_template_directory_uri(); ?>/js/functions.js"></script> -->
 	<script src="<?php echo get_template_directory_uri(); ?>/js/owl.carousel.min.js"></script>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/odometer.min.js"></script>
+	<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
 	<?php if(is_singular('annonce')){ ?>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwym5r3aF4FiPneGmwyRcyn4ZfGntaQ1g&callback=initMap" async defer></script>
 	<?php } ?>
