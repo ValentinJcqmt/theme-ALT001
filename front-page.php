@@ -72,7 +72,7 @@ get_header(); ?>
 			<div class="row hp-top-row">
 				<div class="col-12 col-lg-8 offset-lg-4">
 					<div class="row hp-top-cards">
-						<div class="col-12 col-sm-4">
+						<div class="bloc-hp-top-card col-12 col-sm-4">
 							<div class="img-container">
 								<img src="<?php echo get_field('hp-top-gauche-img')['sizes']['hp-intro']; ?>">
 								<div class="img-caption text-uppercase text-white p-1 p-md-2 p-lg-3">
@@ -80,7 +80,7 @@ get_header(); ?>
 								</div>
 							</div>
 						</div>
-						<div class="col-12 col-sm-4 bg-white px-1 px-md-2 px-lg-4 py-5">
+						<div class="bloc-hp-top-card col-12 col-sm-4 bg-white px-1 px-md-2 px-lg-4 py-5">
 							<div class="hp-top-card-top">
 								<p class="text-black text-uppercase hp-top-card-title">
 									<?php echo get_field('hp-top-centre-titre'); ?>	
@@ -96,7 +96,7 @@ get_header(); ?>
 								<?php echo get_field('hp-top-centre-offres'); ?>
 							</a>
 						</div>
-						<div class="col-12 col-sm-4 bg-blue-transparent px-1 px-md-2 px-lg-4 py-5">
+						<div class="bloc-hp-top-card col-12 col-sm-4 bg-blue-transparent px-1 px-md-2 px-lg-4 py-5">
 							<div class="hp-top-card-top">
 								<p class="text-white text-uppercase hp-top-card-title">
 									<?php echo get_field('hp-top-droite-titre'); ?>

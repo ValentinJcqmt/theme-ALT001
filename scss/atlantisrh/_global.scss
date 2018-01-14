@@ -246,6 +246,16 @@ select#hp-choix-profil{
 	.hp-who-txt{font-size: 15px;}
 	.white-btn-arrow{font-size:10px;}
 }
+@media(max-height: 950px){
+	.hp-top-row {
+	    height: calc(50vh - 28px);
+	    overflow: hidden;
+		.offre-update{display: none;}
+		.hp-top-cards{height:100%;}
+		.img-caption{padding: 20px !important;}
+		.bloc-hp-top-card:not(:first-child){padding: 30px !important;}
+	}
+}
 .hp-3bloc-container{
 	display: flex;
 	align-items:center;
