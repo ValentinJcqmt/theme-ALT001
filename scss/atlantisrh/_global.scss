@@ -250,6 +250,10 @@ select#hp-choix-profil{
 	.hp-top-row {
 	    height: calc(50vh - 28px);
 	    overflow: hidden;
+	    .logo{
+	    	margin-top: 10px !important;
+		    margin-bottom: 10px !important;
+	    }
 		.offre-update{display: none;}
 		.hp-top-cards{height:100%;}
 		.img-caption{padding: 20px !important;}

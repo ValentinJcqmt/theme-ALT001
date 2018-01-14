@@ -4113,6 +4113,7 @@ select#hp-choix-profil { max-width: 100%; font-family: 'Montserrat'; text-transf
 .hp-who .white-btn-arrow { font-size: 10px; }
 
 @media (max-height: 950px) { .hp-top-row { height: calc(50vh - 28px); overflow: hidden; }
+  .hp-top-row .logo { margin-top: 10px !important; margin-bottom: 10px !important; }
   .hp-top-row .offre-update { display: none; }
   .hp-top-row .hp-top-cards { height: 100%; }
   .hp-top-row .img-caption { padding: 20px !important; }
