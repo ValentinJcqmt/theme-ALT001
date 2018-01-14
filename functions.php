@@ -9,6 +9,14 @@ add_theme_support( 'post-thumbnails' );
 
 register_nav_menus(array('primary' => 'Menu'));
 
+/***********************************************************/
+if( isset($_GET['gf-download']) && !current_user_can('editor') ){
+	wp_redirect( home_url() );
+    exit();
+}
+
+/***********************************************************/
+
 show_admin_bar( false );
 
 function wpdocs_set_html_mail_content_type() {

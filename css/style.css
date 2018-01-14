@@ -4105,6 +4105,8 @@ select#hp-choix-profil { max-width: 100%; font-family: 'Montserrat'; text-transf
 .hp-top-card-form .submit-input:after { background-color: #fff; position: absolute; right: -33px; top: 0; height: 100%; width: 33px; text-align: center; vertical-align: middle; line-height: 37px; display: inline-block; content: url(../img/btn-search-blue.svg); }
 .hp-top-card-form .submit-input input[type=submit] { border: none; font-size: 10px; font-weight: 600; width: 100%; }
 
+.aosrelative { position: relative; z-index: 1; }
+
 .hp-top-card-top { min-height: 55%; }
 
 .hp-who { letter-spacing: 1px; font-weight: 600; }
@@ -4118,7 +4120,7 @@ select#hp-choix-profil { max-width: 100%; font-family: 'Montserrat'; text-transf
   .hp-top-row .hp-top-cards { height: 100%; }
   .hp-top-row .img-caption { padding: 20px !important; }
   .hp-top-row .bloc-hp-top-card:not(:first-child) { padding: 30px !important; } }
-.hp-3bloc-container { display: flex; align-items: center; position: relative; }
+.hp-3bloc-container { display: flex; align-items: center; }
 .hp-3bloc-container img { height: 100%; width: 100%; }
 
 .hp-offers-number-title { font-size: 30px; font-weight: 600; }

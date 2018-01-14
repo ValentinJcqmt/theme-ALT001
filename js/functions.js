@@ -18,11 +18,23 @@ function initMap() {
     });
 }
 
+//Block fade-up transition
+$(window).on('load', function(){
+    console.log('window loaded');
+    setTimeout(function() {
+        AOS.init({
+          duration: 1000,
+        });
+        AOS.refresh();
+    }, 200);
+});
+
+
 //Smooth scroll
 // Source: github.com/ByNathan/jQuery.scrollSpeed
 $(document).ready(function(){
-            //scrollSpeed(step, speed, easing);
-            scrollSpeed(90, 1000);
+    //scrollSpeed(step, speed, easing);
+    scrollSpeed(90, 1000);
 });
 
 scrollSpeed = function(step, speed, easing) {
@@ -102,7 +114,7 @@ $(window).on('load', function (){
         setTimeout(function() {
             $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
         }, 0);
-    });
+    });  
 
 /******************************************************************/
 
