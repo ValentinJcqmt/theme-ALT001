@@ -34,7 +34,7 @@ $(window).on('load', function(){
 // Source: github.com/ByNathan/jQuery.scrollSpeed
 $(document).ready(function(){
     //scrollSpeed(step, speed, easing);
-    scrollSpeed(90, 1000);
+    //scrollSpeed(90, 1000);
 });
 
 scrollSpeed = function(step, speed, easing) {

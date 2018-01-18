@@ -256,7 +256,7 @@ header{
 			& > li{
 				&:hover:after {
 				    content: "";
-				    height: 3px;
+				    height: 4px;
 				}
 				&:after {
 				    content: "";
@@ -265,7 +265,7 @@ header{
 				    height: 0px;
 				    background: white;
 				    position: absolute;
-				    bottom: 0;
+				    top: 0;
 				    left: 0;
 				    transition: 0.2s;
 				}
