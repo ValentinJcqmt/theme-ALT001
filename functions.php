@@ -16,6 +16,19 @@ if( isset($_GET['gf-download']) && !current_user_can('editor') ){
 }
 /************************************************************/
 
+//Handle data retrieved from a social network profile
+function oa_social_login_store_extended_data ($user_data, $identity)
+{
+  // $user_data is an object that represents the newly added user
+  // The format is similar to the data returned by $user_data = get_userdata ($user_id);
+ 
+  // $identity is an object that contains the full social network profile
+   
+  update_field('url-linkedin', $identity->profileUrl, "user_".$user_data->ID);
+}
+ 
+//This action is called whenever Social Login adds a new user
+add_action ('oa_social_login_action_after_user_insert', 'oa_social_login_store_extended_data', 10, 2);
 
 
 

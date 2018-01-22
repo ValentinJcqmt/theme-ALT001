@@ -30,7 +30,9 @@ if( ( isset($_POST['is_submit_7']) && $_POST['is_submit_7'] ) || (isset($_POST['
 	        	$current_user = wp_get_current_user();
 				$user_id = "user_".$current_user->ID;
 				$userfields = get_field_objects($user_id);
-	        	$candidatures = $userfields['offres-postulees']['value'];
+				$candidatures = array();
+				if(isset($userfields) && isset($userfields['offres-postulees']) && isset($userfields['offres-postulees']['value']))
+	        		$candidatures = $userfields['offres-postulees']['value'];
 	        }
 			$idOfferForm = get_the_ID();
 			if(in_array($idOfferForm, $candidatures)){?>
