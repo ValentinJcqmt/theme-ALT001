@@ -4593,6 +4593,7 @@ header.sticky .account { color: #333; }
 header.sticky .account .account-img { background-color: #fff; }
 header.sticky img { filter: brightness(0%); }
 header.sticky .sub-menu { background: #fff; color: #333; }
+header.sticky .header-nav ul#menu-menu-header > li:after { background: #333; }
 header .menu-item-has-children { position: relative; }
 header .menu-item-has-children:hover > .sub-menu { transform: scaleY(1); }
 header .sub-menu { position: absolute; transition: .3s; transform: scaleY(0); transform-origin: top; left: 0; background: #3665a4; color: #fff; padding-left: 0; overflow: hidden; }

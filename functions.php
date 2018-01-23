@@ -156,7 +156,9 @@ function after_submission_10( $entry, $form ) {
 			update_field('url-linkedin', $entry[4], $user_id);
 		}
 		if(isset($entry[12])){
-			$candidatures = $userfields['offres-postulees']['value'];
+			$candidatures = array();
+			if(isset($userfields['offres-postulees']) && isset($userfields['offres-postulees']['value']) && !empty($userfields['offres-postulees']['value']))
+				$candidatures = $userfields['offres-postulees']['value'];
 			if(!in_array($entry[12], $candidatures))
 				array_push($candidatures, $entry[12]);
 			update_field('offres-postulees', $candidatures, $user_id);

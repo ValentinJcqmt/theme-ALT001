@@ -102,6 +102,9 @@ header{
 	    	background:$white;
 	    	color:$black;
 	    }
+	    .header-nav ul#menu-menu-header > li:after {
+		    background: $black;
+		}
 	}
 	.menu-item-has-children{
 		position:relative;
