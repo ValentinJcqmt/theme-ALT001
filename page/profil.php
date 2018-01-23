@@ -51,7 +51,7 @@
 						<label for="cv-input" class="mr-4 d-block bg-black text-white text-uppercase text-center font-weight-bold p-1" id="cv-label">Ajouter un document</label>
 						<input id="cv-input" type="file" name="cv" accept=".pdf" >
 						<div id="cv-filename" class="mb-2 text-light-gray">
-						<?php if($userfields['cv']['value']){
+						<?php if(isset($userfields['cv']) && isset($userfields['cv']['value'])){
 							echo $userfields['cv']['value']['filename'];
 						} ?>
 						</div>
